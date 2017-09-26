@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-UTF-8 带签名和不带签名的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/26/UTF-8 带签名和不带签名的区别/" class="article-date">
+  <time datetime="2017-09-26T12:12:59.618Z" itemprop="datePublished">2017-09-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="UTF-8-带签名和不带签名的区别"><a href="#UTF-8-带签名和不带签名的区别" class="headerlink" title="UTF-8 带签名和不带签名的区别"></a>UTF-8 带签名和不带签名的区别</h2><p><img src="http://images2015.cnblogs.com/blog/531691/201610/531691-20161026110334734-1438638405.png" alt="img"></p>
+<p>就和字面上一样，带签名的UTF-8文件比不带签名的，在文件开头的地方就多了几个16进制字符——【EF BB BF 】，这9个字符就是“签名”，这样做的好处是让文本处理工具或者浏览器之类的软件上来就通过这个签名，认出来这是个UTF-8编码格式的文件，进一步保证了被正确解析的可能性。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/26/UTF-8 带签名和不带签名的区别/" data-id="cj81kdhho0001rcvanilsxjc7" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-TCP首部" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/13/TCP首部/" class="article-date">
+  <time datetime="2017-09-13T12:47:02.681Z" itemprop="datePublished">2017-09-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>规定: </p>
+<h3 id="1-尝试博客式学习，模式定为-发现-――提问――解答。"><a href="#1-尝试博客式学习，模式定为-发现-――提问――解答。" class="headerlink" title="1. 尝试博客式学习，模式定为 发现 ――提问――解答。"></a>1. 尝试博客式学习，模式定为 发现 ――提问――解答。</h3><h3 id="2-更新以天为单位"><a href="#2-更新以天为单位" class="headerlink" title="2. 更新以天为单位"></a>2. 更新以天为单位</h3><p>后续添加。。。</p>
+<ul>
+<li><p>问</p>
+<ul>
+<li><a href="#tqw1">在传输层的数据包封装了来自应用层的消息，如果它来自于传输层的TCP协议则称之为分段，如果来自于传输层的UDP协议，则称之为数据报</a></li>
+</ul>
+<p>​</p>
+<hr>
+<p>​</p>
+<p><div id="tqw1"></div>应用层到传输层数据包处理疑问</p>
+<p>1.在传输层的数据包封装了来自应用层的消息，如果它来自于传输层的TCP协议则称之为分段，如果来自于传输层的UDP协议，则称之为数据报。</p>
+<ul>
+<li>它们两协议对分别数据包做了什么？<br>先来看两个协议有什么区别</li>
+</ul>
+<ol>
+<li>UDP：简单的面向数据报的运输层协议：进程的每个输出操作都正好是一个UDP数据报并组装成一份待发送的IP数据报。<br>TCP：面向连接的、可靠的字节流服务。</li>
+<li>TCP通过下列方式提供可靠性。<br>应用数据被分割。（最合适的大小）</li>
+</ol>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/13/TCP首部/" data-id="cj81kdhho0000rcvaec08nuv0" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hdfasijf" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/12/hdfasijf/" class="article-date">
+  <time datetime="2017-09-12T13:10:31.853Z" itemprop="datePublished">2017-09-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>规定: </p>
+<h3 id="1-尝试博客式学习，模式定为-发现-――提问――解答。"><a href="#1-尝试博客式学习，模式定为-发现-――提问――解答。" class="headerlink" title="1. 尝试博客式学习，模式定为 发现 ――提问――解答。"></a>1. 尝试博客式学习，模式定为 发现 ――提问――解答。</h3><h3 id="2-更新以天为单位"><a href="#2-更新以天为单位" class="headerlink" title="2. 更新以天为单位"></a>2. 更新以天为单位</h3><p>后续添加。。。</p>
+<ul>
+<li><p>问</p>
+<ul>
+<li><a href="#tqw1">在传输层的数据包封装了来自应用层的消息，如果它来自于传输层的TCP协议则称之为分段，如果来自于传输层的UDP协议，则称之为数据报</a></li>
+</ul>
+<p>​</p>
+<hr>
+<p>​</p>
+<p><div id="tqw1"></div>应用层到传输层数据包处理疑问</p>
+<p>1.在传输层的数据包封装了来自应用层的消息，如果它来自于传输层的TCP协议则称之为分段，如果来自于传输层的UDP协议，则称之为数据报。</p>
+<ul>
+<li>它们两协议对分别数据包做了什么？<br>先来看两个协议有什么区别</li>
+</ul>
+<ol>
+<li>UDP：简单的面向数据报的运输层协议：进程的每个输出操作都正好是一个UDP数据报并组装成一份待发送的IP数据报。<br>TCP：面向连接的、可靠的字节流服务。</li>
+<li>TCP通过下列方式提供可靠性。<br>应用数据被分割。（最合适的大小）</li>
+</ol>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/12/hdfasijf/" data-id="cj81kdhho0002rcva7p8e6kue" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/26/UTF-8 带签名和不带签名的区别/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/13/TCP首部/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/12/hdfasijf/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
