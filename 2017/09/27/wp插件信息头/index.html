@@ -5,18 +5,16 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="UTF-8 带签名和不带签名的区别 就和字面上一样，带签名的UTF-8文件比不带签名的，在文件开头的地方就多了几个16进制字符——【EF BB BF 】，这9个字符就是“签名”，这样做的好处是让文本处理工具或者浏览器之类的软件上来就通过这个签名，认出来这是个UTF-8编码格式的文件，进一步保证了被正确解析的可能性。">
+  <meta name="description" content="插件的文件顶部必须包括一个标准插件信息头。WordPress通过标准信息头识别插件的存在，并把它加入到控制面板的插件管理页面，这样插件才能激活，载入插件，并在里面运行函数；如果没有信息头，插件将无法激活和使用。标准信息插件头的格式为： 12345678910&amp;lt;?php/*Plugin Name:插件名字Plugin URI: http://URI_Of_Page_Describing_Plu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/2017/09/26/UTF-8 带签名和不带签名的区别/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/09/27/wp插件信息头/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="UTF-8 带签名和不带签名的区别 就和字面上一样，带签名的UTF-8文件比不带签名的，在文件开头的地方就多了几个16进制字符——【EF BB BF 】，这9个字符就是“签名”，这样做的好处是让文本处理工具或者浏览器之类的软件上来就通过这个签名，认出来这是个UTF-8编码格式的文件，进一步保证了被正确解析的可能性。">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/531691/201610/531691-20161026110334734-1438638405.png">
-<meta property="og:updated_time" content="2017-09-26T12:12:59.820Z">
+<meta property="og:description" content="插件的文件顶部必须包括一个标准插件信息头。WordPress通过标准信息头识别插件的存在，并把它加入到控制面板的插件管理页面，这样插件才能激活，载入插件，并在里面运行函数；如果没有信息头，插件将无法激活和使用。标准信息插件头的格式为： 12345678910&amp;lt;?php/*Plugin Name:插件名字Plugin URI: http://URI_Of_Page_Describing_Plu">
+<meta property="og:updated_time" content="2017-09-26T16:19:32.278Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="UTF-8 带签名和不带签名的区别 就和字面上一样，带签名的UTF-8文件比不带签名的，在文件开头的地方就多了几个16进制字符——【EF BB BF 】，这9个字符就是“签名”，这样做的好处是让文本处理工具或者浏览器之类的软件上来就通过这个签名，认出来这是个UTF-8编码格式的文件，进一步保证了被正确解析的可能性。">
-<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/531691/201610/531691-20161026110334734-1438638405.png">
+<meta name="twitter:description" content="插件的文件顶部必须包括一个标准插件信息头。WordPress通过标准信息头识别插件的存在，并把它加入到控制面板的插件管理页面，这样插件才能激活，载入插件，并在里面运行函数；如果没有信息头，插件将无法激活和使用。标准信息插件头的格式为： 12345678910&amp;lt;?php/*Plugin Name:插件名字Plugin URI: http://URI_Of_Page_Describing_Plu">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -65,10 +63,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-UTF-8 带签名和不带签名的区别" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-wp插件信息头" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/09/26/UTF-8 带签名和不带签名的区别/" class="article-date">
-  <time datetime="2017-09-26T12:12:59.618Z" itemprop="datePublished">2017-09-26</time>
+    <a href="/2017/09/27/wp插件信息头/" class="article-date">
+  <time datetime="2017-09-26T16:19:32.058Z" itemprop="datePublished">2017-09-27</time>
 </a>
     
   </div>
@@ -77,13 +75,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="UTF-8-带签名和不带签名的区别"><a href="#UTF-8-带签名和不带签名的区别" class="headerlink" title="UTF-8 带签名和不带签名的区别"></a>UTF-8 带签名和不带签名的区别</h2><p><img src="http://images2015.cnblogs.com/blog/531691/201610/531691-20161026110334734-1438638405.png" alt="img"></p>
-<p>就和字面上一样，带签名的UTF-8文件比不带签名的，在文件开头的地方就多了几个16进制字符——【EF BB BF 】，这9个字符就是“签名”，这样做的好处是让文本处理工具或者浏览器之类的软件上来就通过这个签名，认出来这是个UTF-8编码格式的文件，进一步保证了被正确解析的可能性。</p>
+        <p>插件的文件顶部必须包括一个标准插件信息头。WordPress通过标准信息头识别插件的存在，并把它加入到控制面板的插件管理页面，这样插件才能激活，载入插件，并在里面运行函数；如果没有信息头，插件将无法激活和使用。标准信息插件头的格式为：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">Plugin Name:插件名字</span></div><div class="line"><span class="comment">Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates</span></div><div class="line"><span class="comment">Version: 插件版本号，例如：1.0</span></div><div class="line"><span class="comment">Author: 插件作者</span></div><div class="line"><span class="comment">Author URI: http://URI_Of_The_Plugin_Author作者地址</span></div><div class="line"><span class="comment">*/</span></div><div class="line">  </div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/26/UTF-8 带签名和不带签名的区别/" data-id="cj834uzir00010gvadzmd7iin" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/27/wp插件信息头/" data-id="cj834uzil00000gvamwjrsqh2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -92,7 +90,7 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/09/27/wp插件信息头/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/09/27/重定向与管道/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
@@ -102,7 +100,7 @@
     </a>
   
   
-    <a href="/2017/09/13/TCP首部/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/09/26/UTF-8 带签名和不带签名的区别/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title"></div>
     </a>
