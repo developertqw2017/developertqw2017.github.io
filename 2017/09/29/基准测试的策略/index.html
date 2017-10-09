@@ -5,18 +5,16 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="UTF-8 带签名和不带签名的区别 就和字面上一样，带签名的UTF-8文件比不带签名的，在文件开头的地方就多了几个16进制字符——【EF BB BF 】，这9个字符就是“签名”，这样做的好处是让文本处理工具或者浏览器之类的软件上来就通过这个签名，认出来这是个UTF-8编码格式的文件，进一步保证了被正确解析的可能性。">
+  <meta name="description" content="基准测试的策略基准测试有两种主要的策略:  针对整个系统的整体测试（集成式|full-stack） 单独测试（单组件式基准测试 single-component）  针对整个系统测试的原因  用户关注应用整体性能，可能不是MySQL本身 MySQL并非总是应用的瓶颈 寻找各部分缓存的影响 揭示应用的真实表现  单独测试的原因  需要比较不同的schema或查询的性能 针对应用中某个具体问题的测试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/2017/09/26/UTF-8 带签名和不带签名的区别/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/09/29/基准测试的策略/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="UTF-8 带签名和不带签名的区别 就和字面上一样，带签名的UTF-8文件比不带签名的，在文件开头的地方就多了几个16进制字符——【EF BB BF 】，这9个字符就是“签名”，这样做的好处是让文本处理工具或者浏览器之类的软件上来就通过这个签名，认出来这是个UTF-8编码格式的文件，进一步保证了被正确解析的可能性。">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/531691/201610/531691-20161026110334734-1438638405.png">
-<meta property="og:updated_time" content="2017-09-26T12:12:59.820Z">
+<meta property="og:description" content="基准测试的策略基准测试有两种主要的策略:  针对整个系统的整体测试（集成式|full-stack） 单独测试（单组件式基准测试 single-component）  针对整个系统测试的原因  用户关注应用整体性能，可能不是MySQL本身 MySQL并非总是应用的瓶颈 寻找各部分缓存的影响 揭示应用的真实表现  单独测试的原因  需要比较不同的schema或查询的性能 针对应用中某个具体问题的测试">
+<meta property="og:updated_time" content="2017-09-28T16:41:00.480Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="UTF-8 带签名和不带签名的区别 就和字面上一样，带签名的UTF-8文件比不带签名的，在文件开头的地方就多了几个16进制字符——【EF BB BF 】，这9个字符就是“签名”，这样做的好处是让文本处理工具或者浏览器之类的软件上来就通过这个签名，认出来这是个UTF-8编码格式的文件，进一步保证了被正确解析的可能性。">
-<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/531691/201610/531691-20161026110334734-1438638405.png">
+<meta name="twitter:description" content="基准测试的策略基准测试有两种主要的策略:  针对整个系统的整体测试（集成式|full-stack） 单独测试（单组件式基准测试 single-component）  针对整个系统测试的原因  用户关注应用整体性能，可能不是MySQL本身 MySQL并非总是应用的瓶颈 寻找各部分缓存的影响 揭示应用的真实表现  单独测试的原因  需要比较不同的schema或查询的性能 针对应用中某个具体问题的测试">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -65,10 +63,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-UTF-8 带签名和不带签名的区别" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-基准测试的策略" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/09/26/UTF-8 带签名和不带签名的区别/" class="article-date">
-  <time datetime="2017-09-26T12:12:59.618Z" itemprop="datePublished">2017-09-26</time>
+    <a href="/2017/09/29/基准测试的策略/" class="article-date">
+  <time datetime="2017-09-28T16:41:00.175Z" itemprop="datePublished">2017-09-29</time>
 </a>
     
   </div>
@@ -77,13 +75,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="UTF-8-带签名和不带签名的区别"><a href="#UTF-8-带签名和不带签名的区别" class="headerlink" title="UTF-8 带签名和不带签名的区别"></a>UTF-8 带签名和不带签名的区别</h2><p><img src="http://images2015.cnblogs.com/blog/531691/201610/531691-20161026110334734-1438638405.png" alt="img"></p>
-<p>就和字面上一样，带签名的UTF-8文件比不带签名的，在文件开头的地方就多了几个16进制字符——【EF BB BF 】，这9个字符就是“签名”，这样做的好处是让文本处理工具或者浏览器之类的软件上来就通过这个签名，认出来这是个UTF-8编码格式的文件，进一步保证了被正确解析的可能性。</p>
+        <h2 id="基准测试的策略"><a href="#基准测试的策略" class="headerlink" title="基准测试的策略"></a>基准测试的策略</h2><p>基准测试有两种主要的策略:</p>
+<ul>
+<li>针对整个系统的整体测试（集成式|full-stack）</li>
+<li>单独测试（单组件式基准测试 single-component）</li>
+</ul>
+<p>针对整个系统测试的原因</p>
+<ul>
+<li>用户关注应用整体性能，可能不是MySQL本身</li>
+<li>MySQL并非总是应用的瓶颈</li>
+<li>寻找各部分缓存的影响</li>
+<li>揭示应用的真实表现</li>
+</ul>
+<p>单独测试的原因</p>
+<ul>
+<li>需要比较不同的schema或查询的性能</li>
+<li>针对应用中某个具体问题的测试</li>
+<li>为了避免漫长的基准测试，可以通过一个短期的基准测试，做快速检测，显示某些调整过后的效果</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/26/UTF-8 带签名和不带签名的区别/" data-id="cj8jzsppv0000wkvathjr9354" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/29/基准测试的策略/" data-id="cj8jzsprg0008wkvaktkg9bg6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -92,7 +106,7 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/09/27/wp插件信息头/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/09/29/性能优化的一些简介/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
@@ -102,7 +116,7 @@
     </a>
   
   
-    <a href="/2017/09/13/TCP首部/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/09/28/多版本Python共存时pip给指定版本的python安装package的方法/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title"></div>
     </a>
