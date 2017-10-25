@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="MySQL索引背后的数据结构及算法原理摘要本文的研究对象是MySQL数据库,讨论数据库索引话题。主要研究BTree(B+Tree),哈希索引，全文索引。 BTree(B+Tree)索引BTree索引分三个部分  数据结构及算法 结合MySQL中MyISAM和InnoDB中所有的架构实现讨论聚集索引、非聚集索引及覆盖索引等话题。 探讨MySQL中高性能索引策略！  数据结构及算法基础索引的本质关系数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/10/26/MySQL索引背后的数据结构及算法原理/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="MySQL索引背后的数据结构及算法原理摘要本文的研究对象是MySQL数据库,讨论数据库索引话题。主要研究BTree(B+Tree),哈希索引，全文索引。 BTree(B+Tree)索引BTree索引分三个部分  数据结构及算法 结合MySQL中MyISAM和InnoDB中所有的架构实现讨论聚集索引、非聚集索引及覆盖索引等话题。 探讨MySQL中高性能索引策略！  数据结构及算法基础索引的本质关系数">
+<meta property="og:image" content="http://my.csdn.net/uploads/201205/03/1336034967_9324.png">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/0060lm7Tly1fkuwtpg1q4j30dw0kjgnl.jpg">
+<meta property="og:image" content="http://img.blog.csdn.net/20141112102543946">
+<meta property="og:image" content="http://img.blog.csdn.net/20141112102604390">
+<meta property="og:image" content="https://tech.meituan.com/img/mysql_index/various-system-software-hardware-latencies.png">
+<meta property="og:updated_time" content="2017-10-25T17:04:12.520Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="MySQL索引背后的数据结构及算法原理摘要本文的研究对象是MySQL数据库,讨论数据库索引话题。主要研究BTree(B+Tree),哈希索引，全文索引。 BTree(B+Tree)索引BTree索引分三个部分  数据结构及算法 结合MySQL中MyISAM和InnoDB中所有的架构实现讨论聚集索引、非聚集索引及覆盖索引等话题。 探讨MySQL中高性能索引策略！  数据结构及算法基础索引的本质关系数">
+<meta name="twitter:image" content="http://my.csdn.net/uploads/201205/03/1336034967_9324.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-MySQL索引背后的数据结构及算法原理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/26/MySQL索引背后的数据结构及算法原理/" class="article-date">
+  <time datetime="2017-10-25T17:04:12.143Z" itemprop="datePublished">2017-10-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="MySQL索引背后的数据结构及算法原理"><a href="#MySQL索引背后的数据结构及算法原理" class="headerlink" title="MySQL索引背后的数据结构及算法原理"></a>MySQL索引背后的数据结构及算法原理</h1><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>本文的研究对象是MySQL数据库,讨论数据库索引话题。主要研究BTree(B+Tree),哈希索引，全文索引。</p>
+<h2 id="BTree-B-Tree-索引"><a href="#BTree-B-Tree-索引" class="headerlink" title="BTree(B+Tree)索引"></a>BTree(B+Tree)索引</h2><p>BTree索引分三个部分</p>
+<ul>
+<li>数据结构及算法</li>
+<li>结合MySQL中MyISAM和InnoDB中所有的架构实现讨论聚集索引、非聚集索引及覆盖索引等话题。</li>
+<li>探讨MySQL中高性能索引策略！</li>
+</ul>
+<h3 id="数据结构及算法基础"><a href="#数据结构及算法基础" class="headerlink" title="数据结构及算法基础"></a>数据结构及算法基础</h3><h4 id="索引的本质"><a href="#索引的本质" class="headerlink" title="索引的本质"></a>索引的本质</h4><p>关系数据库中，索引是一种单独的、物理的对数据库表中一列或多列的值进行<strong>排序</strong>的一种存储结构，它是某个表中一列或若干列值的集合和相应的指向表中物理标识这些值的数据页的逻辑指针清单。索引的作用相当于图书的目录，可以根据目录中的页码快速找到所需的内容。</p>
+<p><img src="http://my.csdn.net/uploads/201205/03/1336034967_9324.png" alt="B树"></p>
+<p>一般的应用系统，读写比例在10:1左右，这样插入操作和一般的更新操作很少出现性能问题，遇到最多的，也是最容易出问题的，还是一些复杂的查询操作，所以<strong>查询语句的优化</strong>显然是重中之重。</p>
+<h4 id="小栗子"><a href="#小栗子" class="headerlink" title="小栗子"></a>小栗子</h4><blockquote>
+<p>作者 NeverMore ·2014-06-30 18:35 <a href="https://tech.meituan.com/mysql-index.html" target="_blank" rel="external">MySQL索引原理及慢查询优化</a></p>
+</blockquote>
+<p>系统使用者反应有一个功能越来越慢，于是工程师找到了上面的SQL。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span></div><div class="line">   <span class="keyword">count</span>(*) </div><div class="line"><span class="keyword">from</span></div><div class="line">   task </div><div class="line"><span class="keyword">where</span></div><div class="line">   <span class="keyword">status</span>=<span class="number">2</span> </div><div class="line">   <span class="keyword">and</span> operator_id=<span class="number">20839</span> </div><div class="line">   <span class="keyword">and</span> operate_time&gt;<span class="number">1371169729</span> </div><div class="line">   <span class="keyword">and</span> operate_time&lt;<span class="number">1371174603</span> </div><div class="line">   <span class="keyword">and</span> <span class="keyword">type</span>=<span class="number">2</span>;</div></pre></td></tr></table></figure>
+<p>并且兴致冲冲的找到了我，“这个SQL需要优化，给我把每个字段都加上索引”<br>我很惊讶，问道“为什么需要每个字段都加上索引？”<br>“把查询的字段都加上索引会更快”工程师信心满满<br>“这种情况完全可以建一个联合索引，因为是最左前缀匹配，所以operate_time需要放到最后，而且还需要把其他相关的查询都拿来，需要做一个综合评估。”<br>“联合索引？最左前缀匹配？综合评估？”工程师不禁陷入了沉思。<br>多数情况下，我们知道索引能够提高查询效率，但应该如何建立索引？索引的顺序如何？许多人却只知道大概。其实理解这些概念并不难，而且索引的原理远没有想象的那么复杂。</p>
+<blockquote>
+<p> emmmm…. 美团怕是招了个假程序员</p>
+<p> 范围查询之后的索引会失效，operate_time 应该是放在这个查询语句最后才是。</p>
+</blockquote>
+<p>####索引目的</p>
+<p>索引的目的在于提高查询效率，可以类比字典，如果要查“mysql”这个单词，我们肯定需要定位到m字母，然后从下往下找到y字母，再找到剩下的sql。如果没有索引，那么你可能需要把所有单词看一遍才能找到你想要的。</p>
+<p><img src="http://ww3.sinaimg.cn/large/0060lm7Tly1fkuwtpg1q4j30dw0kjgnl.jpg" alt="词典"></p>
+<p>####索引原理<br>除了词典，生活中随处可见索引的例子，如火车站的车次表、图书的目录等。它们的原理都是一样的，通过不断的缩小想要获得数据的范围来筛选出最终想要的结果，同时把随机的事件变成顺序的事件，也就是我们总是通过同一种查找方式来锁定数据。</p>
+<p>数据库也是一样，但显然要复杂许多，因为不仅面临着等值查询，还有范围查询(&gt;、&lt;、between、in)、模糊查询(like)、并集查询(or)等等。数据库应该选择怎么样的方式来应对所有的问题呢？</p>
+<p>####磁盘IO与预读</p>
+<p>内存比磁盘的读写速度要快很多，但内存容量要远小于磁盘，数据，程序的执行要调入内存后才能执行，所以内存和磁盘要经常进行I/O操作，I/O操作是个费事的过程，虽然现代系统已经有了通道（I/O处理机）技术的支持，但这还不够</p>
+<p><img src="http://img.blog.csdn.net/20141112102543946" alt="img"><img src="http://img.blog.csdn.net/20141112102604390" alt="img"></p>
+<p>上面是两张磁盘的示意图 。磁盘读取数据靠的是机械运动，每次读取数据花费的时间可以分为</p>
+<ul>
+<li><p>寻道时间</p>
+</li>
+<li><p>旋转延迟</p>
+</li>
+<li><p>传输时间三个部分</p>
+<p>​</p>
+<p>​</p>
+<p>扇区为磁盘的最小存储单元，当需要从磁盘读取数据时，系统会将逻辑地址发给磁盘，磁盘的控制电路将逻辑地址转换为物理地址（哪个磁道，哪个扇区）这时候就会有磁头的机械运动，磁头找到相应磁道–寻道，时间成为寻道时间，磁头找到对应磁道的对应扇区，成为旋转时间。  这是很大的时间消耗，所以系统一般采取预读的方式，减少磁盘I/O。</p>
+</li>
+</ul>
+<p>系统是分页读取和存储的  一般一页为4KB，每次读取和存取的最小单元为一页，预读即在读取的起始地址连续读取多个页面（现在不需要的页面也读取了，这样以后用时就不用再读取，当一个页面用到时，大多数情况下，它周围的页面也会被用到）  </p>
+<p>至于磁盘分页，参考计算机操作系统的分页，分段存储管理      逻辑地址和物理地址被分为大小相同的页面，逻辑地址中叫页，物理地址中叫块</p>
+<p>前面提到了访问磁盘，那么这里先简单介绍一下磁盘IO和预读，寻道时间指的是磁臂移动到指定磁道所需要的时间，主流磁盘一般在5ms以下；旋转延迟就是我们经常听说的磁盘转速，比如一个磁盘7200转，表示每分钟能转7200次，也就是说1秒钟能转120次，旋转延迟就是1/120/2 = 4.17ms；传输时间指的是从磁盘读出或将数据写入磁盘的时间，一般在零点几毫秒，相对于前两个时间可以忽略不计。那么访问一次磁盘的时间，即一次磁盘IO的时间约等于5+4.17 = 9ms左右，听起来还挺不错的，但要知道一台500 -MIPS的机器每秒可以执行5亿条指令，因为指令依靠的是电的性质，换句话说执行一次IO的时间可以执行40万条指令，数据库动辄十万百万乃至千万级数据，每次9毫秒的时间，显然是个灾难。下图是计算机硬件延迟的对比图，供大家参考：<img src="https://tech.meituan.com/img/mysql_index/various-system-software-hardware-latencies.png" alt="various-system-software-hardware-latencies"></p>
+<p>考虑到磁盘IO是非常高昂的操作，计算机操作系统做了一些优化，当一次IO时，不光把当前磁盘地址的数据，而是把相邻的数据也都读取到内存缓冲区内，因为局部预读性原理告诉我们，当计算机访问一个地址的数据的时候，与其相邻的数据也会很快被访问到。每一次IO读取的数据我们称之为一页(page)。具体一页有多大数据跟操作系统有关，一般为4k或8k，也就是我们读取一页内的数据时候，实际上才发生了一次IO，这个理论对于索引的数据结构设计非常有帮助。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/10/26/MySQL索引背后的数据结构及算法原理/" data-id="cj97aivk90000vgvaiwu6nk8c" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/10/24/DB组2017秋季大二新生培养(考核)计划/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/10/26/MySQL索引背后的数据结构及算法原理/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/24/DB组2017秋季大二新生培养(考核)计划/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/29/性能优化的一些简介/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/29/基准测试的策略/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/多版本Python共存时pip给指定版本的python安装package的方法/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
