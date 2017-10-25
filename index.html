@@ -61,6 +61,84 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-操作系统之存储管理-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/26/操作系统之存储管理-1/" class="article-date">
+  <time datetime="2017-10-25T18:22:15.000Z" itemprop="datePublished">2017-10-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/26/操作系统之存储管理-1/">操作系统之存储管理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="操作系统之存储管理"><a href="#操作系统之存储管理" class="headerlink" title="操作系统之存储管理"></a>操作系统之存储管理</h1><p>分层存储体系<img src="http://ww3.sinaimg.cn/large/0060lm7Tly1fkuzq0qcf2j30dq0cmjru.jpg" alt="分层存储体系"></p>
+<p>操作系统中管理分层存储器体系的邠称为存储管理器(memory manager)。它的任务是有效地管理内存</p>
+<ul>
+<li>即记录那些内存是正在使用的，哪些内存是空闲的</li>
+<li>在进程需要时为其分配内存，在进程使用完后释放内存。</li>
+</ul>
+<h2 id="无存储器抽象"><a href="#无存储器抽象" class="headerlink" title="无存储器抽象"></a>无存储器抽象</h2><p>早期的大中小型计算机都没有存储器抽象。每一个程序都直接访问物理内存，这么做相当于把物理地址暴露给进程，这样会带来几个严重的问题：</p>
+<ol>
+<li>如果用户程序可以寻址内存的每个字节，他们就可以很容易地破坏操作系统，从而使系统慢慢停止运行</li>
+<li>使用这种模型，想要同时运行多个程序是很困难的</li>
+</ol>
+<h2 id="存储抽象-地址空间"><a href="#存储抽象-地址空间" class="headerlink" title="存储抽象:地址空间"></a>存储抽象:地址空间</h2><h3 id="地址空间概念"><a href="#地址空间概念" class="headerlink" title="地址空间概念"></a>地址空间概念</h3><p>地址空间是一个进程可用于寻址内存的一套地址集合。每个进程都有一个自己的地址空间，并且这个地址空间独立于其他进程的地址空间(除了在一些特殊情况下进程需要共享它们的地址空间外)。</p>
+<h4 id="基址寄存器与界限寄存器"><a href="#基址寄存器与界限寄存器" class="headerlink" title="基址寄存器与界限寄存器"></a>基址寄存器与界限寄存器</h4><p>把每个进程的地址空间映射到物理内存的不同部分。当CPU使用基址寄存器和界限寄存器时，程序装载到内存中的连续空间且装载期间无须重定位。</p>
+<h3 id="交换技术"><a href="#交换技术" class="headerlink" title="交换技术"></a>交换技术</h3><p>两种处理内存超载的通用方法。</p>
+<ol>
+<li>交换技术</li>
+<li>虚拟内存</li>
+</ol>
+<p>交换技术，即把一个进程完整调入内存，使该进程运行一段时间，然后把它存回磁盘。空闲进程主要存储在磁盘上，所以当它们不运行时就不会占用内存(尽管它们的一些进程会周期性地被唤醒以完成相关工作，然后又进入睡眠状态)</p>
+<blockquote>
+<p>可怜如磁盘，所以在网吧运行耗内存游戏就尽情开虚拟内存?</p>
+</blockquote>
+<p>虚拟内存，该策略升值能使程序只有一部分被调入内存的情况下运行。</p>
+<h3 id="交换技术-1"><a href="#交换技术-1" class="headerlink" title="交换技术"></a>交换技术</h3><hr>
+<h3 id="空闲内存管理"><a href="#空闲内存管理" class="headerlink" title="空闲内存管理"></a>空闲内存管理</h3><p>在动态分配内存时，操作系统必须对其进行管理。两种方式跟踪内存使用情况</p>
+<ul>
+<li>位图</li>
+<li>空闲链表</li>
+</ul>
+<ol>
+<li><p>使用位图的存储管理</p>
+<p>使用位图方法时，内存可能被划分成小到几个字或大到几千字节的分配单元。每个分配单元对应于位图中的一位,0表示空闲，1表示占用(或者相反)。<img src="http://ww3.sinaimg.cn/large/0060lm7Tly1fkv0x6297zj30kt07yjsf.jpg" alt="位图空闲链表"></p>
+</li>
+</ol>
+<p>这种方法的主要问题是，在决定把一个占k个分配单元的进程调入内存时，存储管理器必须搜索位图，在位图中找出有k个连续0的串。查找位图中指定长度的连续0串是耗时的操作(因为在位图中该串可能跨越字的边界)，这是位图的缺点。</p>
+<ol>
+<li><p>使用链表的存储管理</p>
+<p>另一种记录内存使用情况的方法是，维护一个记录已分配内存段和空闲段的链表。其中链表中的一个结点或者包含一个进程，或者是两个进程间的一个空的空闲区。</p>
+</li>
+</ol>
+<h2 id="虚拟内存"><a href="#虚拟内存" class="headerlink" title="虚拟内存"></a>虚拟内存</h2><p>尽管基址寄存器和界限寄存器可以用于创建地址空间的抽象，还有另一个问题需要解决：管理软件的膨胀。</p>
+<p>虚拟内存的基本思想是：每个程序拥有自己的地址空间，这个空间被分割成多个块，每一块称作一页或页面。每一页有连续的地址范围。这些页被映射到物理内存，但并不是所有的页都必须在内存中才能运行程序。当程序引用到一部分在物理内存中的地址空间时，由硬件立刻执行必要的映射。当程序引用到一部分不在物理内存中的地址空间时，由操作系统负责将确实的部分装入物理内存并重新执行失败的指令。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/10/26/操作系统之存储管理-1/" data-id="cj97db2rw0009ewvak81kbo8w" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-MySQL索引背后的数据结构及算法原理" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/10/26/MySQL索引背后的数据结构及算法原理/" class="article-date">
@@ -121,7 +199,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/26/MySQL索引背后的数据结构及算法原理/" data-id="cj97d0mh800027ovaflx5p5mj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/26/MySQL索引背后的数据结构及算法原理/" data-id="cj97db2rg0000ewva7qojzisv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -275,7 +353,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/24/DB组2017秋季大二新生培养(考核)计划/" data-id="cj97d0mh800007ovava6ks9i2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/24/DB组2017秋季大二新生培养(考核)计划/" data-id="cj97db2rg0002ewva6bi8g2p9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -304,7 +382,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/29/性能优化的一些简介/" data-id="cj97d0mh800087ovazagm4epz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/29/性能优化的一些简介/" data-id="cj97db2rw0007ewvac2ypjdyq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -348,7 +426,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/29/基准测试的策略/" data-id="cj97d0mh800097ovaz6w893ue" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/29/基准测试的策略/" data-id="cj97db2rw000bewvantbx4saf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -378,7 +456,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/多版本Python共存时pip给指定版本的python安装package的方法/" data-id="cj97d0mh800077ovawhszcjq7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/28/多版本Python共存时pip给指定版本的python安装package的方法/" data-id="cj97db2rw0008ewva6dphh3hs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -405,7 +483,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/python的set是一个无序不重复元素集/" data-id="cj97d0mh800067ovar840i60r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/28/python的set是一个无序不重复元素集/" data-id="cj97db2rw0005ewvaiwvjsvxq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -460,7 +538,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/27/重定向与管道/" data-id="cj97d0mho000a7ovag2j21ne2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/27/重定向与管道/" data-id="cj97db2rw000aewvaq5xtnlkd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -488,7 +566,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/27/wp插件信息头/" data-id="cj97d0mh800057ovaq672wq5f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/27/wp插件信息头/" data-id="cj97db2rw0006ewva5cfrmvrn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -516,54 +594,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/26/UTF-8 带签名和不带签名的区别/" data-id="cj97d0mh800017ova08dwifb0" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-TCP首部" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/09/13/TCP首部/" class="article-date">
-  <time datetime="2017-09-13T12:47:02.681Z" itemprop="datePublished">2017-09-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>规定: </p>
-<h3 id="1-尝试博客式学习，模式定为-发现-――提问――解答。"><a href="#1-尝试博客式学习，模式定为-发现-――提问――解答。" class="headerlink" title="1. 尝试博客式学习，模式定为 发现 ――提问――解答。"></a>1. 尝试博客式学习，模式定为 发现 ――提问――解答。</h3><h3 id="2-更新以天为单位"><a href="#2-更新以天为单位" class="headerlink" title="2. 更新以天为单位"></a>2. 更新以天为单位</h3><p>后续添加。。。</p>
-<ul>
-<li><p>问</p>
-<ul>
-<li><a href="#tqw1">在传输层的数据包封装了来自应用层的消息，如果它来自于传输层的TCP协议则称之为分段，如果来自于传输层的UDP协议，则称之为数据报</a></li>
-</ul>
-<p>​</p>
-<hr>
-<p>​</p>
-<p><div id="tqw1"></div>应用层到传输层数据包处理疑问</p>
-<p>1.在传输层的数据包封装了来自应用层的消息，如果它来自于传输层的TCP协议则称之为分段，如果来自于传输层的UDP协议，则称之为数据报。</p>
-<ul>
-<li>它们两协议对分别数据包做了什么？<br>先来看两个协议有什么区别</li>
-</ul>
-<ol>
-<li>UDP：简单的面向数据报的运输层协议：进程的每个输出操作都正好是一个UDP数据报并组装成一份待发送的IP数据报。<br>TCP：面向连接的、可靠的字节流服务。</li>
-<li>TCP通过下列方式提供可靠性。<br>应用数据被分割。（最合适的大小）</li>
-</ol>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/13/TCP首部/" data-id="cj97d0mh800037ovanatnrpy7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/26/UTF-8 带签名和不带签名的区别/" data-id="cj97db2rw0004ewvaa96rtplc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -607,6 +638,10 @@
       <ul>
         
           <li>
+            <a href="/2017/10/26/操作系统之存储管理-1/">操作系统之存储管理</a>
+          </li>
+        
+          <li>
             <a href="/2017/10/26/MySQL索引背后的数据结构及算法原理/">(no title)</a>
           </li>
         
@@ -620,10 +655,6 @@
         
           <li>
             <a href="/2017/09/29/基准测试的策略/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/09/28/多版本Python共存时pip给指定版本的python安装package的方法/">(no title)</a>
           </li>
         
       </ul>
