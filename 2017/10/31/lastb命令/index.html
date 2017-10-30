@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="###lastb命令 last与lastb命令用来列出目前与过去登录系统的用户相关信息。指令英文原义： last, lastb - show listing of last logged in users 单独执行last指令时，它会读取位于/var/log/wtmp的文件，并把该给文件的内容记录的登录系统的用户名单全部显示出来。 单独执行lastb指令，它会读取位于/var/log/btmp的文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/10/31/lastb命令/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="###lastb命令 last与lastb命令用来列出目前与过去登录系统的用户相关信息。指令英文原义： last, lastb - show listing of last logged in users 单独执行last指令时，它会读取位于/var/log/wtmp的文件，并把该给文件的内容记录的登录系统的用户名单全部显示出来。 单独执行lastb指令，它会读取位于/var/log/btmp的文">
+<meta property="og:updated_time" content="2017-10-30T18:56:49.757Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="###lastb命令 last与lastb命令用来列出目前与过去登录系统的用户相关信息。指令英文原义： last, lastb - show listing of last logged in users 单独执行last指令时，它会读取位于/var/log/wtmp的文件，并把该给文件的内容记录的登录系统的用户名单全部显示出来。 单独执行lastb指令，它会读取位于/var/log/btmp的文">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-lastb命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/31/lastb命令/" class="article-date">
+  <time datetime="2017-10-30T18:56:48.425Z" itemprop="datePublished">2017-10-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###lastb命令</p>
+<p>last与lastb命令用来列出目前与过去登录系统的用户相关信息。指令英文原义：</p>
+<p>last, lastb - show listing of last logged in users</p>
+<p>单独执行last指令时，它会读取位于<strong>/var/log/wtmp</strong>的文件，并把该给文件的内容记录的登录系统的用户名单全部显示出来。</p>
+<p>单独执行lastb指令，它会读取位于<strong>/var/log/btmp</strong>的文件，并把该文件内容记录的<strong>登入系统失败</strong>的用户名单，全部显示出来。</p>
+<p>第一列信息：用户名，或者显示reboot（启动或者重启操作在这里会记录成reboot）<br>第二列信息：终端位置，pts/0 (伪终端或虚拟终端) 意味着从诸如SSH或telnet的远程连接的用户。</p>
+<p>tty (teletypewriter) 意味着直接连接到计算机或者本地连接的用户,如果是启动或者重启操作，这里会显示成system boot</p>
+<p>第三列信息：登录ip或者内核，如果你看见:0.0 或者什么都没有，这意味着用户通过本地终端连接。</p>
+<p>也有在状态中显示内核版本的信息，笔者猜测这些记录应该是属于系统的操作，如开机，关机，重启等操作</p>
+<p>第四列信息：开始时间,其中的日期格式为date +”%a %b %d”</p>
+<p>第五列信息：结束时间（still login in 还未退出 down 直到正常关机 crash 直到强制关机）</p>
+<p>第六列信息：持续时间</p>
+<hr>
+<p>last命令的参数补充说明(以下参数同样合适lastb命令)：</p>
+<p>参 　  数：-a 把从何处登入系统的主机名称或IP地址，显示在最后一行；</p>
+<p>-d 将IP地址转换成主机名称。当用户从远端而非本地主机登入系统时，所记录的将不仅是主机名称，还包括该远端主机的IP地址。</p>
+<p>默认情况下会用IP地址来显示远端的主机，使用这项参数可将其换成主机名称；</p>
+<p>-f 指定记录文件。预设last指令会去读取/var/log目录里的btmp文件；</p>
+<p>-n 设置列出名单的显示列数，如果你只想查询最后登入系统的10位用户名称，可将显示列数设成”10”，</p>
+<p>想查询最后的30位用户，则设为”30”，依此类推；</p>
+<p>-R 不显示登入系统的主机名称或IP地址；</p>
+<p>-x 可显示系统关机、重新开机，以及执行等级的改变等信息。</p>
+<p>###Linux下使用wc统计文件行数</p>
+<p>语法：wc [选项] 文件…</p>
+<p>说明：该命令统计给定文件中的字节数、字数、行数。如果没有给出文件名，则从标准输入读取。wc同时也给出所有指定文件的总统计数。字是由空格字符区分开的最大字符串。</p>
+<p>该命令各选项含义如下：</p>
+<ul>
+<li>c 统计字节数。</li>
+<li>l 统计行数。</li>
+<li>w 统计字数。</li>
+</ul>
+<p>###显示内容太多</p>
+<p>利用管道<br>命令 |  more<br>命令 |  less</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/10/31/lastb命令/" data-id="cj9ejrkyj0005ncva4qfde3nm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/10/31/ssh配置文件ssh_config和sshd_config区别/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/10/31/lastb命令/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/31/ssh配置文件ssh_config和sshd_config区别/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/30/电路与电子学/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/30/离散数学-代数系统/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/28/未经省察的人生没有价值/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
