@@ -61,78 +61,25 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-PHP Ajax 跨域问题最佳解决方案" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/04/PHP Ajax 跨域问题最佳解决方案/" class="article-date">
-  <time datetime="2017-11-03T23:57:36.250Z" itemprop="datePublished">2017-11-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p>title:PHP Ajax跨域问题最佳解决方案<br>tags:PHP Ajax</p>
-<h2 id="category-编程"><a href="#category-编程" class="headerlink" title="category:编程"></a>category:编程</h2><p>##PHP Ajax 跨域问题最佳解决方案</p>
-<p>本文通过设置<strong>Access-Control-Allow-Origin</strong>来实现跨域。</p>
-<h2 id="1、允许单个域名访问"><a href="#1、允许单个域名访问" class="headerlink" title="1、允许单个域名访问"></a>1、允许单个域名访问</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">header(<span class="string">'Access-Control-Allow-Origin:http://xxxxx.com'</span>);</div></pre></td></tr></table></figure>
-<h2 id="2、允许多个域名访问"><a href="#2、允许多个域名访问" class="headerlink" title="2、允许多个域名访问"></a>2、允许多个域名访问</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$origin = <span class="keyword">isset</span>($_SERVER[<span class="string">'HTTP_ORIGIN'</span>])? $_SERVER[<span class="string">'HTTP_ORIGIN'</span>] : <span class="string">''</span>;  </div><div class="line">  </div><div class="line">$allow_origin = <span class="keyword">array</span>(  </div><div class="line">    <span class="string">'http://xxx1.com'</span>,  </div><div class="line">    <span class="string">'http://xxx1.com'</span>  </div><div class="line">);  </div><div class="line">  </div><div class="line"><span class="keyword">if</span>(in_array($origin, $allow_origin))&#123;  </div><div class="line">    header(<span class="string">'Access-Control-Allow-Origin:'</span>.$origin);       </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="3、允许所有域名访问"><a href="#3、允许所有域名访问" class="headerlink" title="3、允许所有域名访问"></a>3、允许所有域名访问</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">header(<span class="string">'Access-Control-Allow-Origin:*'</span>);</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/04/PHP Ajax 跨域问题最佳解决方案/" data-id="cj9nzpy800004ccvam4n4p8lt" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-On first acquaintance she is cool and slightly distant." class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/02/On first acquaintance she is cool and slightly distant./" class="article-date">
-  <time datetime="2017-11-02T15:23:33.110Z" itemprop="datePublished">2017-11-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>On first acquaintance she is cool and slightly distant.</p>
-<p>This sort of behaviour will  not be tolerated.</p>
-<p>Perhaps she could assis           t in some way.</p>
-<p>They set out on the last stage of their journey.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/02/On first acquaintance she is cool and slightly distant./" data-id="cj9nzpy7q0000ccva8wva4rzg" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-vim和linux快捷键" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/11/02/vim和linux快捷键/" class="article-date">
-  <time datetime="2017-11-02T11:47:49.778Z" itemprop="datePublished">2017-11-02</time>
+  <time datetime="2017-11-01T19:22:15.000Z" itemprop="datePublished">2017-11-02</time>
 </a>
     
   </div>
   <div class="article-inner">
     
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/02/vim和linux快捷键/">vim和linux快捷键</a>
+    </h1>
+  
+
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -221,9 +168,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/02/vim和linux快捷键/" data-id="cj9nzpy8k000hccvaak82yh9f" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/11/02/vim和linux快捷键/" data-id="cj9o0diy5000990vav3pflgy4" class="article-share-link">Partager</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
+
     </footer>
   </div>
   
@@ -231,139 +180,41 @@
 
 
   
-    <article id="post-lastb命令" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-On first acquaintance she is cool and slightly distant." class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/10/31/lastb命令/" class="article-date">
-  <time datetime="2017-10-30T18:56:48.425Z" itemprop="datePublished">2017-10-31</time>
+    <a href="/2017/11/02/On first acquaintance she is cool and slightly distant./" class="article-date">
+  <time datetime="2017-11-01T18:22:15.000Z" itemprop="datePublished">2017-11-02</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/02/On first acquaintance she is cool and slightly distant./">单词</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###lastb命令</p>
-<p>last与lastb命令用来列出目前与过去登录系统的用户相关信息。指令英文原义：</p>
-<p>last, lastb - show listing of last logged in users</p>
-<p>单独执行last指令时，它会读取位于<strong>/var/log/wtmp</strong>的文件，并把该给文件的内容记录的登录系统的用户名单全部显示出来。</p>
-<p>单独执行lastb指令，它会读取位于<strong>/var/log/btmp</strong>的文件，并把该文件内容记录的<strong>登入系统失败</strong>的用户名单，全部显示出来。</p>
-<p>第一列信息：用户名，或者显示reboot（启动或者重启操作在这里会记录成reboot）<br>第二列信息：终端位置，pts/0 (伪终端或虚拟终端) 意味着从诸如SSH或telnet的远程连接的用户。</p>
-<p>tty (teletypewriter) 意味着直接连接到计算机或者本地连接的用户,如果是启动或者重启操作，这里会显示成system boot</p>
-<p>第三列信息：登录ip或者内核，如果你看见:0.0 或者什么都没有，这意味着用户通过本地终端连接。</p>
-<p>也有在状态中显示内核版本的信息，笔者猜测这些记录应该是属于系统的操作，如开机，关机，重启等操作</p>
-<p>第四列信息：开始时间,其中的日期格式为date +”%a %b %d”</p>
-<p>第五列信息：结束时间（still login in 还未退出 down 直到正常关机 crash 直到强制关机）</p>
-<p>第六列信息：持续时间</p>
-<hr>
-<p>last命令的参数补充说明(以下参数同样合适lastb命令)：</p>
-<p>参 　  数：-a 把从何处登入系统的主机名称或IP地址，显示在最后一行；</p>
-<p>-d 将IP地址转换成主机名称。当用户从远端而非本地主机登入系统时，所记录的将不仅是主机名称，还包括该远端主机的IP地址。</p>
-<p>默认情况下会用IP地址来显示远端的主机，使用这项参数可将其换成主机名称；</p>
-<p>-f 指定记录文件。预设last指令会去读取/var/log目录里的btmp文件；</p>
-<p>-n 设置列出名单的显示列数，如果你只想查询最后登入系统的10位用户名称，可将显示列数设成”10”，</p>
-<p>想查询最后的30位用户，则设为”30”，依此类推；</p>
-<p>-R 不显示登入系统的主机名称或IP地址；</p>
-<p>-x 可显示系统关机、重新开机，以及执行等级的改变等信息。</p>
-<p>###Linux下使用wc统计文件行数</p>
-<p>语法：wc [选项] 文件…</p>
-<p>说明：该命令统计给定文件中的字节数、字数、行数。如果没有给出文件名，则从标准输入读取。wc同时也给出所有指定文件的总统计数。字是由空格字符区分开的最大字符串。</p>
-<p>该命令各选项含义如下：</p>
-<ul>
-<li>c 统计字节数。</li>
-<li>l 统计行数。</li>
-<li>w 统计字数。</li>
-</ul>
-<p>###显示内容太多</p>
-<p>利用管道<br>命令 |  more<br>命令 |  less</p>
+        <p>On first acquaintance she is cool and slightly distant.</p>
+<p>This sort of behaviour will  not be tolerated.</p>
+<p>Perhaps she could assis           t in some way.</p>
+<p>They set out on the last stage of their journey.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/31/lastb命令/" data-id="cj9nzpy800009ccvaru8pj0qc" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/11/02/On first acquaintance she is cool and slightly distant./" data-id="cj9o0dixr000190va1liir312" class="article-share-link">Partager</a>
       
       
-    </footer>
-  </div>
-  
-</article>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/英语/">英语</a></li></ul>
 
-
-  
-    <article id="post-ssh配置文件ssh_config和sshd_config区别" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/10/31/ssh配置文件ssh_config和sshd_config区别/" class="article-date">
-  <time datetime="2017-10-30T18:56:43.629Z" itemprop="datePublished">2017-10-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#ssh配置文件ssh_config和sshd_config区别</p>
-<p>问题描述：在一次配置ssh端口和秘钥登录过程中，修改几次都没有成功。最后发现修改的是ssh.config,原因是习惯tab一下，实在是眼拙！</p>
-<h2 id="ssh-config和sshd-config配置文件区别"><a href="#ssh-config和sshd-config配置文件区别" class="headerlink" title="ssh_config和sshd_config配置文件区别"></a>ssh_config和sshd_config配置文件区别</h2><p>​     远程管理linux系统基本上都要使用到ssh，原因很简单：telnet、FTP等传输方式是?以<strong>明文传送用户认证信息</strong>，本质上是不安全的，存在被网络窃听的危险。SSH（Secure Shell）目前较可靠，是专为远程登录会话和其他网络服务提供安全性的协议。利用SSH协议可以有效防止远程管理过程中的信息泄露问题，透过SSH可以对所有<strong>传输的数据进行加密，</strong>也能够防止DNS欺骗和IP欺骗。<br>​    ssh_config和sshd_config都是ssh服务器的配置文件，二者区别在于，前者是针对<strong>客户端的配置文件</strong>，后者则是针对<strong>服务端的配置文件</strong>。两个配置文件都允许你通过设置不同的选项来改变客户端程序的运行方式。下面列出来的是两个配置文件中最重要的一些关键词，每一行为“关键词&amp;值”的形式，其中“关键词”是忽略大小写的。</p>
-<h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><p>1、编辑 /etc/ssh/ssh_config 文件</p>
-<p># Site-wide defaults for various options<br>   Host *<br>​        ForwardAgent no<br>​        ForwardX11 no<br>​        RhostsAuthentication no<br>​        RhostsRSAAuthentication no<br>​        RSAAuthentication yes<br>​        PasswordAuthentication yes<br>​        FallBackToRsh no<br>​        UseRsh no<br>​        BatchMode no<br>​        CheckHostIP yes<br>​        StrictHostKeyChecking no<br>​        IdentityFile ~/.ssh/identity<br>​        Port 22<br>​        Cipher blowfish<br>​        EscapeChar</p>
-<p>下面对上述选项参数逐进行解释：</p>
-<p># Site-wide defaults for various options<br>带“#”表示该句为注释不起作，该句不属于配置文件原文，意在说明下面选项均为系统初始默认的选项。说明一下，实际配置文件中也有很多选项前面加有“#”注释，虽然表示不起作用，其实是说明此为系统默认的初始化设置。</p>
-<p>Host <em><br>“Host”只对匹配后面字串的计算机有效，“</em>”表示所有的计算机。从该项格式前置一些可以看出，这是一个<strong>类似于全局的选项</strong>，表示下面缩进的选项都适用于该设置，可以指定某计算机替换*号使下面选项只针对该算机器生效。</p>
-<p>ForwardAgent no<br>“ForwardAgent”设置连接是否经过验证代理（如果存在）转发给远程计算机。</p>
-<p>ForwardX11 no<br>“ForwardX11”设置X11连接是否被自动重定向到安全的通道和显示集（DISPLAY set）。</p>
-<p>RhostsAuthentication no<br>“RhostsAuthentication”设置是否使用基于rhosts的安全验证。</p>
-<p>RhostsRSAAuthentication no<br>“RhostsRSAAuthentication”设置是否使用用RSA算法的基于rhosts的安全验证。</p>
-<p>RSAAuthentication yes<br>“RSAAuthentication”设置是否使用RSA算法进行安全验证。</p>
-<p>PasswordAuthentication yes<br>“PasswordAuthentication”设置是否使用口令验证。</p>
-<p>FallBackToRsh no<br>“FallBackToRsh”设置如果用ssh连接出现错误是否自动使用rsh，由于rsh并不安全，所以此选项应当设置为”no”。</p>
-<p>UseRsh no<br>“UseRsh”设置是否在这台计算机上使用”rlogin/rsh”，原因同上，设为”no”。</p>
-<p>BatchMode no<br>“BatchMode”：批处理模式，一般设为”no”；如果设为”yes”，交互式输入口令的提示将被禁止，这个选项对脚本文件和批处理任务十分有用。</p>
-<p>CheckHostIP yes<br>“CheckHostIP”设置ssh是否查看连接到服务器的主机的IP地址以防止DNS欺骗。建议设置为”yes”。</p>
-<p>StrictHostKeyChecking no<br>“StrictHostKeyChecking”如果设为”yes”，ssh将不会自动把计算机的密匙加入”$HOME/.ssh/known_hosts”文件，且一旦计算机的密匙发生了变化，就拒绝连接。</p>
-<p><strong>IdentityFile ~/.ssh/identity</strong><br><strong>“IdentityFile”设置读取用户的RSA安全验证标识。</strong></p>
-<p>Port 22<br>“Port”设置连接到远程主机的端口，ssh默认端口为22。</p>
-<p>Cipher blowfish<br>“Cipher”设置加密用的密钥，blowfish可以自己随意设置。</p>
-<p>EscapeChar<br>“EscapeChar”设置escape字符。</p>
-<h2 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h2><p>2、编辑 /etc/ssh/sshd_config 文件：</p>
-<p># This is ssh server systemwide configuration file.<br>​          Port 22<br>​          ListenAddress 192.168.1.1<br>​          <strong>HostKey /etc/ssh/ssh_host_key</strong><br>​          ServerKeyBits 1024<br>​          LoginGraceTime 600<br>​          KeyRegenerationInterval 3600<br>​          PermitRootLogin no<br>​          IgnoreRhosts yes<br>​          IgnoreUserKnownHosts yes<br>​          StrictModes yes<br>​          X11Forwarding no<br>​          PrintMotd yes<br>​          SyslogFacility AUTH<br>​          LogLevel INFO<br>​          RhostsAuthentication no<br>​          RhostsRSAAuthentication no<br>​          <strong>RSAAuthentication yes</strong><br><strong>          PasswordAuthentication yes</strong><br>​          PermitEmptyPasswords no<br>​          AllowUsers admin</p>
-<p>?下面逐行说明上面的选项设置：</p>
-<p>Port 22<br>“Port”设置sshd监听的端口号。</p>
-<p>ListenAddress 192.168.1.1<br>“ListenAddress”设置sshd服务器绑定的IP地址。</p>
-<p>HostKey /etc/ssh/ssh_host_key<br>“HostKey”设置包含计算机私人密匙的文件。</p>
-<p>ServerKeyBits 1024<br>“ServerKeyBits”定义服务器密匙的位数。</p>
-<p>LoginGraceTime 600<br>“LoginGraceTime”设置如果用户不能成功登录，在切断连接之前服务器需要等待的时间（以秒为单位）。</p>
-<p>KeyRegenerationInterval 3600<br>“KeyRegenerationInterval”设置在多少秒之后自动重新生成服务器的密匙（如果使用密匙）。重新生成密匙是为了防止用盗用的密匙解密被截获的信息。</p>
-<p><strong>PermitRootLogin no</strong><br><strong>“PermitRootLogin”设置是否允许root通过ssh登录。这个选项从安全角度来讲应设成”no”</strong>。</p>
-<p>IgnoreRhosts yes<br>“IgnoreRhosts”设置验证的时候是否使用“rhosts”和“shosts”文件。</p>
-<p>IgnoreUserKnownHosts yes<br>“IgnoreUserKnownHosts”设置ssh daemon是否在进行RhostsRSAAuthentication安全验证的时候忽略用户的”$HOME/.ssh/known_hosts”</p>
-<p>StrictModes yes<br>“StrictModes”设置ssh在接收登录请求之前是否检查用户家目录和rhosts文件的权限和所有权。这通常是必要的，因为新手经常会把自己的目录和文件设成任何人都有写权限。</p>
-<p>X11Forwarding no<br>“X11Forwarding”设置是否允许X11转发。</p>
-<p>PrintMotd yes<br>“PrintMotd”设置sshd是否在用户登录的时候显示“/etc/motd”中的信息。</p>
-<p>SyslogFacility AUTH<br>“SyslogFacility”设置在记录来自sshd的消息的时候，是否给出“facility code”。</p>
-<p>LogLevel INFO<br>“LogLevel”设置记录sshd日志消息的层次。INFO是一个好的选择。查看sshd的man帮助页，已获取更多的信息。</p>
-<p>RhostsAuthentication no<br>“RhostsAuthentication”设置只用rhosts或“/etc/hosts.equiv”进行安全验证是否已经足够了。</p>
-<p>RhostsRSAAuthentication no<br>“RhostsRSA”设置是否允许用rhosts或“/etc/hosts.equiv”加上RSA进行安全验证。</p>
-<p><strong>RSAAuthentication yes</strong><br><strong>“RSAAuthentication”设置是否允许只有RSA安全验证</strong>。</p>
-<p><strong>PasswordAuthentication yes</strong><br><strong>“PasswordAuthentication”设置是否允许口令验证。</strong></p>
-<p>PermitEmptyPasswords no<br>“PermitEmptyPasswords”设置是否允许用口令为空的帐号登录。</p>
-<p>AllowUsers admin   #限定登录的用户名<br>“AllowUsers”的后面可以跟任意的数量的用户名的匹配串，这些字符串用空格隔开。主机名可以是域名或IP地址。</p>
-<p>​    通常情况下我们在连接 OpenSSH服务器的时候假如 UseDNS选项是打开的话，服务器会先根据客户端的 IP地址进行 DNS PTR反向查询出客户端的主机名，然后根据查询出的客户端主机名进行DNS正向A记录查询，并验证是否与原始 IP地址一致，通过此种措施来防止客户端欺骗。平时我们都是动态 IP不会有PTR记录，所以打开此选项也没有太多作用。我们可以通过关闭此功能来提高连接 OpenSSH 服务器的速度。</p>
-<p>服务端步骤如下：<br>编辑配置文件 /etc/ssh/sshd_config<br>vim /etc/ssh/sshd_config<br>找到 UseDNS选项，如果没有注释，将其注释<br>#UseDNS yes<br>添加<br>UseDNS no</p>
-<p>找到 GSSAPIAuthentication选项，如果没有注释，将其注释<br>#GSSAPIAuthentication yes<br>添加<br>GSSAPIAuthentication no</p>
-<p>保存配置文件</p>
-<p>重启 OpenSSH服务器<br>/etc/init.d/sshd restart</p>
-<p>注意：</p>
-<p>​     一般远程修改ssh端口，建议22端口留着防止修改未成功，连不上都SB了。如果开启防火墙记得添加端口放行！</p>
-<p>port 22</p>
-<p>port 2345</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/31/ssh配置文件ssh_config和sshd_config区别/" data-id="cj9nzpy8k000iccva4og6ktmd" class="article-share-link">Partager</a>
-      
-      
     </footer>
   </div>
   
@@ -374,7 +225,7 @@
     <article id="post-吕娟--技术栈" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/10/31/吕娟--技术栈/" class="article-date">
-  <time datetime="2017-10-30T18:11:50.223Z" itemprop="datePublished">2017-10-31</time>
+  <time datetime="2017-10-30T18:22:15.000Z" itemprop="datePublished">2017-10-31</time>
 </a>
     
   </div>
@@ -671,38 +522,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/31/吕娟--技术栈/" data-id="cj9nzpy800008ccvahyudkymy" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/10/31/吕娟--技术栈/" data-id="cj9o0diy7000b90vapo8sp40c" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术栈/">技术栈</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-电路与电子学" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/10/30/电路与电子学/" class="article-date">
-  <time datetime="2017-10-30T10:00:23.046Z" itemprop="datePublished">2017-10-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="电流和电流的参考方向"><a href="#电流和电流的参考方向" class="headerlink" title="电流和电流的参考方向"></a>电流和电流的参考方向</h3><p>习惯上把正电荷流动的方向作为电流的实际方向。在电路分析中有时不容易判断出电流的实际方向，在有些情况下电流的实际方向还是变化的，为此我们可以任意选定一个方向作为电流的参考方向。  </p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/电路与电子学/" data-id="cj9nzpy8k000jccvazr0ht5gv" class="article-share-link">Partager</a>
-      
-      
     </footer>
   </div>
   
@@ -722,7 +546,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>定理4-2 是定义在集合A上的一个n元运算，且在A的两个子集S1和S2上均封闭，则。在S1∩S2上也是封闭。</p>
+        <p>title: 代数系统<br>date: 2017-10-26 02:22:15<br>tags: 学业</p>
+<p>定理4-2 是定义在集合A上的一个n元运算，且在A的两个子集S1和S2上均封闭，则。在S1∩S2上也是封闭。</p>
 <p>其实这句话证明就是这样</p>
 <blockquote>
 <p>(a1,a2,···,an)∈S1 且 (a1,a2,···,an)∈S2</p>
@@ -748,9 +573,48 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/离散数学-代数系统/" data-id="cj9nzpy8u000nccvalguv4is3" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/10/30/离散数学-代数系统/" data-id="cj9o0diyi000p90va3eslxogn" class="article-share-link">Partager</a>
       
       
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-电路与电子学" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/30/电路与电子学/" class="article-date">
+  <time datetime="2017-10-30T04:22:15.000Z" itemprop="datePublished">2017-10-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/30/电路与电子学/">电路与电子学</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="电流和电流的参考方向"><a href="#电流和电流的参考方向" class="headerlink" title="电流和电流的参考方向"></a>电流和电流的参考方向</h3><p>习惯上把正电荷流动的方向作为电流的实际方向。在电路分析中有时不容易判断出电流的实际方向，在有些情况下电流的实际方向还是变化的，为此我们可以任意选定一个方向作为电流的参考方向。  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/10/30/电路与电子学/" data-id="cj9o0diyf000l90vax51m21w0" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学业/">学业</a></li></ul>
+
     </footer>
   </div>
   
@@ -770,7 +634,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###未经省察的人生没有价值</p>
+        <p>title: 未经审查的人生没有价值<br>date: 2017-10-28 02:22:15<br>tags: 哲学</p>
+<p>###未经省察的人生没有价值</p>
 <p>有两种哲学家。一种人把哲学当作他的职业，即谋生的手段。另一种人把哲学当作他的生命甚至是比生命更宝贵的东西。在公元前五世纪的希腊，智者属于前者，用苏格拉底的话说，他们是“智慧的出卖者”；而苏格拉底自己则堪为后者的典范，他也许是哲学史上因为思想而被定罪并且为了思想而英勇献身的最早也最著名的一位哲学家了。</p>
 <p>人仿佛有了两个自我，一个自我到世界上去奋斗，去追求，也许凯旋，也许败归，另一个自我便含着宁静的微笑，把这遍体汗水和血迹的哭着笑着的自我迎回家来，把丰厚的战利品指给他看，连败归者也有一份。</p>
 <ul>
@@ -794,7 +659,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/28/未经省察的人生没有价值/" data-id="cj9nzpy8k000lccva0gzghmbn" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/10/28/未经省察的人生没有价值/" data-id="cj9o0diyd000j90vaw91hrh2k" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -804,15 +669,269 @@
 
 
   
-    <article id="post-存储管理之分页" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-操作系统之存储管理-1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/10/27/存储管理之分页/" class="article-date">
-  <time datetime="2017-10-26T16:49:58.335Z" itemprop="datePublished">2017-10-27</time>
+    <a href="/2017/10/26/操作系统之存储管理-1/" class="article-date">
+  <time datetime="2017-10-25T18:22:15.000Z" itemprop="datePublished">2017-10-26</time>
 </a>
     
   </div>
   <div class="article-inner">
     
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/26/操作系统之存储管理-1/">操作系统之存储管理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="操作系统之存储管理"><a href="#操作系统之存储管理" class="headerlink" title="操作系统之存储管理"></a>操作系统之存储管理</h1><p>分层存储体系<img src="http://ww3.sinaimg.cn/large/0060lm7Tly1fkuzq0qcf2j30dq0cmjru.jpg" alt="分层存储体系"></p>
+<p>操作系统中管理分层存储器体系的邠称为存储管理器(memory manager)。它的任务是有效地管理内存</p>
+<ul>
+<li>即记录那些内存是正在使用的，哪些内存是空闲的</li>
+<li>在进程需要时为其分配内存，在进程使用完后释放内存。</li>
+</ul>
+<h2 id="无存储器抽象"><a href="#无存储器抽象" class="headerlink" title="无存储器抽象"></a>无存储器抽象</h2><p>早期的大中小型计算机都没有存储器抽象。每一个程序都直接访问物理内存，这么做相当于把物理地址暴露给进程，这样会带来几个严重的问题：</p>
+<ol>
+<li>如果用户程序可以寻址内存的每个字节，他们就可以很容易地破坏操作系统，从而使系统慢慢停止运行</li>
+<li>使用这种模型，想要同时运行多个程序是很困难的</li>
+</ol>
+<h2 id="存储抽象-地址空间"><a href="#存储抽象-地址空间" class="headerlink" title="存储抽象:地址空间"></a>存储抽象:地址空间</h2><h3 id="地址空间概念"><a href="#地址空间概念" class="headerlink" title="地址空间概念"></a>地址空间概念</h3><p>地址空间是一个进程可用于寻址内存的一套地址集合。每个进程都有一个自己的地址空间，并且这个地址空间独立于其他进程的地址空间(除了在一些特殊情况下进程需要共享它们的地址空间外)。</p>
+<h4 id="基址寄存器与界限寄存器"><a href="#基址寄存器与界限寄存器" class="headerlink" title="基址寄存器与界限寄存器"></a>基址寄存器与界限寄存器</h4><p>把每个进程的地址空间映射到物理内存的不同部分。当CPU使用基址寄存器和界限寄存器时，程序装载到内存中的连续空间且装载期间无须重定位。</p>
+<h3 id="交换技术"><a href="#交换技术" class="headerlink" title="交换技术"></a>交换技术</h3><p>两种处理内存超载的通用方法。</p>
+<ol>
+<li>交换技术</li>
+<li>虚拟内存</li>
+</ol>
+<p>交换技术，即把一个进程完整调入内存，使该进程运行一段时间，然后把它存回磁盘。空闲进程主要存储在磁盘上，所以当它们不运行时就不会占用内存(尽管它们的一些进程会周期性地被唤醒以完成相关工作，然后又进入睡眠状态)</p>
+<blockquote>
+<p>可怜如磁盘，所以在网吧运行耗内存游戏就尽情开虚拟内存?</p>
+</blockquote>
+<p>虚拟内存，该策略升值能使程序只有一部分被调入内存的情况下运行。</p>
+<h3 id="交换技术-1"><a href="#交换技术-1" class="headerlink" title="交换技术"></a>交换技术</h3><hr>
+<h3 id="空闲内存管理"><a href="#空闲内存管理" class="headerlink" title="空闲内存管理"></a>空闲内存管理</h3><p>在动态分配内存时，操作系统必须对其进行管理。两种方式跟踪内存使用情况</p>
+<ul>
+<li>位图</li>
+<li>空闲链表</li>
+</ul>
+<ol>
+<li><p>使用位图的存储管理</p>
+<p>使用位图方法时，内存可能被划分成小到几个字或大到几千字节的分配单元。每个分配单元对应于位图中的一位,0表示空闲，1表示占用(或者相反)。<img src="http://ww3.sinaimg.cn/large/0060lm7Tly1fkv0x6297zj30kt07yjsf.jpg" alt="位图空闲链表"></p>
+</li>
+</ol>
+<p>这种方法的主要问题是，在决定把一个占k个分配单元的进程调入内存时，存储管理器必须搜索位图，在位图中找出有k个连续0的串。查找位图中指定长度的连续0串是耗时的操作(因为在位图中该串可能跨越字的边界)，这是位图的缺点。</p>
+<ol>
+<li><p>使用链表的存储管理</p>
+<p>另一种记录内存使用情况的方法是，维护一个记录已分配内存段和空闲段的链表。其中链表中的一个结点或者包含一个进程，或者是两个进程间的一个空的空闲区。</p>
+</li>
+</ol>
+<h2 id="虚拟内存"><a href="#虚拟内存" class="headerlink" title="虚拟内存"></a>虚拟内存</h2><p>尽管基址寄存器和界限寄存器可以用于创建地址空间的抽象，还有另一个问题需要解决：管理软件的膨胀。</p>
+<p>虚拟内存的基本思想是：每个程序拥有自己的地址空间，这个空间被分割成多个块，每一块称作一页或页面。每一页有连续的地址范围。这些页被映射到物理内存，但并不是所有的页都必须在内存中才能运行程序。当程序引用到一部分在物理内存中的地址空间时，由硬件立刻执行必要的映射。当程序引用到一部分不在物理内存中的地址空间时，由操作系统负责将确实的部分装入物理内存并重新执行失败的指令。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/10/26/操作系统之存储管理-1/" data-id="cj9o0diyb000f90vaxvjnpgat" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-DB组2017秋季大二新生培养(考核)计划" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/26/DB组2017秋季大二新生培养(考核)计划/" class="article-date">
+  <time datetime="2017-10-25T18:22:15.000Z" itemprop="datePublished">2017-10-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/26/DB组2017秋季大二新生培养(考核)计划/">DB组2017秋季大二新生培养计划</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> #DB组2017秋季大二新生培养计划</p>
+<p>##题目划分及分组</p>
+<p>吕娟：Bootstrap框架与AJAX学习、python网络数据采集学习 、制作响应式网页（风格自选）、数据库系统概论前七章</p>
+<p>朱红梅：MySQL索引背后的数据结构及算法原理(Btree,B+tree)、数据库系统概论前七章、新闻发布系统(数据库)     </p>
+<p>金鹏：php+MySQL前14章 、数据库系统概论前七章、新闻发布系统(后台+前端) ps：金鹏已有部分前端基础</p>
+<hr>
+<h2 id="要求及时间"><a href="#要求及时间" class="headerlink" title="要求及时间"></a>要求及时间</h2><p>文章发布系统</p>
+<p>这个简单的系统主要是面向后台的新闻管理人员，用于管理新闻。主要的功能包括：</p>
+<p>新闻添加：录入新的新闻。</p>
+<p>新闻编辑：对新闻的编辑修改。</p>
+<p>新闻删除：对已经添加的新闻进行删除操作。</p>
+<p>新闻查询：查询已经添加的新闻。</p>
+<p>新闻展示：通过分页来展示新闻页面。</p>
+<p>主要的实现功能思路：</p>
+<p>完成这个简单系统我们需要在3个页面进行，分别为：</p>
+<p>新闻添加页面， 新闻列表页面和新闻修改页面。</p>
+<ol>
+<li>新闻添加页通过这个页面我们向数据库中添加新闻数据，包括新闻的标题，作者，内容等等，提交成功后直接会把添加的内容显示在新闻列表页中。</li>
+<li>新闻列表页这个页面的实现功能比较多，除了展示我们添加的新闻内容外，还要实现新闻列表的分页功能我们设定每页显示的新闻数，通过代码就可以在页面展示我们有多少页，比如1,2,3。。。等等通过点击1,2,3跳转显示不同的新闻列表，也可以通过点击”上一页”,”下一页”来实现一页一页的跳转。实现新闻的编辑功能当我们点击编辑模块里面的“修改”时，将会跳转到新闻修改页面，对新闻进行修改操作。当我们点击编辑模块里面的“删除”时，将会删除当前的新闻，并会删除数据库中相关的记录。</li>
+<li>新闻编辑页这个页面主要实现新闻内容的修改，你可以修改标题和新闻内容，修改成功后，将会跳转回新闻列表页面并且在数据库中的记录也将会被修改。希望通过本教程让PHP新手熟悉对数据库操作，培养更好地逻辑分析能力。</li>
+</ol>
+<p><img src="http://img.php.cn//upload/image/873/353/189/1480573350335309.png" alt="1!605.png"></p>
+<p>时间：10月15日——12月17日(作品展示)——12月24日(数据库系统概论测验)（<strong>每周日</strong>检查学习笔记(markdown、纸质形式)，总结学习情况，并给予评分，）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">姓名</th>
+<th>签到</th>
+<th>测试</th>
+<th>作品</th>
+<th>笔记</th>
+<th>总分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">朱红梅</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">吕娟</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">金鹏</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">笔记+签到得分</th>
+<th>一周</th>
+<th>二周</th>
+<th>三周</th>
+<th>四周</th>
+<th>五周</th>
+<th>六周</th>
+<th>七周</th>
+<th>八周</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">朱红梅</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">吕娟</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">金鹏</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="最终提交形式"><a href="#最终提交形式" class="headerlink" title="最终提交形式"></a>最终提交形式</h2><ol>
+<li>吕娟：bootstrap及ajax响应式网页，Python爬虫笔记+代码(豆瓣电影、知乎。。。自选爬取网站)，数据库系统概论知识测试</li>
+<li>朱红梅：MySQL索引背后的数据结构及算法原理技术演讲+新闻发布系统(数据库) 代码，数据库系统概论知识测试</li>
+<li>金鹏：新闻发布系统(后台+前端)代码，数据库系统概论知识测试</li>
+</ol>
+<p>考核结果会在12月25日晚上公布，具体结果会根据</p>
+<p>大家日常去实验室的签到情况（30%）</p>
+<p>笔记评分(20%)</p>
+<p>考核成绩（25%）</p>
+<p>作品成绩（25%）综合判定。</p>
+<hr>
+<blockquote>
+<p>参考资料：</p>
+<p>python爬虫 <a href="http://scrapy-chs.readthedocs.io/zh_CN/0.24/intro/tutorial.html" target="_blank" rel="external">scrapy v:0.24</a> </p>
+<p> <a href="https://book.douban.com/subject/26740503/" target="_blank" rel="external">Python网络数据采集</a><a href="http://blog.codinglabs.org/articles/theory-of-mysql-index.html" target="_blank" rel="external">MySQL索引背后的数据结构及算法原理</a></p>
+<p>php+MySQL实战开发</p>
+<p>数据库系统概论</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/10/26/DB组2017秋季大二新生培养(考核)计划/" data-id="cj9o0dixm000090van8yu6kgf" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计划/">计划</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-存储管理之分页" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/26/存储管理之分页/" class="article-date">
+  <time datetime="2017-10-25T18:22:15.000Z" itemprop="datePublished">2017-10-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/26/存储管理之分页/">存储管理之分页</a>
+    </h1>
+  
+
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -823,9 +942,50 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/27/存储管理之分页/" data-id="cj9nzpy8a000cccvaa4m4cjt8" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/10/26/存储管理之分页/" data-id="cj9o0diy9000d90vavvprb2of" class="article-share-link">Partager</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/操作系统/">操作系统</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-python的set是一个无序不重复元素集" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/26/python的set是一个无序不重复元素集/" class="article-date">
+  <time datetime="2017-10-25T18:22:15.000Z" itemprop="datePublished">2017-10-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/26/python的set是一个无序不重复元素集/">python set</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>python的set是一个无序不重复元素集，基本功能包括关系测试和消除重复元素，集合对象还支持union(联合),intersection(交),difference(差)和sysmmetric difference(对称差集)等数学运算。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/10/26/python的set是一个无序不重复元素集/" data-id="cj9o0diy3000890va45fn907d" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
     </footer>
   </div>
   
@@ -836,7 +996,7 @@
 
 
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -849,7 +1009,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术栈/">技术栈</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学业/">学业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术栈/">技术栈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编码/">编码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/英语/">英语</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计划/">计划</a></li></ul>
     </div>
   </div>
 
@@ -859,7 +1019,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
-      <a href="/tags/技术栈/" style="font-size: 10px;">技术栈</a>
+      <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/学业/" style="font-size: 10px;">学业</a> <a href="/tags/技术栈/" style="font-size: 10px;">技术栈</a> <a href="/tags/操作系统/" style="font-size: 10px;">操作系统</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/英语/" style="font-size: 10px;">英语</a> <a href="/tags/计划/" style="font-size: 10px;">计划</a>
     </div>
   </div>
 
@@ -868,7 +1028,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li></ul>
     </div>
   </div>
 
@@ -881,23 +1041,23 @@
       <ul>
         
           <li>
-            <a href="/2017/11/04/PHP Ajax 跨域问题最佳解决方案/">(no title)</a>
+            <a href="/2017/11/02/vim和linux快捷键/">vim和linux快捷键</a>
           </li>
         
           <li>
-            <a href="/2017/11/02/On first acquaintance she is cool and slightly distant./">(no title)</a>
+            <a href="/2017/11/02/On first acquaintance she is cool and slightly distant./">单词</a>
           </li>
         
           <li>
-            <a href="/2017/11/02/vim和linux快捷键/">(no title)</a>
+            <a href="/2017/10/31/吕娟--技术栈/">吕娟--技术栈</a>
           </li>
         
           <li>
-            <a href="/2017/10/31/lastb命令/">(no title)</a>
+            <a href="/2017/10/30/离散数学-代数系统/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2017/10/31/ssh配置文件ssh_config和sshd_config区别/">(no title)</a>
+            <a href="/2017/10/30/电路与电子学/">电路与电子学</a>
           </li>
         
       </ul>

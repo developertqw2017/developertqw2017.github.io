@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>vim和linux快捷键 | Hexo</title>
+  <title>重定向与管道 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="偶尔记一下新的快捷键也是不错的 频率大概是1个月一次吧。。。 Linux终端中删除字符的方法/快捷键 Ctrl+H 退格键，向前删除一个字符  Ctrl+U 向前删除直到行首  Ctrl+W 执行向前删除，直到前一个字符是空格（其它类空格字符？）   VIM键盘映射 (Map)   Command命令 Normal  常规模式 Visual可视化模式 Operator Pending运算符模式 I">
-<meta name="keywords" content="vim">
+  <meta name="description" content="标准输入/输出(standard I/O)：程序应该有数据的来源端、数据的目的端以及报告问题的地方。  标准输入 标准输出 标准错误输出  重定向与管道Shell提供了数种语法标记，可用来改变默认I/O的来源端与目的端。 以&amp;lt;改变标准输入 ​    program &amp;lt; file可将program的标准输入修改为file： ​    tr -d ‘\r’ &amp;lt;dos-file.txt">
+<meta name="keywords" content="shell">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vim和linux快捷键">
-<meta property="og:url" content="http://yoursite.com/2017/11/02/vim和linux快捷键/index.html">
+<meta property="og:title" content="重定向与管道">
+<meta property="og:url" content="http://yoursite.com/2017/10/24/重定向与管道/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="偶尔记一下新的快捷键也是不错的 频率大概是1个月一次吧。。。 Linux终端中删除字符的方法/快捷键 Ctrl+H 退格键，向前删除一个字符  Ctrl+U 向前删除直到行首  Ctrl+W 执行向前删除，直到前一个字符是空格（其它类空格字符？）   VIM键盘映射 (Map)   Command命令 Normal  常规模式 Visual可视化模式 Operator Pending运算符模式 I">
-<meta property="og:updated_time" content="2017-11-06T09:42:19.735Z">
+<meta property="og:description" content="标准输入/输出(standard I/O)：程序应该有数据的来源端、数据的目的端以及报告问题的地方。  标准输入 标准输出 标准错误输出  重定向与管道Shell提供了数种语法标记，可用来改变默认I/O的来源端与目的端。 以&amp;lt;改变标准输入 ​    program &amp;lt; file可将program的标准输入修改为file： ​    tr -d ‘\r’ &amp;lt;dos-file.txt">
+<meta property="og:updated_time" content="2017-11-06T09:50:23.698Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vim和linux快捷键">
-<meta name="twitter:description" content="偶尔记一下新的快捷键也是不错的 频率大概是1个月一次吧。。。 Linux终端中删除字符的方法/快捷键 Ctrl+H 退格键，向前删除一个字符  Ctrl+U 向前删除直到行首  Ctrl+W 执行向前删除，直到前一个字符是空格（其它类空格字符？）   VIM键盘映射 (Map)   Command命令 Normal  常规模式 Visual可视化模式 Operator Pending运算符模式 I">
+<meta name="twitter:title" content="重定向与管道">
+<meta name="twitter:description" content="标准输入/输出(standard I/O)：程序应该有数据的来源端、数据的目的端以及报告问题的地方。  标准输入 标准输出 标准错误输出  重定向与管道Shell提供了数种语法标记，可用来改变默认I/O的来源端与目的端。 以&amp;lt;改变标准输入 ​    program &amp;lt; file可将program的标准输入修改为file： ​    tr -d ‘\r’ &amp;lt;dos-file.txt">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -64,10 +64,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-vim和linux快捷键" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-重定向与管道" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/11/02/vim和linux快捷键/" class="article-date">
-  <time datetime="2017-11-01T19:22:15.000Z" itemprop="datePublished">2017-11-02</time>
+    <a href="/2017/10/24/重定向与管道/" class="article-date">
+  <time datetime="2017-10-23T18:22:15.000Z" itemprop="datePublished">2017-10-24</time>
 </a>
     
   </div>
@@ -78,7 +78,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      vim和linux快捷键
+      重定向与管道
     </h1>
   
 
@@ -86,95 +86,43 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>偶尔记一下新的快捷键也是不错的</p>
-<p>频率大概是1个月一次吧。。。</p>
-<h2 id="Linux终端中删除字符的方法-快捷键"><a href="#Linux终端中删除字符的方法-快捷键" class="headerlink" title="Linux终端中删除字符的方法/快捷键"></a>Linux终端中删除字符的方法/快捷键</h2><ul>
-<li>Ctrl+H 退格键，向前删除一个字符 </li>
-<li>Ctrl+U 向前删除直到行首 </li>
-<li>Ctrl+W 执行向前删除，直到前一个字符是空格（其它类空格字符？） </li>
+        <p>标准输入/输出(standard I/O)：程序应该有数据的来源端、数据的目的端以及报告问题的地方。</p>
+<ul>
+<li>标准输入</li>
+<li>标准输出</li>
+<li>标准错误输出</li>
 </ul>
-<h1 id="VIM键盘映射-Map"><a href="#VIM键盘映射-Map" class="headerlink" title="VIM键盘映射 (Map)"></a>VIM键盘映射 (Map)</h1><table>
-<thead>
-<tr>
-<th>Command命令</th>
-<th>Normal  常规模式</th>
-<th>Visual可视化模式</th>
-<th>Operator Pending运算符模式</th>
-<th>Insert Only插入模式</th>
-<th>Command Line命令行模式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>:map</code></td>
-<td>y</td>
-<td>y</td>
-<td>y</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>:nmap</code></td>
-<td>y</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>:vmap</code></td>
-<td></td>
-<td>y</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>:omap</code></td>
-<td></td>
-<td></td>
-<td>y</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>:map!</code></td>
-<td></td>
-<td></td>
-<td></td>
-<td>y</td>
-<td>y</td>
-</tr>
-<tr>
-<td><code>:imap</code></td>
-<td></td>
-<td></td>
-<td></td>
-<td>y</td>
-<td></td>
-</tr>
-<tr>
-<td><code>:cmap</code></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>y</td>
-</tr>
-</tbody>
-</table>
-<p><space>    常规模式，可视化模式，运算符模式<br>n    常规模式<br>v    可视化模式<br>o    运算符模式<br>!    插入模式，命令行模式<br>i    插入模式<br>c    命令模式</space></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:unmap &lt;F10&gt;</div></pre></td></tr></table></figure>
-<h1 id="使用set命令"><a href="#使用set命令" class="headerlink" title="使用set命令"></a>使用set命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">set pastetoggle=&lt;F9&gt;</div></pre></td></tr></table></figure>
-<h1 id="使用imap命令"><a href="#使用imap命令" class="headerlink" title="使用imap命令"></a>使用imap命令</h1><p>用Esc退出插入模式很麻烦，可以将另外的键映射到这个键上，如下,将Ctrl-i映射为Esc</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">imap &lt;C-I&gt; &lt;Esc&gt;</div></pre></td></tr></table></figure>
+<h2 id="重定向与管道"><a href="#重定向与管道" class="headerlink" title="重定向与管道"></a>重定向与管道</h2><p>Shell提供了数种语法标记，可用来改变默认I/O的来源端与目的端。</p>
+<p>以&lt;改变标准输入</p>
+<p>​    program &lt; file可将program的标准输入修改为file：</p>
+<p>​    tr -d ‘\r’ &lt;dos-file.txt …</p>
+<p>以 &gt; 改变标准输出</p>
+<p>​    program &gt; file 可将program的标准输出修改为file：</p>
+<p>​    tr -d ‘\r’ &lt; dos-file.txt &gt;UNIX-file.txt</p>
+<p>​    这条命令会先以tr将dos-file.txt里的ASCLL carriage-return(回车)删除，再将               转换完成的数据输出到UNIX-file.txt。dos-file.txt 里的原始数据不会有变化。</p>
+<p>以&gt;&gt;附加到文件</p>
+<p>​    program &gt;&gt; file 可以将program的标准输出修改为file:</p>
+<p>​    如同&gt;,如果目的文件不存在,&gt;&gt;重定向符便会新建一个。然而，如果目的文件存在，它不会直接覆盖文件，而是将程序所产生的数据附加到文件结尾处：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for f in dos-file*.txt</div><div class="line">do</div><div class="line">	tr -d '\r' &lt; $f &gt;&gt; big-UNIX-file.txt</div><div class="line">done</div></pre></td></tr></table></figure>
+<p>以|建立管道</p>
+<p>program1 | program2 可将program1的标准输出修改为program2的标准输入。</p>
+<p>虽然&lt;与&gt;可将输入与输出连接到文件，不过管道(pipeline)可以把两个以上执行中的程序衔接到一起，第一个程序的标准输出可以变成第二个程序的。第一个程序的标准输出可以变成第二个程序的标准输入。这么做的好处是，管道可以使得执行速度比使用临时文件的程序快上十倍。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tr -d '\r' &lt; dos-file.txt | sort &gt;UNIX-file.txt</div></pre></td></tr></table></figure>
+<p>这条管道会先删除输入文件内的回车字符，在完成数据的排序之后，将结果输出到目的文件。</p>
+<h2 id="tr语法"><a href="#tr语法" class="headerlink" title="tr语法"></a>tr语法</h2><p>语法</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tr [options] source-char-list replace-char-list</div></pre></td></tr></table></figure>
+<p>用途</p>
+<p>​    转换字符。例如将大写字符转换成小写。选项可让你指定所要删除的字符，以及将一串重复出现的字符浓缩成一个。</p>
+<p>常用选项</p>
+<p>​    </p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/02/vim和linux快捷键/" data-id="cj9o0diy5000990vav3pflgy4" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/10/24/重定向与管道/" data-id="cj9o0diyh000m90va2i6le7ip" class="article-share-link">Partager</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
 
     </footer>
   </div>
@@ -182,10 +130,19 @@
     
 <nav id="article-nav">
   
+    <a href="/2017/10/26/python的set是一个无序不重复元素集/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          python set
+        
+      </div>
+    </a>
   
-    <a href="/2017/11/02/On first acquaintance she is cool and slightly distant./" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2017/09/29/UTF-8 带签名和不带签名的区别/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Ancien</strong>
-      <div class="article-nav-title">单词</div>
+      <div class="article-nav-title">UTF-8 带签名和不带签名的区别</div>
     </a>
   
 </nav>
