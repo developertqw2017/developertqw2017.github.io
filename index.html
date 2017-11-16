@@ -89,7 +89,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2099/11/14/11月gantt/" data-id="cja2ascee00004ovam2fanbwk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2099/11/14/11月gantt/" data-id="cja2fs8mz0000kgva82srom8z" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GANTT/">GANTT</a></li></ul>
@@ -139,7 +139,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/14/什么是甘特图/" data-id="cja2ascfj000d4ova162s35oc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/14/什么是甘特图/" data-id="cja2fs8oq000qkgvawgnto7iw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目管理/">项目管理</a></li></ul>
@@ -184,10 +184,138 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/14/线框图和原型/" data-id="cja2ascfz000q4ovaksnphbvj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/14/线框图和原型/" data-id="cja2fs8oi000lkgvarjryylt6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计/">设计</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-朱红梅--技术栈" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/13/朱红梅--技术栈/" class="article-date">
+  <time datetime="2017-11-13T04:00:00.000Z" itemprop="datePublished">2017-11-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/13/朱红梅--技术栈/">朱红梅--技术栈</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>朱红梅–技术栈</p>
+<hr>
+<h2 id="python"><a href="#python" class="headerlink" title="python"></a>python</h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a><a href="http://python-web-guide.readthedocs.io/zh/latest/sso/index.html" target="_blank" rel="external">参考</a></h2><ul>
+<li>闭包</li>
+<li>正则表达式</li>
+<li>collections</li>
+<li>defaultdict</li>
+<li>itertools</li>
+<li>enum</li>
+<li>IntEnum</li>
+<li>enumerate</li>
+<li>time.mktime(time.strptime(“2007-03-04 21:08:12”, “%Y-%m-%d %H:%M:%S”))</li>
+<li>dateparser</li>
+<li>python 的 新式类与旧式类 ， 以及super的意义</li>
+</ul>
+<h2 id="supervisor"><a href="#supervisor" class="headerlink" title="supervisor"></a>supervisor</h2><ul>
+<li>线上服务器如何看异常</li>
+</ul>
+<h2 id="开发流程"><a href="#开发流程" class="headerlink" title="开发流程"></a>开发流程</h2><p>新建一个页面通常需要创建几个文件：</p>
+<ul>
+<li>模板 zapp/SITE/model/模块名.py</li>
+<li>视图 zapp/SITE/view/模块名.py</li>
+<li>Coffee Script 脚本 coffee/SITE/auth/模块名/视图名.coffee</li>
+<li>Make 模板 html/SITE/auth/模块名/视图名.html</li>
+<li>CSS 样式文件 css/SITE/auth/模块名.css</li>
+</ul>
+<p>并在 <code>_url.py</code> 中注册视图。</p>
+<ul>
+<li>新建url页面</li>
+<li>render</li>
+<li>css，js的引用</li>
+<li>merge.conf</li>
+<li>新建css，js，修改merge.conf需要重启开发服务器</li>
+<li>View的类型</li>
+<li>分页</li>
+<li>在页面取得当前用户</li>
+<li>搜索</li>
+<li>自动补全</li>
+<li>gearman 异步调用</li>
+<li>JsOb</li>
+<li>rendermail 发送邮件</li>
+<li>redis key的定义 ， R.</li>
+<li>model 中 使用绝对路径import以防止redis提示key重复定义</li>
+<li>import _env</li>
+<li>配置文件 的 定义 与 自适应</li>
+<li>make.py 生成配置文件</li>
+</ul>
+<h2 id="Mako-模板"><a href="#Mako-模板" class="headerlink" title="Mako 模板"></a>Mako 模板</h2><p>Mako 模板的存放路径通常是 42web/html/SITE/模块名/文件名.html。 Mako 模板的使用见 <a href="http://docs.makotemplates.org/en/latest/" target="_blank" rel="external">教程</a> ，通用部分通常需要剥离成一个 <em>base.html 文件中， 不被直接 render 的模板命名以下划线 `</em>` 开头。</p>
+<p>一个基本的模板文件大概是这样的:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">## 这里继承父模版</div><div class="line">&lt;%inherit file=&quot;/SITE/_base/default.html&quot; /&gt;</div><div class="line">## 添加头文件、CSS 文件</div><div class="line">&lt;%block name=&quot;head&quot;&gt;</div><div class="line">&lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, width=device-width&quot;&gt;</div><div class="line">## 这里引入 CSS 文件，将目录名中的斜线换成下划线作为变量传入</div><div class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;$&#123;css.SITE_auth_m&#125;&quot; /&gt;</div><div class="line">&lt;/%block&gt;</div><div class="line"></div><div class="line">&lt;%block name=&quot;script&quot;&gt;</div><div class="line">## 在文件尾引入 JS 文件，变量名同为替换后的目录名，JS 文件来自于变异 Coffee Script</div><div class="line">&lt;script src=&quot;$&#123;js.SITE_auth_m_m&#125;&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/%block&gt;</div></pre></td></tr></table></figure>
+<h2 id="Coffee-Script"><a href="#Coffee-Script" class="headerlink" title="Coffee Script"></a>Coffee Script</h2><p>网页脚本用 Coffee Script，写完后需编译为 JavaScript （添加新的 CS 脚本需要手动重启 dev.sh 脚本，修改已存在的脚本会自动变异成 JS）。</p>
+<h2 id="Python-Model"><a href="#Python-Model" class="headerlink" title="Python Model"></a>Python Model</h2><p>数据存储使用的是 MongoDB，通过封装过的 MongoKit 将数据 model 对应上 MongoDB 文档， 需要 <code>from z42.web.mongo import mongo</code> 。下面是一个简单的 model 文件示例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">from z42.web.mongo import Doc</div><div class="line">from z42.web.mongo import mongo</div><div class="line"></div><div class="line">class UserIM(Doc):</div><div class="line">    structure = &#123;</div><div class="line">        &apos;user_id&apos;: int,</div><div class="line">        &apos;phone&apos;: basestring,</div><div class="line">        &apos;qq&apos;: basestring,</div><div class="line">        &apos;weixin&apos;:basestring</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>创建一个 UserIM 对象使用 upsert() 方法，如 <code>UserIM({&#39;phone&#39;: PHONE}).upsert({user_id: 1001})</code> ， 这行代码的作用是：如果存在 user_id 为 1001 的 UserIM，则将其 ‘phone’ 设置为 PHONE， 否则在 MongoDB 中插入这样一个 JSON 文档： {‘user_id’: 1001, ‘phone’: PHONE}。</p>
+<h2 id="Python-View"><a href="#Python-View" class="headerlink" title="Python View"></a>Python View</h2><blockquote>
+<ul>
+<li>View</li>
+<li>HostView</li>
+<li>LoginView</li>
+<li>AdminView</li>
+<li>GodView</li>
+<li>JsonErrView</li>
+<li>RpcView</li>
+<li>组合 View</li>
+</ul>
+</blockquote>
+<p>web 开发使用的框架Tornado，需要通过装饰器注册 URL。 新建一个简单的 view 如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">from _route import route</div><div class="line">from z42.web.view.j import JsonErrView</div><div class="line">from jsob import JsOb</div><div class="line">from zapp.SITE.view._base import HostView</div><div class="line"></div><div class="line">@route(&apos;/m/register/&apos;)</div><div class="line">class register(HostView):</div><div class="line">    def get(self, sign):</div><div class="line">        self.render()</div><div class="line"></div><div class="line">@route(&apos;/j/m/&apos;)</div><div class="line">class _(JsonErrView, HostView):</div><div class="line">    def post(self, sign):</div><div class="line">        err = JsOb()            # 使用 JsOb 对象保存错误信息</div><div class="line">        o = self.json           # 获取 JSON 化的 POST 信息</div><div class="line">        if not o.title:</div><div class="line">            err.title = &quot;链接已失效！&quot;</div><div class="line">        if not err:</div><div class="line">            do_something()</div><div class="line">        self.render(err)</div></pre></td></tr></table></figure>
+<p>这个 module 注册了两个 view，一个注册页面和一个 Ajax 接口。route 方法是一个用于注册 URL 的装饰器， 装饰在 Handler class（通常继承自XxxView）上即可。</p>
+<p>register class 就是视图 Handler 的最简写法。对于 Ajax 视图，Handler 名意义不大，可以使用下划线命名。 需要返回错误提示的视图，可以继承 JsonErrView。View 的继承用法详见 <a href="http://python-web-guide.readthedocs.io/zh/latest/backend/views.html#views" target="_blank" rel="external">视图介绍</a></p>
+<h3 id="Unix-Linux-常用-shell-命令"><a href="#Unix-Linux-常用-shell-命令" class="headerlink" title="Unix/Linux 常用 shell 命令"></a>Unix/Linux 常用 shell 命令</h3><h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>开发工具</p>
+<ul>
+<li>github/bitbucket</li>
+<li><p>xshell</p>
+</li>
+<li><p>filezilla</p>
+</li>
+<li><p>Grunt</p>
+</li>
+<li><p>Firefox</p>
+<ul>
+<li>firebug</li>
+<li>scrapbook</li>
+</ul>
+</li>
+<li><p>Postman</p>
+</li>
+<li><strong>vim</strong></li>
+<li>xshell</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/13/朱红梅--技术栈/" data-id="cja2fs8po001bkgva3zoytoii" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术栈/">技术栈</a></li></ul>
 
     </footer>
   </div>
@@ -504,135 +632,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/13/金鹏--技术栈/" data-id="cja2asch1001b4ova7ay2ghre" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术栈/">技术栈</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-朱红梅--技术栈" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/13/朱红梅--技术栈/" class="article-date">
-  <time datetime="2017-11-13T04:00:00.000Z" itemprop="datePublished">2017-11-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/13/朱红梅--技术栈/">朱红梅--技术栈</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>朱红梅–技术栈</p>
-<hr>
-<h2 id="python"><a href="#python" class="headerlink" title="python"></a>python</h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a><a href="http://python-web-guide.readthedocs.io/zh/latest/sso/index.html" target="_blank" rel="external">参考</a></h2><ul>
-<li>闭包</li>
-<li>正则表达式</li>
-<li>collections</li>
-<li>defaultdict</li>
-<li>itertools</li>
-<li>enum</li>
-<li>IntEnum</li>
-<li>enumerate</li>
-<li>time.mktime(time.strptime(“2007-03-04 21:08:12”, “%Y-%m-%d %H:%M:%S”))</li>
-<li>dateparser</li>
-<li>python 的 新式类与旧式类 ， 以及super的意义</li>
-</ul>
-<h2 id="supervisor"><a href="#supervisor" class="headerlink" title="supervisor"></a>supervisor</h2><ul>
-<li>线上服务器如何看异常</li>
-</ul>
-<h2 id="开发流程"><a href="#开发流程" class="headerlink" title="开发流程"></a>开发流程</h2><p>新建一个页面通常需要创建几个文件：</p>
-<ul>
-<li>模板 zapp/SITE/model/模块名.py</li>
-<li>视图 zapp/SITE/view/模块名.py</li>
-<li>Coffee Script 脚本 coffee/SITE/auth/模块名/视图名.coffee</li>
-<li>Make 模板 html/SITE/auth/模块名/视图名.html</li>
-<li>CSS 样式文件 css/SITE/auth/模块名.css</li>
-</ul>
-<p>并在 <code>_url.py</code> 中注册视图。</p>
-<ul>
-<li>新建url页面</li>
-<li>render</li>
-<li>css，js的引用</li>
-<li>merge.conf</li>
-<li>新建css，js，修改merge.conf需要重启开发服务器</li>
-<li>View的类型</li>
-<li>分页</li>
-<li>在页面取得当前用户</li>
-<li>搜索</li>
-<li>自动补全</li>
-<li>gearman 异步调用</li>
-<li>JsOb</li>
-<li>rendermail 发送邮件</li>
-<li>redis key的定义 ， R.</li>
-<li>model 中 使用绝对路径import以防止redis提示key重复定义</li>
-<li>import _env</li>
-<li>配置文件 的 定义 与 自适应</li>
-<li>make.py 生成配置文件</li>
-</ul>
-<h2 id="Mako-模板"><a href="#Mako-模板" class="headerlink" title="Mako 模板"></a>Mako 模板</h2><p>Mako 模板的存放路径通常是 42web/html/SITE/模块名/文件名.html。 Mako 模板的使用见 <a href="http://docs.makotemplates.org/en/latest/" target="_blank" rel="external">教程</a> ，通用部分通常需要剥离成一个 <em>base.html 文件中， 不被直接 render 的模板命名以下划线 `</em>` 开头。</p>
-<p>一个基本的模板文件大概是这样的:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">## 这里继承父模版</div><div class="line">&lt;%inherit file=&quot;/SITE/_base/default.html&quot; /&gt;</div><div class="line">## 添加头文件、CSS 文件</div><div class="line">&lt;%block name=&quot;head&quot;&gt;</div><div class="line">&lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, width=device-width&quot;&gt;</div><div class="line">## 这里引入 CSS 文件，将目录名中的斜线换成下划线作为变量传入</div><div class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;$&#123;css.SITE_auth_m&#125;&quot; /&gt;</div><div class="line">&lt;/%block&gt;</div><div class="line"></div><div class="line">&lt;%block name=&quot;script&quot;&gt;</div><div class="line">## 在文件尾引入 JS 文件，变量名同为替换后的目录名，JS 文件来自于变异 Coffee Script</div><div class="line">&lt;script src=&quot;$&#123;js.SITE_auth_m_m&#125;&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/%block&gt;</div></pre></td></tr></table></figure>
-<h2 id="Coffee-Script"><a href="#Coffee-Script" class="headerlink" title="Coffee Script"></a>Coffee Script</h2><p>网页脚本用 Coffee Script，写完后需编译为 JavaScript （添加新的 CS 脚本需要手动重启 dev.sh 脚本，修改已存在的脚本会自动变异成 JS）。</p>
-<h2 id="Python-Model"><a href="#Python-Model" class="headerlink" title="Python Model"></a>Python Model</h2><p>数据存储使用的是 MongoDB，通过封装过的 MongoKit 将数据 model 对应上 MongoDB 文档， 需要 <code>from z42.web.mongo import mongo</code> 。下面是一个简单的 model 文件示例:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">from z42.web.mongo import Doc</div><div class="line">from z42.web.mongo import mongo</div><div class="line"></div><div class="line">class UserIM(Doc):</div><div class="line">    structure = &#123;</div><div class="line">        &apos;user_id&apos;: int,</div><div class="line">        &apos;phone&apos;: basestring,</div><div class="line">        &apos;qq&apos;: basestring,</div><div class="line">        &apos;weixin&apos;:basestring</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>创建一个 UserIM 对象使用 upsert() 方法，如 <code>UserIM({&#39;phone&#39;: PHONE}).upsert({user_id: 1001})</code> ， 这行代码的作用是：如果存在 user_id 为 1001 的 UserIM，则将其 ‘phone’ 设置为 PHONE， 否则在 MongoDB 中插入这样一个 JSON 文档： {‘user_id’: 1001, ‘phone’: PHONE}。</p>
-<h2 id="Python-View"><a href="#Python-View" class="headerlink" title="Python View"></a>Python View</h2><blockquote>
-<ul>
-<li>View</li>
-<li>HostView</li>
-<li>LoginView</li>
-<li>AdminView</li>
-<li>GodView</li>
-<li>JsonErrView</li>
-<li>RpcView</li>
-<li>组合 View</li>
-</ul>
-</blockquote>
-<p>web 开发使用的框架Tornado，需要通过装饰器注册 URL。 新建一个简单的 view 如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">from _route import route</div><div class="line">from z42.web.view.j import JsonErrView</div><div class="line">from jsob import JsOb</div><div class="line">from zapp.SITE.view._base import HostView</div><div class="line"></div><div class="line">@route(&apos;/m/register/&apos;)</div><div class="line">class register(HostView):</div><div class="line">    def get(self, sign):</div><div class="line">        self.render()</div><div class="line"></div><div class="line">@route(&apos;/j/m/&apos;)</div><div class="line">class _(JsonErrView, HostView):</div><div class="line">    def post(self, sign):</div><div class="line">        err = JsOb()            # 使用 JsOb 对象保存错误信息</div><div class="line">        o = self.json           # 获取 JSON 化的 POST 信息</div><div class="line">        if not o.title:</div><div class="line">            err.title = &quot;链接已失效！&quot;</div><div class="line">        if not err:</div><div class="line">            do_something()</div><div class="line">        self.render(err)</div></pre></td></tr></table></figure>
-<p>这个 module 注册了两个 view，一个注册页面和一个 Ajax 接口。route 方法是一个用于注册 URL 的装饰器， 装饰在 Handler class（通常继承自XxxView）上即可。</p>
-<p>register class 就是视图 Handler 的最简写法。对于 Ajax 视图，Handler 名意义不大，可以使用下划线命名。 需要返回错误提示的视图，可以继承 JsonErrView。View 的继承用法详见 <a href="http://python-web-guide.readthedocs.io/zh/latest/backend/views.html#views" target="_blank" rel="external">视图介绍</a></p>
-<h3 id="Unix-Linux-常用-shell-命令"><a href="#Unix-Linux-常用-shell-命令" class="headerlink" title="Unix/Linux 常用 shell 命令"></a>Unix/Linux 常用 shell 命令</h3><h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>开发工具</p>
-<ul>
-<li>github/bitbucket</li>
-<li><p>xshell</p>
-</li>
-<li><p>filezilla</p>
-</li>
-<li><p>Grunt</p>
-</li>
-<li><p>Firefox</p>
-<ul>
-<li>firebug</li>
-<li>scrapbook</li>
-</ul>
-</li>
-<li><p>Postman</p>
-</li>
-<li><strong>vim</strong></li>
-<li>xshell</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/13/朱红梅--技术栈/" data-id="cja2ascg3000u4ova4nz46urm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/13/金鹏--技术栈/" data-id="cja2fs8pn001akgvaigj9m1i6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术栈/">技术栈</a></li></ul>
@@ -751,7 +751,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/02/vim和linux快捷键/" data-id="cja2ascfq000j4ova6xfkdlxg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/02/vim和linux快捷键/" data-id="cja2fs8od000hkgvaa8ln0m2y" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
@@ -793,7 +793,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/02/On first acquaintance she is cool and slightly distant./" data-id="cja2ascf400034ova71da0d07" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/02/On first acquaintance she is cool and slightly distant./" data-id="cja2fs8nh0001kgvaixhalpdo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/英语/">英语</a></li></ul>
@@ -1105,7 +1105,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/31/吕娟--技术栈/" data-id="cja2ascfm000f4ova0g5og1vp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/31/吕娟--技术栈/" data-id="cja2fs8oa000fkgvajmfmnzbd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术栈/">技术栈</a></li></ul>
@@ -1156,7 +1156,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/离散数学-代数系统/" data-id="cja2ascg1000s4ovallny5p8f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/离散数学-代数系统/" data-id="cja2fs8ot000skgvaw28y873f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1193,7 +1193,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/电路与电子学/" data-id="cja2ascfx000p4ovaqdn6ayfz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/电路与电子学/" data-id="cja2fs8ok000mkgvaqxswrzx1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学业/">学业</a></li></ul>
@@ -1265,11 +1265,11 @@
           </li>
         
           <li>
-            <a href="/2017/11/13/金鹏--技术栈/">金鹏--技术栈</a>
+            <a href="/2017/11/13/朱红梅--技术栈/">朱红梅--技术栈</a>
           </li>
         
           <li>
-            <a href="/2017/11/13/朱红梅--技术栈/">朱红梅--技术栈</a>
+            <a href="/2017/11/13/金鹏--技术栈/">金鹏--技术栈</a>
           </li>
         
       </ul>
