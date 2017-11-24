@@ -90,11 +90,95 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2099/11/14/11月gantt/" data-id="cjadata7p00099kvajouul8k0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2099/11/14/11月gantt/" data-id="cjadfallj0001rsvat52mh8o9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GANTT/">GANTT</a></li></ul>
 
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-LATEX学习指南" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/24/LATEX学习指南/" class="article-date">
+  <time datetime="2017-11-24T04:44:20.112Z" itemprop="datePublished">2017-11-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>LaTex2e</p>
+<p><a href="#d1.1">1.游戏的名目</a></p>
+<p><a href="d1.2">2.LATEX基础</a></p>
+<h2 id="游戏的名目"><a href="#游戏的名目" class="headerlink" title="游戏的名目"></a><p id="d1.1">游戏的名目</p></h2><ol>
+<li><p>TEX</p>
+<p>TEX是由Donald E. Knuth[2] 编写的计算机程序，用于文章和数学公式的排版。1997年Knuth开始编写TEX排版系统引擎的时候，是为了探索当时正开始进入出版工业的数字印刷设备的潜力。他特别希望能因此扭转那种排版质量下降的趋势，是自己写的书和文章免受其害。我们现在使用的TEX系统是在1982年发布的，1989年又略作改进，增进了对8字节字符和多语言的支持。TEX以具有优异的稳定性，可以在各种不同类型的计算机上运行，以及几乎没有错误而著称。TEX的版本号不断趋近于π。</p>
+<p>TEX的发音为“Tech”，其中的“ch”音和德语“Ach”和苏格兰语“Loch”中的“ch”类似。在ASCII文本环境中，TEX表示为TeX。</p>
+</li>
+<li><p>LATEX</p>
+<p>LATEX是一个宏包，其目的是使作者能够利用一个预先定义好的专业页面设置，从而得以高质量地编排和打印他们的作品。LATEX最早是由Leslie Lamport编写的，并使用TEX作为其排版系统引擎。</p>
+</li>
+</ol>
+<h2 id="LATEX基础"><a href="#LATEX基础" class="headerlink" title="LATEX基础"></a><p id="d1.2">LATEX基础</p></h2><ol>
+<li><p>作者、图书设计者和排版者</p>
+<p>出版的第一步是作者将他们的手稿交给出版公司，然后由图书设计者来决定整本书的版面形式（包括栏宽、字体、标题前后的间距……）。图书设计者会把他的排版说明写进手稿里，一起交给排版者，排版者最后根据这些说明完成这本书的排版工作。</p>
+<p>一个图书设计者要试图理解作者写作时的亿图。他要根据瘦高的内容和他自己的职业知识决定章节标题、文献引用、例子、公式、等等。</p>
+<p>在LATEX环境中，LATEX代替了图书设计者的角色，TEX则是它的排版者。但是LATEX“仅仅”是一个计算机程序，它需要更多的指导。作者必须在他的作品中提供附加信息，用于描述作品的所及结构。这些信息是以“LATEX命令”的形式写入文章中的。</p>
+<p>这种方式和所见即所得（WYSIWYG）方式使相当不同的。很多现代文字处理程序都采用所见即所得方式，例如MS Word和Corel Wordper-fect。作者可以利用这些应用程序，在向输入文章的同时，通过与计算机互动的方式决定整个文档的排版形式。在整个过程中，作者随时可以在屏幕上看到作品最终打印出来的效果。</p>
+<p>在使用LATEX的时候，一般来说是不能在输入文章的同时看到最终输出效果的。但是将文章用LATEX处理过之后，是可以在屏幕上预览最终的输出效果的。因此在真正打印文档之前是可以对其进行修正的。</p>
+</li>
+<li><p>版面设计</p>
+<p>排版设计时一门艺术。缺乏经验的作者常常会犯严重的排版格式错误，只因为他们认为图书设计仅仅是个美学问题—-“如果排版好的文档从艺术角度看来不错，就说明设计是成功的。”但是既然文档是用来阅读而不是用来关在画廊里展览的，它的可读性和可理解性就比好看的外观要重要的多。例如：</p>
+<ul>
+<li>必须为标题学则适当的字体大小和序号，是的读者能够清楚理解章节结构。</li>
+<li>行宽既要足够短以避免读者的眼睛疲劳，又要足够长以维持页面美观。</li>
+<li>使用所见即所得系统是，作者经常会写出看上去很漂亮，但却缺乏清晰结构或结构不连贯的文档。为了避免这样的排版格式错误，LATEX要求作者明确说明其文档的逻辑结构。然后，LATEX再根据文档结构选择最适当的版面格式。</li>
+</ul>
+</li>
+<li><p>优势和不足</p>
+<p>使用“所见即所得”（WYSIWYG）的人和使用LATEX的人在一起时经常谈论的一个话题就是“LATEX到底比一般的字处理软件强还是弱”。面对这种讨论，你最好保持低调，因为这样的辩论很容易失去控制。不过，很多时候你也不能逃……</p>
+<p>所以，这里提供一些武器。LATEX优于一般的字处理软件之处可以简单归纳为如下几点：</p>
+<ul>
+<li>提供专业的排版设计，使你的文档开起来如同印刷好的一样。</li>
+<li>可以更方便地排版数学公式。</li>
+<li>用户仅仅需要掌握少数容易理解的，用来说明文档之逻辑结构的命令，而无需对实际的页面设计做胡乱的修补。</li>
+<li>可以很容易的生成脚注、索引、目录和参考文献等复杂的结构。</li>
+<li>有大量免费地可添加宏集，协助你完成许多基本的LATEX未直接支持的排版任务。例如，支持在文档中插入PostScript图形的宏集和排版符合各类标准的参考文献的宏集，等等。The LATEX Companion 中给出了大量的宏集说明。</li>
+<li>LATEX鼓励作者写作具有良好结构的文章。因为LATEX就是通过详细地说明文章的结构来进行其排版工作的、</li>
+<li>LATEX鼓励作者写作具有良好结构的文章，因为LATEX就是通过详细地说明文章的结构来进行其排版工作的。</li>
+<li>TEX作为LATEX的格式化引擎是免费软件，且具有极高的可移植性。因此，它几乎可以在任何硬件平台上运行。</li>
+</ul>
+<p>LATEX当然有一些不足之处。</p>
+<ul>
+<li>对于出卖其灵魂的人来说，LATEX不能很好的工作。</li>
+<li>尽管在预先定义好的版面中可以调节一些参数，设计全新的版面还是很困难的，需要耗费大量的时间。</li>
+<li>LATEX不适合排版非结构化的、无序的文档。</li>
+<li>即使有一个令人振奋的开始，但你也有可能无法完全掌握其精髓。</li>
+</ul>
+</li>
+</ol>
+<h2 id="LATEX源文件"><a href="#LATEX源文件" class="headerlink" title="LATEX源文件"></a><p id="d1.3">LATEX源文件</p></h2><p>LATEX源文件的格式为普通ASCII文件，你可以使用任何文本编辑器来创建。LATEX源文件不仅包括你需要排版的文本，还包括LATEX所能识别的，如何排版这些文本的命令。</p>
+<ol>
+<li><p>空白间距</p>
+<p>LATEX将空白和制表符等空白字符视为相同的空白距离（space）。多个连续的空白字符等同为一个空白字符。在LATEX文件中，每行开始的空白字符将被忽略，而单个的回车符被视为一空格。</p>
+<p>LATEX使用空行来结束段落，两行文本中的空行标志上一段落的结束和新段落的开始。如同空格一样，多个空行所起的作用和一个空行的作用是相同的。下面例子中，左边是源文件中的文本，右边则是排版后的输出结果。</p>
+<p>​</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/24/LATEX学习指南/" data-id="cjadfallx0004rsva23bcls9p" class="article-share-link">Share</a>
+      
+      
     </footer>
   </div>
   
@@ -123,7 +207,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/24/C++反汇编与逆向分析/" data-id="cjadata6n00009kvaw37jlclz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/24/C++反汇编与逆向分析/" data-id="cjadfall90000rsva4kv7vu8l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -160,7 +244,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/18/使用LaTex写公式的基本语法/" data-id="cjadata7x000i9kva5b3a9ngi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/18/使用LaTex写公式的基本语法/" data-id="cjadfalmw000mrsvabwbt9y0l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -187,7 +271,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/18/概论论的基本概念/" data-id="cjadata8a000x9kvaxzx48lmz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/18/概论论的基本概念/" data-id="cjadfalnb0011rsva5umtue2v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -222,7 +306,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/17/人人都是产品经理之转化/" data-id="cjadata7u000e9kvaa8r01gp4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/17/人人都是产品经理之转化/" data-id="cjadfalmq000grsva6w37ldii" class="article-share-link">Share</a>
       
       
     </footer>
@@ -290,7 +374,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/17/大创比赛 产品问题中心/" data-id="cjadata8f00139kvawew0zhrb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/17/大创比赛 产品问题中心/" data-id="cjadfalmy000qrsvah8vebykf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -328,7 +412,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/16/大数据的统计学基础/" data-id="cjadata8b000z9kvasqnqrysr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/16/大数据的统计学基础/" data-id="cjadfaln2000rrsvac8xe98v4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -376,7 +460,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/14/什么是甘特图/" data-id="cjadata7s000c9kva9l9689xh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/14/什么是甘特图/" data-id="cjadfalmt000irsvam7wcdrpx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目管理/">项目管理</a></li></ul>
@@ -421,138 +505,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/14/线框图和原型/" data-id="cjadata8d00119kvagha4z838" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/14/线框图和原型/" data-id="cjadfalnf0017rsvaez9s9aus" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计/">设计</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-朱红梅--技术栈" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/13/朱红梅--技术栈/" class="article-date">
-  <time datetime="2017-11-13T04:00:00.000Z" itemprop="datePublished">2017-11-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/13/朱红梅--技术栈/">朱红梅--技术栈</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>朱红梅–技术栈</p>
-<hr>
-<h2 id="python"><a href="#python" class="headerlink" title="python"></a>python</h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a><a href="http://python-web-guide.readthedocs.io/zh/latest/sso/index.html" target="_blank" rel="external">参考</a></h2><ul>
-<li>闭包</li>
-<li>正则表达式</li>
-<li>collections</li>
-<li>defaultdict</li>
-<li>itertools</li>
-<li>enum</li>
-<li>IntEnum</li>
-<li>enumerate</li>
-<li>time.mktime(time.strptime(“2007-03-04 21:08:12”, “%Y-%m-%d %H:%M:%S”))</li>
-<li>dateparser</li>
-<li>python 的 新式类与旧式类 ， 以及super的意义</li>
-</ul>
-<h2 id="supervisor"><a href="#supervisor" class="headerlink" title="supervisor"></a>supervisor</h2><ul>
-<li>线上服务器如何看异常</li>
-</ul>
-<h2 id="开发流程"><a href="#开发流程" class="headerlink" title="开发流程"></a>开发流程</h2><p>新建一个页面通常需要创建几个文件：</p>
-<ul>
-<li>模板 zapp/SITE/model/模块名.py</li>
-<li>视图 zapp/SITE/view/模块名.py</li>
-<li>Coffee Script 脚本 coffee/SITE/auth/模块名/视图名.coffee</li>
-<li>Make 模板 html/SITE/auth/模块名/视图名.html</li>
-<li>CSS 样式文件 css/SITE/auth/模块名.css</li>
-</ul>
-<p>并在 <code>_url.py</code> 中注册视图。</p>
-<ul>
-<li>新建url页面</li>
-<li>render</li>
-<li>css，js的引用</li>
-<li>merge.conf</li>
-<li>新建css，js，修改merge.conf需要重启开发服务器</li>
-<li>View的类型</li>
-<li>分页</li>
-<li>在页面取得当前用户</li>
-<li>搜索</li>
-<li>自动补全</li>
-<li>gearman 异步调用</li>
-<li>JsOb</li>
-<li>rendermail 发送邮件</li>
-<li>redis key的定义 ， R.</li>
-<li>model 中 使用绝对路径import以防止redis提示key重复定义</li>
-<li>import _env</li>
-<li>配置文件 的 定义 与 自适应</li>
-<li>make.py 生成配置文件</li>
-</ul>
-<h2 id="Mako-模板"><a href="#Mako-模板" class="headerlink" title="Mako 模板"></a>Mako 模板</h2><p>Mako 模板的存放路径通常是 42web/html/SITE/模块名/文件名.html。 Mako 模板的使用见 <a href="http://docs.makotemplates.org/en/latest/" target="_blank" rel="external">教程</a> ，通用部分通常需要剥离成一个 <em>base.html 文件中， 不被直接 render 的模板命名以下划线 `</em>` 开头。</p>
-<p>一个基本的模板文件大概是这样的:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">## 这里继承父模版</div><div class="line">&lt;%inherit file=&quot;/SITE/_base/default.html&quot; /&gt;</div><div class="line">## 添加头文件、CSS 文件</div><div class="line">&lt;%block name=&quot;head&quot;&gt;</div><div class="line">&lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, width=device-width&quot;&gt;</div><div class="line">## 这里引入 CSS 文件，将目录名中的斜线换成下划线作为变量传入</div><div class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;$&#123;css.SITE_auth_m&#125;&quot; /&gt;</div><div class="line">&lt;/%block&gt;</div><div class="line"></div><div class="line">&lt;%block name=&quot;script&quot;&gt;</div><div class="line">## 在文件尾引入 JS 文件，变量名同为替换后的目录名，JS 文件来自于变异 Coffee Script</div><div class="line">&lt;script src=&quot;$&#123;js.SITE_auth_m_m&#125;&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/%block&gt;</div></pre></td></tr></table></figure>
-<h2 id="Coffee-Script"><a href="#Coffee-Script" class="headerlink" title="Coffee Script"></a>Coffee Script</h2><p>网页脚本用 Coffee Script，写完后需编译为 JavaScript （添加新的 CS 脚本需要手动重启 dev.sh 脚本，修改已存在的脚本会自动变异成 JS）。</p>
-<h2 id="Python-Model"><a href="#Python-Model" class="headerlink" title="Python Model"></a>Python Model</h2><p>数据存储使用的是 MongoDB，通过封装过的 MongoKit 将数据 model 对应上 MongoDB 文档， 需要 <code>from z42.web.mongo import mongo</code> 。下面是一个简单的 model 文件示例:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">from z42.web.mongo import Doc</div><div class="line">from z42.web.mongo import mongo</div><div class="line"></div><div class="line">class UserIM(Doc):</div><div class="line">    structure = &#123;</div><div class="line">        &apos;user_id&apos;: int,</div><div class="line">        &apos;phone&apos;: basestring,</div><div class="line">        &apos;qq&apos;: basestring,</div><div class="line">        &apos;weixin&apos;:basestring</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>创建一个 UserIM 对象使用 upsert() 方法，如 <code>UserIM({&#39;phone&#39;: PHONE}).upsert({user_id: 1001})</code> ， 这行代码的作用是：如果存在 user_id 为 1001 的 UserIM，则将其 ‘phone’ 设置为 PHONE， 否则在 MongoDB 中插入这样一个 JSON 文档： {‘user_id’: 1001, ‘phone’: PHONE}。</p>
-<h2 id="Python-View"><a href="#Python-View" class="headerlink" title="Python View"></a>Python View</h2><blockquote>
-<ul>
-<li>View</li>
-<li>HostView</li>
-<li>LoginView</li>
-<li>AdminView</li>
-<li>GodView</li>
-<li>JsonErrView</li>
-<li>RpcView</li>
-<li>组合 View</li>
-</ul>
-</blockquote>
-<p>web 开发使用的框架Tornado，需要通过装饰器注册 URL。 新建一个简单的 view 如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">from _route import route</div><div class="line">from z42.web.view.j import JsonErrView</div><div class="line">from jsob import JsOb</div><div class="line">from zapp.SITE.view._base import HostView</div><div class="line"></div><div class="line">@route(&apos;/m/register/&apos;)</div><div class="line">class register(HostView):</div><div class="line">    def get(self, sign):</div><div class="line">        self.render()</div><div class="line"></div><div class="line">@route(&apos;/j/m/&apos;)</div><div class="line">class _(JsonErrView, HostView):</div><div class="line">    def post(self, sign):</div><div class="line">        err = JsOb()            # 使用 JsOb 对象保存错误信息</div><div class="line">        o = self.json           # 获取 JSON 化的 POST 信息</div><div class="line">        if not o.title:</div><div class="line">            err.title = &quot;链接已失效！&quot;</div><div class="line">        if not err:</div><div class="line">            do_something()</div><div class="line">        self.render(err)</div></pre></td></tr></table></figure>
-<p>这个 module 注册了两个 view，一个注册页面和一个 Ajax 接口。route 方法是一个用于注册 URL 的装饰器， 装饰在 Handler class（通常继承自XxxView）上即可。</p>
-<p>register class 就是视图 Handler 的最简写法。对于 Ajax 视图，Handler 名意义不大，可以使用下划线命名。 需要返回错误提示的视图，可以继承 JsonErrView。View 的继承用法详见 <a href="http://python-web-guide.readthedocs.io/zh/latest/backend/views.html#views" target="_blank" rel="external">视图介绍</a></p>
-<h3 id="Unix-Linux-常用-shell-命令"><a href="#Unix-Linux-常用-shell-命令" class="headerlink" title="Unix/Linux 常用 shell 命令"></a>Unix/Linux 常用 shell 命令</h3><h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>开发工具</p>
-<ul>
-<li>github/bitbucket</li>
-<li><p>xshell</p>
-</li>
-<li><p>filezilla</p>
-</li>
-<li><p>Grunt</p>
-</li>
-<li><p>Firefox</p>
-<ul>
-<li>firebug</li>
-<li>scrapbook</li>
-</ul>
-</li>
-<li><p>Postman</p>
-</li>
-<li><strong>vim</strong></li>
-<li>xshell</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/13/朱红梅--技术栈/" data-id="cjadata88000v9kvarmgptfcr" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术栈/">技术栈</a></li></ul>
 
     </footer>
   </div>
@@ -613,6 +569,10 @@
           </li>
         
           <li>
+            <a href="/2017/11/24/LATEX学习指南/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2017/11/24/C++反汇编与逆向分析/">(no title)</a>
           </li>
         
@@ -622,10 +582,6 @@
         
           <li>
             <a href="/2017/11/18/概论论的基本概念/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/11/17/人人都是产品经理之转化/">(no title)</a>
           </li>
         
       </ul>

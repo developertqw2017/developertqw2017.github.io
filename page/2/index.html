@@ -61,6 +61,134 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-朱红梅--技术栈" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/13/朱红梅--技术栈/" class="article-date">
+  <time datetime="2017-11-13T04:00:00.000Z" itemprop="datePublished">2017-11-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/13/朱红梅--技术栈/">朱红梅--技术栈</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>朱红梅–技术栈</p>
+<hr>
+<h2 id="python"><a href="#python" class="headerlink" title="python"></a>python</h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a><a href="http://python-web-guide.readthedocs.io/zh/latest/sso/index.html" target="_blank" rel="external">参考</a></h2><ul>
+<li>闭包</li>
+<li>正则表达式</li>
+<li>collections</li>
+<li>defaultdict</li>
+<li>itertools</li>
+<li>enum</li>
+<li>IntEnum</li>
+<li>enumerate</li>
+<li>time.mktime(time.strptime(“2007-03-04 21:08:12”, “%Y-%m-%d %H:%M:%S”))</li>
+<li>dateparser</li>
+<li>python 的 新式类与旧式类 ， 以及super的意义</li>
+</ul>
+<h2 id="supervisor"><a href="#supervisor" class="headerlink" title="supervisor"></a>supervisor</h2><ul>
+<li>线上服务器如何看异常</li>
+</ul>
+<h2 id="开发流程"><a href="#开发流程" class="headerlink" title="开发流程"></a>开发流程</h2><p>新建一个页面通常需要创建几个文件：</p>
+<ul>
+<li>模板 zapp/SITE/model/模块名.py</li>
+<li>视图 zapp/SITE/view/模块名.py</li>
+<li>Coffee Script 脚本 coffee/SITE/auth/模块名/视图名.coffee</li>
+<li>Make 模板 html/SITE/auth/模块名/视图名.html</li>
+<li>CSS 样式文件 css/SITE/auth/模块名.css</li>
+</ul>
+<p>并在 <code>_url.py</code> 中注册视图。</p>
+<ul>
+<li>新建url页面</li>
+<li>render</li>
+<li>css，js的引用</li>
+<li>merge.conf</li>
+<li>新建css，js，修改merge.conf需要重启开发服务器</li>
+<li>View的类型</li>
+<li>分页</li>
+<li>在页面取得当前用户</li>
+<li>搜索</li>
+<li>自动补全</li>
+<li>gearman 异步调用</li>
+<li>JsOb</li>
+<li>rendermail 发送邮件</li>
+<li>redis key的定义 ， R.</li>
+<li>model 中 使用绝对路径import以防止redis提示key重复定义</li>
+<li>import _env</li>
+<li>配置文件 的 定义 与 自适应</li>
+<li>make.py 生成配置文件</li>
+</ul>
+<h2 id="Mako-模板"><a href="#Mako-模板" class="headerlink" title="Mako 模板"></a>Mako 模板</h2><p>Mako 模板的存放路径通常是 42web/html/SITE/模块名/文件名.html。 Mako 模板的使用见 <a href="http://docs.makotemplates.org/en/latest/" target="_blank" rel="external">教程</a> ，通用部分通常需要剥离成一个 <em>base.html 文件中， 不被直接 render 的模板命名以下划线 `</em>` 开头。</p>
+<p>一个基本的模板文件大概是这样的:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">## 这里继承父模版</div><div class="line">&lt;%inherit file=&quot;/SITE/_base/default.html&quot; /&gt;</div><div class="line">## 添加头文件、CSS 文件</div><div class="line">&lt;%block name=&quot;head&quot;&gt;</div><div class="line">&lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, width=device-width&quot;&gt;</div><div class="line">## 这里引入 CSS 文件，将目录名中的斜线换成下划线作为变量传入</div><div class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;$&#123;css.SITE_auth_m&#125;&quot; /&gt;</div><div class="line">&lt;/%block&gt;</div><div class="line"></div><div class="line">&lt;%block name=&quot;script&quot;&gt;</div><div class="line">## 在文件尾引入 JS 文件，变量名同为替换后的目录名，JS 文件来自于变异 Coffee Script</div><div class="line">&lt;script src=&quot;$&#123;js.SITE_auth_m_m&#125;&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/%block&gt;</div></pre></td></tr></table></figure>
+<h2 id="Coffee-Script"><a href="#Coffee-Script" class="headerlink" title="Coffee Script"></a>Coffee Script</h2><p>网页脚本用 Coffee Script，写完后需编译为 JavaScript （添加新的 CS 脚本需要手动重启 dev.sh 脚本，修改已存在的脚本会自动变异成 JS）。</p>
+<h2 id="Python-Model"><a href="#Python-Model" class="headerlink" title="Python Model"></a>Python Model</h2><p>数据存储使用的是 MongoDB，通过封装过的 MongoKit 将数据 model 对应上 MongoDB 文档， 需要 <code>from z42.web.mongo import mongo</code> 。下面是一个简单的 model 文件示例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">from z42.web.mongo import Doc</div><div class="line">from z42.web.mongo import mongo</div><div class="line"></div><div class="line">class UserIM(Doc):</div><div class="line">    structure = &#123;</div><div class="line">        &apos;user_id&apos;: int,</div><div class="line">        &apos;phone&apos;: basestring,</div><div class="line">        &apos;qq&apos;: basestring,</div><div class="line">        &apos;weixin&apos;:basestring</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>创建一个 UserIM 对象使用 upsert() 方法，如 <code>UserIM({&#39;phone&#39;: PHONE}).upsert({user_id: 1001})</code> ， 这行代码的作用是：如果存在 user_id 为 1001 的 UserIM，则将其 ‘phone’ 设置为 PHONE， 否则在 MongoDB 中插入这样一个 JSON 文档： {‘user_id’: 1001, ‘phone’: PHONE}。</p>
+<h2 id="Python-View"><a href="#Python-View" class="headerlink" title="Python View"></a>Python View</h2><blockquote>
+<ul>
+<li>View</li>
+<li>HostView</li>
+<li>LoginView</li>
+<li>AdminView</li>
+<li>GodView</li>
+<li>JsonErrView</li>
+<li>RpcView</li>
+<li>组合 View</li>
+</ul>
+</blockquote>
+<p>web 开发使用的框架Tornado，需要通过装饰器注册 URL。 新建一个简单的 view 如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">from _route import route</div><div class="line">from z42.web.view.j import JsonErrView</div><div class="line">from jsob import JsOb</div><div class="line">from zapp.SITE.view._base import HostView</div><div class="line"></div><div class="line">@route(&apos;/m/register/&apos;)</div><div class="line">class register(HostView):</div><div class="line">    def get(self, sign):</div><div class="line">        self.render()</div><div class="line"></div><div class="line">@route(&apos;/j/m/&apos;)</div><div class="line">class _(JsonErrView, HostView):</div><div class="line">    def post(self, sign):</div><div class="line">        err = JsOb()            # 使用 JsOb 对象保存错误信息</div><div class="line">        o = self.json           # 获取 JSON 化的 POST 信息</div><div class="line">        if not o.title:</div><div class="line">            err.title = &quot;链接已失效！&quot;</div><div class="line">        if not err:</div><div class="line">            do_something()</div><div class="line">        self.render(err)</div></pre></td></tr></table></figure>
+<p>这个 module 注册了两个 view，一个注册页面和一个 Ajax 接口。route 方法是一个用于注册 URL 的装饰器， 装饰在 Handler class（通常继承自XxxView）上即可。</p>
+<p>register class 就是视图 Handler 的最简写法。对于 Ajax 视图，Handler 名意义不大，可以使用下划线命名。 需要返回错误提示的视图，可以继承 JsonErrView。View 的继承用法详见 <a href="http://python-web-guide.readthedocs.io/zh/latest/backend/views.html#views" target="_blank" rel="external">视图介绍</a></p>
+<h3 id="Unix-Linux-常用-shell-命令"><a href="#Unix-Linux-常用-shell-命令" class="headerlink" title="Unix/Linux 常用 shell 命令"></a>Unix/Linux 常用 shell 命令</h3><h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>开发工具</p>
+<ul>
+<li>github/bitbucket</li>
+<li><p>xshell</p>
+</li>
+<li><p>filezilla</p>
+</li>
+<li><p>Grunt</p>
+</li>
+<li><p>Firefox</p>
+<ul>
+<li>firebug</li>
+<li>scrapbook</li>
+</ul>
+</li>
+<li><p>Postman</p>
+</li>
+<li><strong>vim</strong></li>
+<li>xshell</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/13/朱红梅--技术栈/" data-id="cjadfaln9000zrsvacryh9asj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术栈/">技术栈</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-金鹏--技术栈" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/11/13/金鹏--技术栈/" class="article-date">
@@ -369,7 +497,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/13/金鹏--技术栈/" data-id="cjadata96001j9kvazjm2w9ke" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/13/金鹏--技术栈/" data-id="cjadfalni001arsva3krvwt71" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术栈/">技术栈</a></li></ul>
@@ -488,7 +616,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/02/vim和linux快捷键/" data-id="cjadata80000m9kvaxvq756o8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/02/vim和linux快捷键/" data-id="cjadfalmf000crsvamwjpi8bh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
@@ -530,7 +658,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/02/On first acquaintance she is cool and slightly distant./" data-id="cjadata7d00019kvaavdu0koe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/02/On first acquaintance she is cool and slightly distant./" data-id="cjadfalm00005rsvai5wwfw4f" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/英语/">英语</a></li></ul>
@@ -842,7 +970,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/31/吕娟--技术栈/" data-id="cjadata81000n9kvaf5zsq60m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/31/吕娟--技术栈/" data-id="cjadfalmx000nrsvanfxy5nam" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术栈/">技术栈</a></li></ul>
@@ -893,7 +1021,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/离散数学-代数系统/" data-id="cjadata8x001g9kva7pp4zxel" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/离散数学-代数系统/" data-id="cjadfalnc0013rsvabpahvkmx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -930,7 +1058,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/30/电路与电子学/" data-id="cjadata86000t9kvaeqcab5f5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/30/电路与电子学/" data-id="cjadfalnd0014rsvazv3qhxn6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学业/">学业</a></li></ul>
@@ -979,7 +1107,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/28/未经省察的人生没有价值/" data-id="cjadata83000q9kvatth9p6jd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/28/未经省察的人生没有价值/" data-id="cjadfaln8000xrsvaudjzr8m9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1057,7 +1185,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/26/操作系统之存储管理-1/" data-id="cjadata85000r9kva5ang0ly8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/26/操作系统之存储管理-1/" data-id="cjadfaln6000vrsvagyuvy45z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1067,9 +1195,9 @@
 
 
   
-    <article id="post-python的set是一个无序不重复元素集" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-DB组2017秋季大二新生培养(考核)计划" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/10/26/python的set是一个无序不重复元素集/" class="article-date">
+    <a href="/2017/10/26/DB组2017秋季大二新生培养(考核)计划/" class="article-date">
   <time datetime="2017-10-25T18:22:15.000Z" itemprop="datePublished">2017-10-26</time>
 </a>
     
@@ -1081,7 +1209,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/26/python的set是一个无序不重复元素集/">python set</a>
+      <a class="article-title" href="/2017/10/26/DB组2017秋季大二新生培养(考核)计划/">DB组2017秋季大二新生培养计划</a>
     </h1>
   
 
@@ -1089,56 +1217,142 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>python的set是一个无序不重复元素集，基本功能包括关系测试和消除重复元素，集合对象还支持union(联合),intersection(交),difference(差)和sysmmetric difference(对称差集)等数学运算。</p>
+        <p> #DB组2017秋季大二新生培养计划</p>
+<p>##题目划分及分组</p>
+<p>吕娟：Bootstrap框架与AJAX学习、python网络数据采集学习（scrapy入门） 、制作响应式网页（风格自选）、数据库系统概论前七章</p>
+<p>朱红梅：php+MySQL前14章 、MySQL索引背后的数据结构及算法原理(Btree,B+tree)、数据库系统概论前七章、新闻发布系统(数据库+后台)     </p>
+<p>金鹏：php+MySQL前14章 、数据库系统概论前七章、新闻发布系统(后台+前端) ps：金鹏已有部分前端基础</p>
+<hr>
+<h2 id="要求及时间"><a href="#要求及时间" class="headerlink" title="要求及时间"></a>要求及时间</h2><p>文章发布系统</p>
+<p>这个简单的系统主要是面向后台的新闻管理人员，用于管理新闻。主要的功能包括：</p>
+<p>新闻添加：录入新的新闻。</p>
+<p>新闻编辑：对新闻的编辑修改。</p>
+<p>新闻删除：对已经添加的新闻进行删除操作。</p>
+<p>新闻查询：查询已经添加的新闻。</p>
+<p>新闻展示：通过分页来展示新闻页面。</p>
+<p>主要的实现功能思路：</p>
+<p>完成这个简单系统我们需要在3个页面进行，分别为：</p>
+<p>新闻添加页面， 新闻列表页面和新闻修改页面。</p>
+<ol>
+<li>新闻添加页通过这个页面我们向数据库中添加新闻数据，包括新闻的标题，作者，内容等等，提交成功后直接会把添加的内容显示在新闻列表页中。</li>
+<li>新闻列表页这个页面的实现功能比较多，除了展示我们添加的新闻内容外，还要实现新闻列表的分页功能我们设定每页显示的新闻数，通过代码就可以在页面展示我们有多少页，比如1,2,3。。。等等通过点击1,2,3跳转显示不同的新闻列表，也可以通过点击”上一页”,”下一页”来实现一页一页的跳转。实现新闻的编辑功能当我们点击编辑模块里面的“修改”时，将会跳转到新闻修改页面，对新闻进行修改操作。当我们点击编辑模块里面的“删除”时，将会删除当前的新闻，并会删除数据库中相关的记录。</li>
+<li>新闻编辑页这个页面主要实现新闻内容的修改，你可以修改标题和新闻内容，修改成功后，将会跳转回新闻列表页面并且在数据库中的记录也将会被修改。希望通过本教程让PHP新手熟悉对数据库操作，培养更好地逻辑分析能力。</li>
+</ol>
+<p><img src="http://img.php.cn//upload/image/873/353/189/1480573350335309.png" alt="1!605.png"></p>
+<p>时间：10月15日——12月17日(作品展示)——12月24日(数据库系统概论测验)（<strong>每周日</strong>检查学习笔记(markdown、纸质形式)，总结学习情况，并给予评分，）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">姓名</th>
+<th>签到</th>
+<th>测试</th>
+<th>作品</th>
+<th>笔记</th>
+<th>总分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">朱红梅</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">吕娟</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">金鹏</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">笔记+签到得分</th>
+<th>一周</th>
+<th>二周</th>
+<th>三周</th>
+<th>四周</th>
+<th>五周</th>
+<th>六周</th>
+<th>七周</th>
+<th>八周</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">朱红梅</td>
+<td>7</td>
+<td>？+5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">吕娟</td>
+<td>7</td>
+<td>4+5</td>
+<td>2+5</td>
+<td>？+5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">金鹏</td>
+<td>2</td>
+<td>？+1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="最终提交形式"><a href="#最终提交形式" class="headerlink" title="最终提交形式"></a>最终提交形式</h2><ol>
+<li>吕娟：bootstrap及ajax响应式网页，Python爬虫笔记+代码(豆瓣电影、知乎。。。自选爬取网站)，数据库系统概论知识测试</li>
+<li>朱红梅：MySQL索引背后的数据结构及算法原理技术演讲+新闻发布系统(数据库+后台) 代码，数据库系统概论知识测试</li>
+<li>金鹏：新闻发布系统(后台+前端)代码，数据库系统概论知识测试</li>
+</ol>
+<p>考核结果会在12月25日晚上公布，具体结果会根据</p>
+<p>大家日常去实验室的签到情况（30%）</p>
+<p>笔记评分(20%)</p>
+<p>考核成绩（25%）</p>
+<p>作品成绩（25%）综合判定。</p>
+<hr>
+<blockquote>
+<p>参考资料：</p>
+<p>python爬虫 <a href="http://scrapy-chs.readthedocs.io/zh_CN/0.24/intro/tutorial.html" target="_blank" rel="external">scrapy v:0.24</a> </p>
+<p> <a href="https://book.douban.com/subject/26740503/" target="_blank" rel="external">Python网络数据采集</a><a href="http://blog.codinglabs.org/articles/theory-of-mysql-index.html" target="_blank" rel="external">MySQL索引背后的数据结构及算法原理</a></p>
+<p>php+MySQL实战开发</p>
+<p>数据库系统概论</p>
+</blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/26/python的set是一个无序不重复元素集/" data-id="cjadata7o00069kvateot5fy1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/26/DB组2017秋季大二新生培养(考核)计划/" data-id="cjadfallr0002rsva5d6qzyk3" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-存储管理之分页" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/10/26/存储管理之分页/" class="article-date">
-  <time datetime="2017-10-25T18:22:15.000Z" itemprop="datePublished">2017-10-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/26/存储管理之分页/">存储管理之分页</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="存储管理之分页"><a href="#存储管理之分页" class="headerlink" title="存储管理之分页"></a>存储管理之分页</h1><p>大部分虚拟内存系统中都使用一种称为分页的技术,我们现在就介绍这一技术。在任何一台计算机上，程序引用了一组内存地址。当程序执行指令</p>
-<p>MOV REG, 1000</p>
-<p>时，它把地址为1000的内存单元的内容复制到REG中(或者相反，这取决于)</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/26/存储管理之分页/" data-id="cjadata7z000k9kva2eeogix6" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/操作系统/">操作系统</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计划/">计划</a></li></ul>
 
     </footer>
   </div>
@@ -1199,6 +1413,10 @@
           </li>
         
           <li>
+            <a href="/2017/11/24/LATEX学习指南/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2017/11/24/C++反汇编与逆向分析/">(no title)</a>
           </li>
         
@@ -1208,10 +1426,6 @@
         
           <li>
             <a href="/2017/11/18/概论论的基本概念/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/11/17/人人都是产品经理之转化/">(no title)</a>
           </li>
         
       </ul>
