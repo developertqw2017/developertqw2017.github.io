@@ -5,16 +5,16 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="LaTex2e 1.游戏的名目 2.LATEX基础 游戏的名目 TEX TEX是由Donald E. Knuth[2] 编写的计算机程序，用于文章和数学公式的排版。1997年Knuth开始编写TEX排版系统引擎的时候，是为了探索当时正开始进入出版工业的数字印刷设备的潜力。他特别希望能因此扭转那种排版质量下降的趋势，是自己写的书和文章免受其害。我们现在使用的TEX系统是在1982年发布的，1989年">
+  <meta name="description" content="LaTex2e 1.游戏的名目 2.LATEX基础 3.LATEX源文件 4.源文件结构 5.一个典型的命令运行过程 6.文档类 游戏的名目 TEX TEX是由Donald E. Knuth[2] 编写的计算机程序，用于文章和数学公式的排版。1997年Knuth开始编写TEX排版系统引擎的时候，是为了探索当时正开始进入出版工业的数字印刷设备的潜力。他特别希望能因此扭转那种排版质量下降的趋势，是自己">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://yoursite.com/2017/11/24/LATEX学习指南/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="LaTex2e 1.游戏的名目 2.LATEX基础 游戏的名目 TEX TEX是由Donald E. Knuth[2] 编写的计算机程序，用于文章和数学公式的排版。1997年Knuth开始编写TEX排版系统引擎的时候，是为了探索当时正开始进入出版工业的数字印刷设备的潜力。他特别希望能因此扭转那种排版质量下降的趋势，是自己写的书和文章免受其害。我们现在使用的TEX系统是在1982年发布的，1989年">
-<meta property="og:updated_time" content="2017-11-24T04:46:55.255Z">
+<meta property="og:description" content="LaTex2e 1.游戏的名目 2.LATEX基础 3.LATEX源文件 4.源文件结构 5.一个典型的命令运行过程 6.文档类 游戏的名目 TEX TEX是由Donald E. Knuth[2] 编写的计算机程序，用于文章和数学公式的排版。1997年Knuth开始编写TEX排版系统引擎的时候，是为了探索当时正开始进入出版工业的数字印刷设备的潜力。他特别希望能因此扭转那种排版质量下降的趋势，是自己">
+<meta property="og:updated_time" content="2017-11-24T06:53:04.785Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="LaTex2e 1.游戏的名目 2.LATEX基础 游戏的名目 TEX TEX是由Donald E. Knuth[2] 编写的计算机程序，用于文章和数学公式的排版。1997年Knuth开始编写TEX排版系统引擎的时候，是为了探索当时正开始进入出版工业的数字印刷设备的潜力。他特别希望能因此扭转那种排版质量下降的趋势，是自己写的书和文章免受其害。我们现在使用的TEX系统是在1982年发布的，1989年">
+<meta name="twitter:description" content="LaTex2e 1.游戏的名目 2.LATEX基础 3.LATEX源文件 4.源文件结构 5.一个典型的命令运行过程 6.文档类 游戏的名目 TEX TEX是由Donald E. Knuth[2] 编写的计算机程序，用于文章和数学公式的排版。1997年Knuth开始编写TEX排版系统引擎的时候，是为了探索当时正开始进入出版工业的数字印刷设备的潜力。他特别希望能因此扭转那种排版质量下降的趋势，是自己">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -78,6 +78,10 @@
         <p>LaTex2e</p>
 <p><a href="#d1.1">1.游戏的名目</a></p>
 <p><a href="#d1.2">2.LATEX基础</a></p>
+<p><a href="#d1.3">3.LATEX源文件</a></p>
+<p><a href="#d1.4">4.源文件结构</a></p>
+<p><a href="#d1.5">5.一个典型的命令运行过程</a></p>
+<p><a href="#d1.6">6.文档类</a></p>
 <h2 id="游戏的名目"><a href="#游戏的名目" class="headerlink" title="游戏的名目"></a><p id="d1.1">游戏的名目</p></h2><ol>
 <li><p>TEX</p>
 <p>TEX是由Donald E. Knuth[2] 编写的计算机程序，用于文章和数学公式的排版。1997年Knuth开始编写TEX排版系统引擎的时候，是为了探索当时正开始进入出版工业的数字印刷设备的潜力。他特别希望能因此扭转那种排版质量下降的趋势，是自己写的书和文章免受其害。我们现在使用的TEX系统是在1982年发布的，1989年又略作改进，增进了对8字节字符和多语言的支持。TEX以具有优异的稳定性，可以在各种不同类型的计算机上运行，以及几乎没有错误而著称。TEX的版本号不断趋近于π。</p>
@@ -129,15 +133,76 @@
 <ol>
 <li><p>空白间距</p>
 <p>LATEX将空白和制表符等空白字符视为相同的空白距离（space）。多个连续的空白字符等同为一个空白字符。在LATEX文件中，每行开始的空白字符将被忽略，而单个的回车符被视为一空格。</p>
-<p>LATEX使用空行来结束段落，两行文本中的空行标志上一段落的结束和新段落的开始。如同空格一样，多个空行所起的作用和一个空行的作用是相同的。下面例子中，左边是源文件中的文本，右边则是排版后的输出结果。</p>
+<p>LATEX使用空行来结束段落，两行文本中的空行标志上一段落的结束和新段落的开始。如同空格一样，多个空行所起的作用和一个空行的作用是相同的。下面例子中，上边是源文件中的文本，下边则是排版后的输出结果。</p>
 <p>​</p>
+<p>It does not matter whether you<br>enter one or several        spaces<br>after a word.<br>An empty line starts a new<br>paragraph</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">It does not matter whether you enter one or</div><div class="line">several spaces after a word.</div><div class="line">An empty line starts a new paragraph.</div></pre></td></tr></table></figure>
+<ol>
+<li><p>特殊字符</p>
+<p>下面的这些字符是LATEX的保留字符，它们或在LATEX中有特定的用处，或不一定包含在所有的字库中。如果你直接在文本中使用它们，通常在排版结果中将不会得到这些字符，而且还会导致LATEX做一些你不希望发生的事情。</p>
+<h1 id="amp"><a href="#amp" class="headerlink" title="$    %    ^    &amp;    _    {}    -    \"></a>$    %    ^    &amp;    _    {}    -    \</h1><p>在这些字符前面加上反斜杠就可以在文本中得到它们</p>
+</li>
+</ol>
+<p>另外一些符号可以由特殊的命令或作为重音命令得到。反斜线\不能够通过在其前添加另外的反斜线来得到，相反的，\是一个用来断行的命令。</p>
+<ol>
+<li><p>LATEX命令</p>
+<p>LATEX命令（commands）是大小写敏感的并有下面两种格式：</p>
+<ul>
+<li><p>以一反斜线\开始，加上只包括字母字符命令名组成。命令名后的空格符、数字或其他非字母字符标志该命令的结束。</p>
+</li>
+<li><p>有一反斜线和一特殊字符组成。  </p>
+<p>LATEX忽略命令后面的空格。如果你希望在命令后面得到一空格，可以在命令后面加上{}和一个空格，或者加上一个特殊的空白距离命令。{}将阻止LATEX吞噬命令后面的空格。</p>
+<p>I read that Knuth divides the<br>people working with \TeX{} into<br>\TeX{}nicians and \TeX perts.\<br>Today is \today.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">I read that Knuth divides the people working</div><div class="line">with TEX into TEXnicians and TEXperts.</div><div class="line">Today is 8th March 2003.</div></pre></td></tr></table></figure>
+<p>许多命令需要一个参数并用一对大括号{}将其括起来置于命令名称的后面。也有一些命令支持用方括号括起来的可选参数。</p>
+</li>
+</ul>
+</li>
+<li><p>注释</p>
+<p>当LATEX在处理源文件时，如果遇到一个百分号字符%，那么LATEX将忽略%后的该行文本，分行符以及下一行开始的空白字符。这样，我们就可以在源文件中写一些注释，而不会担心他们会出现在最后的排版结果中。</p>
+<p>如果需要较长的注释，你可以使用verbatim宏集所提供的comment环境。当然，你需要在源文件的导言区里加上命令\usepackage{verbatim}。</p>
+<p>%This is another<br>%\begin{comment}<br>%rather stupid,<br>%but helpful<br>%\end{comment}<br>%example for embedding<br>%comments in your document.<br>这是另一个<br>\begin{comment}<br>非常笨拙的，<br>然而却很有效。<br>\end{comment}<br>在你的文档中<br>使用注释的例子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这是另一个在你的文档中使用注释的例子。</div></pre></td></tr></table></figure>
+<p>注意这个方法不能使用在数学环境等一些复杂的环境中。</p>
+</li>
+</ol>
+<p>##</p><p id="d1.4">源文件结构</p><p></p>
+<p>LATEX需要所处理的源文件遵从一定的结构，每个LATEX文档必须以如下的命令开始：</p>
+<p>\documentclass{…}</p>
+<p>这个命令制定了你所写的文档的类别。在此之后，你可以加入控制文档式样的命令，或者使用如下的命令来调入一些宏集，进而为LATEX系统添加一些功能。</p>
+<p>\usepackage{…}</p>
+<p>当完成所有的设置后，你可利用如下的命令来开始你的文档：</p>
+<p>\begin{document}</p>
+<p>现在你可以输入你所希望排版的文本和所使用的一些LATEX命令。在文档的最后键入下面的命令来告诉LATEX你的文档到此结束，从而使LATEX忽略文档再次命令之后的部分。</p>
+<p>\end{document}</p>
+<h2 id="一个典型的命令行过程"><a href="#一个典型的命令行过程" class="headerlink" title="一个典型的命令行过程"></a><p id="d1.5">一个典型的命令行过程</p></h2><p>LATEX仅仅是一个处理你所提供的源文件的程序，并不具有图形用户洁面或精致的按钮。可能有些LATEX安装提供了图形用户界面的前端，使得你可以点击按钮来让LATEX编译你的源文件，单着并不是LATEX真正的工作方式。因此，这里将说明如何在一个基于文本的系统下使得LATEX处理你的源文件。当然，前提是你的计算机里已经正确安装了LATEX、</p>
+<ol>
+<li><p>创建并编辑你的LAETX源文件。该文件必须是文本（ASCII）格式。在Unix系统下，所有的编辑器都会使用文本格式创建文件。而在Windows系统下，你可能需要明确地以ASCII或纯文本格式保存你的文件。当选取你的源文件的文件名时，要确保其扩展名为.tex。</p>
+</li>
+<li><p>运行LATEX处理你的源文件。如果成功，你将会得到一个扩展名为.div的文件</p>
+<p>latex foo.tex</p>
+</li>
+<li><p>现在你可以预览所得到的DVI文件。</p>
+<p>xdiv foo.dvi</p>
+<p>或将其转换为PS文件：</p>
+<p>dvips -Pcmz foo.dvi -o foo.ps</p>
+<p>xdvi和dvips用来处理.dvi文件的开放源码工具软件。前者可在X11环境下将DVI文件显示到屏幕上，后者则将DVI文件转换为PostScript文件以用来打印。乳沟你不使用Unix操作系统，将会提供其他工具软件来处理.dvi文件。</p>
+</li>
+</ol>
+<h2 id="文档布局"><a href="#文档布局" class="headerlink" title="文档布局"></a><p id="d1.6">文档布局</p></h2><ol>
+<li><p>文档类</p>
+<p>当LATEX处理源文件时，首先需要知道的是作者所要创建的文档类型。该信息可以通过命令\documentclass 来提供给LATEX。</p>
+<p>\documentclass[options]{class}</p>
+<p>这里class指明了所要创建的文档类型。LATEX2e发行版本中还包括了像信件、幻灯片等其他文档类。文档的属性可以通过选项(options)来加以调节，不同的选项用逗号隔开。</p>
 </li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/24/LATEX学习指南/" data-id="cjadfdpli00035kvarsk2f1jj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/24/LATEX学习指南/" data-id="cjadjwbqt0004a8vax68dk6m8" class="article-share-link">Share</a>
       
       
     </footer>
