@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Linux kernel development happens on mailing lists, rather than on GitHub - this GitHub repository is a read-only mirror that isn’t used for accepting contributions. So that your change can become part">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/12/02/format your contribution/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Linux kernel development happens on mailing lists, rather than on GitHub - this GitHub repository is a read-only mirror that isn’t used for accepting contributions. So that your change can become part">
+<meta property="og:updated_time" content="2017-12-02T05:11:11.915Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="Linux kernel development happens on mailing lists, rather than on GitHub - this GitHub repository is a read-only mirror that isn’t used for accepting contributions. So that your change can become part">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-format your contribution" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/02/format your contribution/" class="article-date">
+  <time datetime="2017-12-02T05:11:11.457Z" itemprop="datePublished">2017-12-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Linux kernel development happens on mailing lists, rather than on GitHub - this GitHub repository is a read-only mirror that isn’t used for accepting contributions. So that your change can become part of Linux, please email it to us as a patch.</p>
+<p>Sending patches isn’t quite as simple as sending a pull request, but fortunately it is a well documented process.</p>
+<p>Here’s what to do:</p>
+<ul>
+<li>Format your contribution according to kernel requirements</li>
+<li>Decide who to send your contribution to</li>
+<li>Set up your system to send your contribution as an email</li>
+<li>Send your contribution and wait for feedback</li>
+</ul>
+<h2 id="How-do-I-format-my-contribution"><a href="#How-do-I-format-my-contribution" class="headerlink" title="How do I format my contribution?"></a>How do I format my contribution?</h2><p>The Linux kernel community is notoriously picky about how contributions are formatted and sent. Fortunately, they have documented their expectations.</p>
+<p>Firstly, all contributions need to be formatted as patches. A patch is a plain text document showing the change you want to make to the code, and documenting why it is a good idea.</p>
+<p>You can create patches with <a href="https://git-scm.com/docs/git-format-patch" target="_blank" rel="external"><code>git format-patch</code></a>.</p>
+<p>Secondly, patches need ‘commit messages’, which is the human-friendly documentation explaining what the change is and why it’s necessary.</p>
+<p>Thirdly, changes have some technical requirements. There is a Linux kernel coding style, and there are licensing requirements you need to comply with.</p>
+<p>Both of these are documented in the <a href="https://kernel.org/doc/html/latest/process/submitting-patches.html" target="_blank" rel="external">Submitting Patches documentation</a> that is part of the kernel.</p>
+<p>Note that you will almost certainly have to modify your existing git commits to satisfy these requirements. Don’t worry: there are many guides on the internet for doing this.</p>
+<h2 id="Who-do-I-send-my-contribution-to"><a href="#Who-do-I-send-my-contribution-to" class="headerlink" title="Who do I send my contribution to?"></a>Who do I send my contribution to?</h2><p>The Linux kernel is composed of a number of subsystems. These subsystems are maintained by different people, and have different mailing lists where they discuss proposed changes.</p>
+<p>If you don’t already know what subsystem your change belongs to, the <a href="https://github.com/torvalds/linux/blob/master/scripts/get_maintainer.pl" target="_blank" rel="external"><code>get_maintainer.pl</code></a> script in the kernel source can help you.</p>
+<p><code>get_maintainer.pl</code> will take the patch or patches you created in the previous step, and tell you who is responsible for them, and what mailing lists are used. You can also take a look at the <a href="https://www.kernel.org/doc/linux/MAINTAINERS" target="_blank" rel="external">MAINTAINERS</a> file by hand.</p>
+<p>Make sure that your list of recipients includes a mailing list. If you can’t find a more specific mailing list, then <a href="http://vger.kernel.org/vger-lists.html#linux-kernel" target="_blank" rel="external">LKML - the Linux Kernel Mailing List</a> - is the place to send your patches.</p>
+<p>It’s not usually necessary to subscribe to the mailing list before you send the patches, but if you’re interested in kernel development, subscribing to a subsystem mailing list is a good idea. (At this point, you probably don’t need to subscribe to LKML - it is a very high traffic list with about a thousand messages per day, which is often not useful for beginners.)</p>
+<h2 id="How-do-I-send-my-contribution"><a href="#How-do-I-send-my-contribution" class="headerlink" title="How do I send my contribution?"></a>How do I send my contribution?</h2><p>Use <a href="https://git-scm.com/docs/git-send-email" target="_blank" rel="external"><code>git send-email</code></a>, which will ensure that your patches are formatted in the standard manner. In order to use <code>git send-email</code>, you’ll need to configure git to use your SMTP email server.</p>
+<p>For more information about using <code>git send-email</code>, look at the <a href="https://git-scm.com/docs/git-send-email" target="_blank" rel="external">Git documentation</a> or type <code>git help send-email</code>. There are a number of useful guides and tutorials about <code>git send-email</code> that can be found on the internet.</p>
+<h2 id="How-do-I-get-help-if-I’m-stuck"><a href="#How-do-I-get-help-if-I’m-stuck" class="headerlink" title="How do I get help if I’m stuck?"></a>How do I get help if I’m stuck?</h2><p>Firstly, don’t get discouraged! There are an enormous number of resources on the internet, and many kernel developers who would like to see you succeed.</p>
+<p>Many issues - especially about how to use certain tools - can be resolved by using your favourite internet search engine.</p>
+<p>If you can’t find an answer, there are a few places you can turn:</p>
+<ul>
+<li><a href="https://kernelnewbies.org/" target="_blank" rel="external">Kernel Newbies</a> - this website contains a lot of useful resources for new kernel developers.</li>
+<li><a href="https://www.kernel.org/doc/html/latest/" target="_blank" rel="external">The kernel documentation</a> - see also the <code>Documentation</code> directory in the kernel tree.</li>
+</ul>
+<p>If you get really, really stuck, you could try the owners of this bot, <a href="https://github.com/daxtens" target="_blank" rel="external">@daxtens</a> and <a href="https://github.com/ajdlinux" target="_blank" rel="external">@ajdlinux</a>. Please be aware that we do have full-time jobs, so we are almost certainly the slowest way to get answers!</p>
+<h2 id="I-sent-my-patch-now-what"><a href="#I-sent-my-patch-now-what" class="headerlink" title="I sent my patch - now what?"></a>I sent my patch - now what?</h2><p>You wait.</p>
+<p>You can check that your email has been received by checking the mailing list archives for the mailing list you sent your patch to. Messages may not be received instantly, so be patient. Kernel developers are generally very busy people, so it may take a few weeks before your patch is looked at.</p>
+<p>Then, you keep waiting. Three things may happen:</p>
+<ul>
+<li>You might get a response to your email. Often these will be comments, which may require you to make changes to your patch, or explain why your way is the best way. You should respond to these comments, and you may need to submit another revision of your patch to address the issues raised.</li>
+<li>Your patch might be merged into the subsystem tree. Code that becomes part of Linux isn’t merged into the main repository straight away - it first goes into the subsystem tree, which is managed by the subsystem maintainer. It is then batched up with a number of other changes sent to Linus for inclusion. (This process is described in some detail in <a href="https://www.kernel.org/doc/html/latest/process/development-process.html" target="_blank" rel="external">the kernel development process guide</a>).</li>
+<li>Your patch might be ignored completely. This happens sometimes - don’t take it personally. Here’s what to do:<ul>
+<li>Wait a bit more - patches often take several weeks to get a response; more if they were sent at a busy time.</li>
+<li>Kernel developers often silently ignore patches that break the rules. Check for obvious violations of the the Submitting Patches guidelines, the style guidelines, and any other documentation you can find about your subsystem. Check that you’re sending your patch to the right place.</li>
+<li>Try again later. When you resend it, don’t add angry commentary, as that will get your patch ignored. It might also get you silently blacklisted.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Further-information"><a href="#Further-information" class="headerlink" title="Further information"></a>Further information</h2><ul>
+<li><a href="https://www.kernel.org/doc/html/latest/process/index.html" target="_blank" rel="external">Working with the kernel development community</a> - the official documentation for new kernel contributors</li>
+</ul>
+<p>Happy hacking!</p>
+<p><em>This message was posted by a bot - if you have any questions or suggestions, please talk to my owners, @ajdlinux and @daxtens, or raise an issue at <a href="https://github.com/ajdlinux/KernelPRBot" target="_blank" rel="external">https://github.com/ajdlinux/KernelPRBot</a>.</em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/02/format your contribution/" data-id="cjaovslwn0008qcva08ur5pzj" class="article-share-link">Delen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2099/11/14/11月gantt/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nieuwer</strong>
+      <div class="article-nav-title">
+        
+          11月gantt
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/11/25/落霞彩云归 来拟竹林居/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Labels</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GANTT/">GANTT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学业/">学业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术栈/">技术栈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编码/">编码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/英语/">英语</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计划/">计划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/项目管理/">项目管理</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/GANTT/" style="font-size: 10px;">GANTT</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/学业/" style="font-size: 10px;">学业</a> <a href="/tags/技术栈/" style="font-size: 20px;">技术栈</a> <a href="/tags/操作系统/" style="font-size: 10px;">操作系统</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/英语/" style="font-size: 10px;">英语</a> <a href="/tags/计划/" style="font-size: 10px;">计划</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/项目管理/" style="font-size: 10px;">项目管理</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archieven</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2099/11/">November 2099</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recente berichten</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2099/11/14/11月gantt/">11月gantt</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/02/format your contribution/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/25/落霞彩云归 来拟竹林居/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/25/Scheme十诫/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/24/Machine learning tools and techniques/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
