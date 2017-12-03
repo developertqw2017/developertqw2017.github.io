@@ -3,14 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2099 | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="索引结构基础 存储结构有文件构成。 一个数据文件可以用来存储一个关系。一个数据文件可能拥有一个或多个索引文件。每个索引文件建立查找键和数据记录之间的关联，查找键的指针指向与查找键具有相同属性的记录。 索引可以是“稠密的”，即数据文件中每个记录在索引文件中都设有一个索引项。所以也可以锁“疏密的”，即数据文件中只有一些记录在索引文件中表示出来，通常为每个数据块在索引文件中设一个索引项。索引还可以是“主">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2099/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/12/04/索引结构基础/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="索引结构基础 存储结构有文件构成。 一个数据文件可以用来存储一个关系。一个数据文件可能拥有一个或多个索引文件。每个索引文件建立查找键和数据记录之间的关联，查找键的指针指向与查找键具有相同属性的记录。 索引可以是“稠密的”，即数据文件中每个记录在索引文件中都设有一个索引项。所以也可以锁“疏密的”，即数据文件中只有一些记录在索引文件中表示出来，通常为每个数据块在索引文件中设一个索引项。索引还可以是“主">
+<meta property="og:updated_time" content="2017-12-03T18:14:53.602Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="索引结构基础 存储结构有文件构成。 一个数据文件可以用来存储一个关系。一个数据文件可能拥有一个或多个索引文件。每个索引文件建立查找键和数据记录之间的关联，查找键的指针指向与查找键具有相同属性的记录。 索引可以是“稠密的”，即数据文件中每个记录在索引文件中都设有一个索引项。所以也可以锁“疏密的”，即数据文件中只有一些记录在索引文件中表示出来，通常为每个数据块在索引文件中设一个索引项。索引还可以是“主">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -59,39 +63,54 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2099" class="archive-year">2099</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2099/11/14/11月gantt/" class="archive-article-date">
-  <time datetime="2099-11-13T17:42:00.000Z" itemprop="datePublished">Nov 14</time>
+        <section id="main"><article id="post-索引结构基础" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/04/索引结构基础/" class="article-date">
+  <time datetime="2017-12-03T18:14:53.379Z" itemprop="datePublished">2017-12-04</time>
 </a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2099/11/14/11月gantt/">11月gantt</a>
-    </h1>
-  
-
-    </header>
+    
   </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>索引结构基础</p>
+<p>存储结构有文件构成。</p>
+<p>一个数据文件可以用来存储一个关系。一个数据文件可能拥有一个或多个索引文件。每个索引文件建立查找键和数据记录之间的关联，查找键的指针指向与查找键具有相同属性的记录。</p>
+<p>索引可以是“稠密的”，即数据文件中每个记录在索引文件中都设有一个索引项。所以也可以锁“疏密的”，即数据文件中只有一些记录在索引文件中表示出来，通常为每个数据块在索引文件中设一个索引项。索引还可以是“主索引”或者“辅助索引”。主索引能确定记录在数据文件中的位置，而辅助索引不能。比如说，通常我们会在关系的主键上建立主索引，而在其他的属性上建立辅助索引。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/04/索引结构基础/" data-id="cjar3f1t8001aeovawxf1gljv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2099/11/14/11月gantt/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          11月gantt
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/03/汇编语言/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         
