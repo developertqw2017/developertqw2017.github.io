@@ -5,12 +5,38 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="前言打个比方，更容易解释数据库跟文件系统的主要差别： 数据库是商场，文件系统是超市。 数据库，你把你想要的告诉营业员，她自己已经记录了所有的商品对应哪个货架，然后就跑到对应的货架上，把货物拿给你。——你们之间的交互只有两样东西：你的一句话，她给你的货物。 文件系统，你知道你想要什么东西，然后去逛超市，（假定这个超市除了收银员以外没有任何营业员）把超市的每样都逛了个遍，发现了你的东西在某个角落，然后">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/12/16/MySQL索引背后的数据结构及算法原理/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前言打个比方，更容易解释数据库跟文件系统的主要差别： 数据库是商场，文件系统是超市。 数据库，你把你想要的告诉营业员，她自己已经记录了所有的商品对应哪个货架，然后就跑到对应的货架上，把货物拿给你。——你们之间的交互只有两样东西：你的一句话，她给你的货物。 文件系统，你知道你想要什么东西，然后去逛超市，（假定这个超市除了收银员以外没有任何营业员）把超市的每样都逛了个遍，发现了你的东西在某个角落，然后">
+<meta property="og:image" content="http://my.csdn.net/uploads/201205/03/1336034967_9324.png">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/0060lm7Tly1fkuwtpg1q4j30dw0kjgnl.jpg">
+<meta property="og:image" content="http://img.blog.csdn.net/20141112102543946">
+<meta property="og:image" content="http://img.blog.csdn.net/20141112102604390">
+<meta property="og:image" content="http://upload.newhua.com/3/f4/1291613166438.jpg">
+<meta property="og:image" content="https://tech.meituan.com/img/mysql_index/various-system-software-hardware-latencies.png">
+<meta property="og:image" content="http://blog.codinglabs.org/uploads/pictures/theory-of-mysql-index/1.png">
+<meta property="og:image" content="http://blog.codinglabs.org/uploads/pictures/theory-of-mysql-index/1.png">
+<meta property="og:image" content="http://blog.codinglabs.org/uploads/pictures/theory-of-mysql-index/2.png">
+<meta property="og:image" content="http://blog.codinglabs.org/uploads/pictures/theory-of-mysql-index/3.png">
+<meta property="og:image" content="http://blog.codinglabs.org/uploads/pictures/theory-of-mysql-index/4.png">
+<meta property="og:image" content="http://blog.codinglabs.org/uploads/pictures/theory-of-mysql-index/5.png">
+<meta property="og:image" content="http://blog.codinglabs.org/uploads/pictures/theory-of-mysql-index/6.png">
+<meta property="og:image" content="http://blog.codinglabs.org/uploads/pictures/theory-of-mysql-index/7.png">
+<meta property="og:image" content="http://blog.codinglabs.org/uploads/pictures/theory-of-mysql-index/8.png">
+<meta property="og:image" content="http://blog.codinglabs.org/uploads/pictures/theory-of-mysql-index/9.png">
+<meta property="og:image" content="http://blog.codinglabs.org/uploads/pictures/theory-of-mysql-index/10.png">
+<meta property="og:image" content="http://blog.codinglabs.org/uploads/pictures/theory-of-mysql-index/11.png">
+<meta property="og:image" content="http://blog.codinglabs.org/uploads/pictures/theory-of-mysql-index/12.png">
+<meta property="og:image" content="http://blog.codinglabs.org/uploads/pictures/theory-of-mysql-index/13.png">
+<meta property="og:image" content="http://blog.codinglabs.org/uploads/pictures/theory-of-mysql-index/14.png">
+<meta property="og:updated_time" content="2017-12-16T06:37:14.876Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="前言打个比方，更容易解释数据库跟文件系统的主要差别： 数据库是商场，文件系统是超市。 数据库，你把你想要的告诉营业员，她自己已经记录了所有的商品对应哪个货架，然后就跑到对应的货架上，把货物拿给你。——你们之间的交互只有两样东西：你的一句话，她给你的货物。 文件系统，你知道你想要什么东西，然后去逛超市，（假定这个超市除了收银员以外没有任何营业员）把超市的每样都逛了个遍，发现了你的东西在某个角落，然后">
+<meta name="twitter:image" content="http://my.csdn.net/uploads/201205/03/1336034967_9324.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -59,50 +85,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-11月gantt" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2099/11/14/11月gantt/" class="article-date">
-  <time datetime="2099-11-13T17:42:00.000Z" itemprop="datePublished">2099-11-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2099/11/14/11月gantt/">11月gantt</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">gantt</div><div class="line">		dateFormat YYYY-MM-DD</div><div class="line">		title 11月下半月学习任务</div><div class="line">		section 大学生创新创业比赛</div><div class="line">		大学生创新创业第一次文档提交			:crit,active,	des1,2017-11-14,2017-11-16</div><div class="line">		大学生创新创业第二次文档提交			:	des2,2017-11-16,2017-11-22</div><div class="line">		大学生创新创业第三次文档提交			:	des3,2017-11-22,2017-11-28</div><div class="line">		section 农业大数据爬虫</div><div class="line">		数据存储						:	2017-11-19,2017-11-21</div><div class="line">		后台测试						:	des4,2017-11-21,3d</div><div class="line">		交付							:	after des4,3d</div><div class="line">		section 大学物理复习</div><div class="line">		16-20章课后练习				:	crit,active,des5,2017-11-14,2017-11-15</div><div class="line">		21-25章课后练习				:	des6,after des5,2d</div><div class="line">		总复习						:	after des6,1d</div><div class="line">		</div><div class="line">		section 形势政策</div><div class="line">		网上考试				:	2017-11-14,2017-11-18</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">gantt</div><div class="line">		dateFormat YYYY-MM-DD</div><div class="line">		title 11月 3大创</div><div class="line">		section 大学生创新创业比赛</div><div class="line">		大创比赛研究现状、动态、项目简介			:crit,done,	des1,2017-11-13,2017-11-14</div><div class="line">		大创比赛研究目的、研究内容			:active,	des2,2017-11-14,2017-11-15</div><div class="line">		项目摘要、项目要解决的问题(100字)、项目功能、项目主要使用技术			:	des3,2017-11-14,2017-11-15</div><div class="line">		section 技术准备</div><div class="line">		分配组员学习任务						:	2017-11-15,2017-11-17</div><div class="line">		学习资料汇总						:	des4,2017-11-17,3d</div><div class="line">		汇总学习情况							:	after des4,1d</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gantt</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2099/11/14/11月gantt/" data-id="cjb8z09mb0003z4va9rd6bbhg" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GANTT/">GANTT</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-MySQL索引背后的数据结构及算法原理" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-MySQL索引背后的数据结构及算法原理" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/12/16/MySQL索引背后的数据结构及算法原理/" class="article-date">
   <time datetime="2017-12-16T06:32:29.474Z" itemprop="datePublished">2017-12-16</time>
@@ -383,463 +366,29 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-汇编语言" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/03/汇编语言/" class="article-date">
-  <time datetime="2017-12-03T10:20:57.940Z" itemprop="datePublished">2017-12-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="INTEL8086处理器的通用寄存器和段地址加偏移地址的内存访问方式"><a href="#INTEL8086处理器的通用寄存器和段地址加偏移地址的内存访问方式" class="headerlink" title="INTEL8086处理器的通用寄存器和段地址加偏移地址的内存访问方式"></a><a href="#intel1">INTEL8086处理器的通用寄存器和段地址加偏移地址的内存访问方式</a></h2><h2 id="分段机制对程序重定位的好处"><a href="#分段机制对程序重定位的好处" class="headerlink" title="分段机制对程序重定位的好处"></a><a href="#intel2">分段机制对程序重定位的好处</a></h2><h2 id="理解INTEL8086处理器内存分段的本质"><a href="#理解INTEL8086处理器内存分段的本质" class="headerlink" title="理解INTEL8086处理器内存分段的本质"></a><a href="#intel3">理解INTEL8086处理器内存分段的本质</a></h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/03/汇编语言/" data-id="cjb8z09n50018z4vayr7ugldq" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
+    <a href="/2099/11/14/11月gantt/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          11月gantt
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/03/汇编语言/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
   
 </article>
 
-
-  
-    <article id="post-format your contribution" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/02/format your contribution/" class="article-date">
-  <time datetime="2017-12-02T05:11:11.457Z" itemprop="datePublished">2017-12-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Linux kernel development happens on mailing lists, rather than on GitHub - this GitHub repository is a read-only mirror that isn’t used for accepting contributions. So that your change can become part of Linux, please email it to us as a patch.</p>
-<p>Sending patches isn’t quite as simple as sending a pull request, but fortunately it is a well documented process.</p>
-<p>Here’s what to do:</p>
-<ul>
-<li>Format your contribution according to kernel requirements</li>
-<li>Decide who to send your contribution to</li>
-<li>Set up your system to send your contribution as an email</li>
-<li>Send your contribution and wait for feedback</li>
-</ul>
-<h2 id="How-do-I-format-my-contribution"><a href="#How-do-I-format-my-contribution" class="headerlink" title="How do I format my contribution?"></a>How do I format my contribution?</h2><p>The Linux kernel community is notoriously picky about how contributions are formatted and sent. Fortunately, they have documented their expectations.</p>
-<p>Firstly, all contributions need to be formatted as patches. A patch is a plain text document showing the change you want to make to the code, and documenting why it is a good idea.</p>
-<p>You can create patches with <a href="https://git-scm.com/docs/git-format-patch" target="_blank" rel="external"><code>git format-patch</code></a>.</p>
-<p>Secondly, patches need ‘commit messages’, which is the human-friendly documentation explaining what the change is and why it’s necessary.</p>
-<p>Thirdly, changes have some technical requirements. There is a Linux kernel coding style, and there are licensing requirements you need to comply with.</p>
-<p>Both of these are documented in the <a href="https://kernel.org/doc/html/latest/process/submitting-patches.html" target="_blank" rel="external">Submitting Patches documentation</a> that is part of the kernel.</p>
-<p>Note that you will almost certainly have to modify your existing git commits to satisfy these requirements. Don’t worry: there are many guides on the internet for doing this.</p>
-<h2 id="Who-do-I-send-my-contribution-to"><a href="#Who-do-I-send-my-contribution-to" class="headerlink" title="Who do I send my contribution to?"></a>Who do I send my contribution to?</h2><p>The Linux kernel is composed of a number of subsystems. These subsystems are maintained by different people, and have different mailing lists where they discuss proposed changes.</p>
-<p>If you don’t already know what subsystem your change belongs to, the <a href="https://github.com/torvalds/linux/blob/master/scripts/get_maintainer.pl" target="_blank" rel="external"><code>get_maintainer.pl</code></a> script in the kernel source can help you.</p>
-<p><code>get_maintainer.pl</code> will take the patch or patches you created in the previous step, and tell you who is responsible for them, and what mailing lists are used. You can also take a look at the <a href="https://www.kernel.org/doc/linux/MAINTAINERS" target="_blank" rel="external">MAINTAINERS</a> file by hand.</p>
-<p>Make sure that your list of recipients includes a mailing list. If you can’t find a more specific mailing list, then <a href="http://vger.kernel.org/vger-lists.html#linux-kernel" target="_blank" rel="external">LKML - the Linux Kernel Mailing List</a> - is the place to send your patches.</p>
-<p>It’s not usually necessary to subscribe to the mailing list before you send the patches, but if you’re interested in kernel development, subscribing to a subsystem mailing list is a good idea. (At this point, you probably don’t need to subscribe to LKML - it is a very high traffic list with about a thousand messages per day, which is often not useful for beginners.)</p>
-<h2 id="How-do-I-send-my-contribution"><a href="#How-do-I-send-my-contribution" class="headerlink" title="How do I send my contribution?"></a>How do I send my contribution?</h2><p>Use <a href="https://git-scm.com/docs/git-send-email" target="_blank" rel="external"><code>git send-email</code></a>, which will ensure that your patches are formatted in the standard manner. In order to use <code>git send-email</code>, you’ll need to configure git to use your SMTP email server.</p>
-<p>For more information about using <code>git send-email</code>, look at the <a href="https://git-scm.com/docs/git-send-email" target="_blank" rel="external">Git documentation</a> or type <code>git help send-email</code>. There are a number of useful guides and tutorials about <code>git send-email</code> that can be found on the internet.</p>
-<h2 id="How-do-I-get-help-if-I’m-stuck"><a href="#How-do-I-get-help-if-I’m-stuck" class="headerlink" title="How do I get help if I’m stuck?"></a>How do I get help if I’m stuck?</h2><p>Firstly, don’t get discouraged! There are an enormous number of resources on the internet, and many kernel developers who would like to see you succeed.</p>
-<p>Many issues - especially about how to use certain tools - can be resolved by using your favourite internet search engine.</p>
-<p>If you can’t find an answer, there are a few places you can turn:</p>
-<ul>
-<li><a href="https://kernelnewbies.org/" target="_blank" rel="external">Kernel Newbies</a> - this website contains a lot of useful resources for new kernel developers.</li>
-<li><a href="https://www.kernel.org/doc/html/latest/" target="_blank" rel="external">The kernel documentation</a> - see also the <code>Documentation</code> directory in the kernel tree.</li>
-</ul>
-<p>If you get really, really stuck, you could try the owners of this bot, <a href="https://github.com/daxtens" target="_blank" rel="external">@daxtens</a> and <a href="https://github.com/ajdlinux" target="_blank" rel="external">@ajdlinux</a>. Please be aware that we do have full-time jobs, so we are almost certainly the slowest way to get answers!</p>
-<h2 id="I-sent-my-patch-now-what"><a href="#I-sent-my-patch-now-what" class="headerlink" title="I sent my patch - now what?"></a>I sent my patch - now what?</h2><p>You wait.</p>
-<p>You can check that your email has been received by checking the mailing list archives for the mailing list you sent your patch to. Messages may not be received instantly, so be patient. Kernel developers are generally very busy people, so it may take a few weeks before your patch is looked at.</p>
-<p>Then, you keep waiting. Three things may happen:</p>
-<ul>
-<li>You might get a response to your email. Often these will be comments, which may require you to make changes to your patch, or explain why your way is the best way. You should respond to these comments, and you may need to submit another revision of your patch to address the issues raised.</li>
-<li>Your patch might be merged into the subsystem tree. Code that becomes part of Linux isn’t merged into the main repository straight away - it first goes into the subsystem tree, which is managed by the subsystem maintainer. It is then batched up with a number of other changes sent to Linus for inclusion. (This process is described in some detail in <a href="https://www.kernel.org/doc/html/latest/process/development-process.html" target="_blank" rel="external">the kernel development process guide</a>).</li>
-<li>Your patch might be ignored completely. This happens sometimes - don’t take it personally. Here’s what to do:<ul>
-<li>Wait a bit more - patches often take several weeks to get a response; more if they were sent at a busy time.</li>
-<li>Kernel developers often silently ignore patches that break the rules. Check for obvious violations of the the Submitting Patches guidelines, the style guidelines, and any other documentation you can find about your subsystem. Check that you’re sending your patch to the right place.</li>
-<li>Try again later. When you resend it, don’t add angry commentary, as that will get your patch ignored. It might also get you silently blacklisted.</li>
-</ul>
-</li>
-</ul>
-<h2 id="Further-information"><a href="#Further-information" class="headerlink" title="Further information"></a>Further information</h2><ul>
-<li><a href="https://www.kernel.org/doc/html/latest/process/index.html" target="_blank" rel="external">Working with the kernel development community</a> - the official documentation for new kernel contributors</li>
-</ul>
-<p>Happy hacking!</p>
-<p><em>This message was posted by a bot - if you have any questions or suggestions, please talk to my owners, @ajdlinux and @daxtens, or raise an issue at <a href="https://github.com/ajdlinux/KernelPRBot" target="_blank" rel="external">https://github.com/ajdlinux/KernelPRBot</a>.</em></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/02/format your contribution/" data-id="cjb8z09ml000fz4va4jb5bgpb" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-落霞彩云归 来拟竹林居" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/25/落霞彩云归 来拟竹林居/" class="article-date">
-  <time datetime="2017-11-25T10:03:02.068Z" itemprop="datePublished">2017-11-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#落霞彩云归 来拟竹林居</p>
-<p><img src="http://ww1.sinaimg.cn/large/0060lm7Tly1fluhjp4pt0j31121120v6.jpg" alt=""></p>
-<p><img src="http://ww1.sinaimg.cn/large/0060lm7Tly1fluhk7xs8gj3112112afk.jpg" alt=""></p>
-<p>落霞 长天 秋水</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/25/落霞彩云归 来拟竹林居/" data-id="cjb8z09nf001hz4vag0ocb9r1" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Scheme十诫" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/25/Scheme十诫/" class="article-date">
-  <time datetime="2017-11-25T02:42:43.452Z" itemprop="datePublished">2017-11-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Scheme十诫"><a href="#Scheme十诫" class="headerlink" title="Scheme十诫"></a>Scheme十诫</h1><h2 id="第一诫"><a href="#第一诫" class="headerlink" title="第一诫"></a>第一诫</h2><p>当对一个原子列表lat进行梯柜调用时，询问两个有关lat的问题:(nulll? lat) 和 else。</p>
-<p>当对一个数字n进行递归调用时，询问两个有关n的问题：(zero?n)和else。</p>
-<p>当对一个S-表达式列表l进行递归调用时，询问三个有关l的问题：(null?lat)、(atom?(car l))和else</p>
-<h2 id="第二诫"><a href="#第二诫" class="headerlink" title="第二诫"></a>第二诫</h2><p>使用cons来构建列表。</p>
-<h2 id="第三诫"><a href="#第三诫" class="headerlink" title="第三诫"></a>第三诫</h2><p>构建一个列表的时候，描述第一个典型元素，之后cons该元素到一般性递归(natural recursion)上。</p>
-<h2 id="第四诫"><a href="#第四诫" class="headerlink" title="第四诫"></a>第四诫</h2><p>在递归时总是改变至少一个参数。当对一个原子列表lat进行递归调用时，使用(cdr lat)。当对数字n进行递归调用时，使用时(subl n)。当对一个S-表达式l进行递归调用时，只要是(null?l)和(atom?(car l))都不为true,那么就同时使用(car l)和(cdr l)。</p>
-<p>在递归时改变的参数，必须向着不断接近快速条件而改变。改变的参数必须在结束条件中得以测试：</p>
-<p>当使用cdr时，用null?测试是否结束;</p>
-<p>当使用subl时，用zero?测试是否结束;</p>
-<h2 id="第五诫"><a href="#第五诫" class="headerlink" title="第五诫"></a>第五诫</h2><p>当用✚构建一个值时，总是使用0作为结果代码行的值，因为加上0不会改变加法的值。</p>
-<p>当用×构建一个值时，总是使用1作为结束代码行的值，因为乘以1不会改变乘法的值。</p>
-<p>当用cons构建一个值时，总是考虑把()作为结束代码行的位置。</p>
-<h2 id="第六诫"><a href="#第六诫" class="headerlink" title="第六诫"></a>第六诫</h2><p>简化工作只在功能正确之后开展。</p>
-<h2 id="第七诫"><a href="#第七诫" class="headerlink" title="第七诫"></a>第七诫</h2><p>对具有相同性质的subparts(子部件)进行递归调用：</p>
-<ul>
-<li>列表的子列表</li>
-<li>算数表达式的子表达式</li>
-</ul>
-<p>##第八诫</p>
-<p>使用辅助函数来抽象表示方式。</p>
-<h2 id="第九诫"><a href="#第九诫" class="headerlink" title="第九诫"></a>第九诫</h2><p>用函数来抽象通用模式。</p>
-<h2 id="第十诫"><a href="#第十诫" class="headerlink" title="第十诫"></a>第十诫</h2><p>构建函数，一次收集多个值。</p>
-<h1 id="Scheme五法"><a href="#Scheme五法" class="headerlink" title="Scheme五法"></a>Scheme五法</h1><h2 id="Scheme五法之第一法—car之法则"><a href="#Scheme五法之第一法—car之法则" class="headerlink" title="Scheme五法之第一法—car之法则"></a>Scheme五法之第一法—car之法则</h2><p>基本元件car仅定义为针对非空列表</p>
-<h2 id="Scheme五法之第二法—cdr之法则"><a href="#Scheme五法之第二法—cdr之法则" class="headerlink" title="Scheme五法之第二法—cdr之法则"></a>Scheme五法之第二法—cdr之法则</h2><p>基本元件cdr仅定义为针对非空列表。任意费控列表的cdr总是另一个列表。</p>
-<h2 id="Scheme五法之第三法—cons之法则"><a href="#Scheme五法之第三法—cons之法则" class="headerlink" title="Scheme五法之第三法—cons之法则"></a>Scheme五法之第三法—cons之法则</h2><p>基本元件cons需要两个参数。第二个参数必须是一个列表。结果是一个列表。</p>
-<h2 id="Scheme五法之第四法—Null-之法则"><a href="#Scheme五法之第四法—Null-之法则" class="headerlink" title="Scheme五法之第四法—Null?之法则"></a>Scheme五法之第四法—Null?之法则</h2><p>基本元件null?仅定义为针对列表</p>
-<h2 id="Scheme五法之第五法—eq-之法则"><a href="#Scheme五法之第五法—eq-之法则" class="headerlink" title="Scheme五法之第五法—eq?之法则"></a>Scheme五法之第五法—eq?之法则</h2><p>基本元件eq?需要两个参数。每个参数都必须是一个非数字的原子。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/25/Scheme十诫/" data-id="cjb8z09mb0007z4va05qawslp" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Machine learning tools and techniques" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/24/Machine learning tools and techniques/" class="article-date">
-  <time datetime="2017-11-24T07:15:52.880Z" itemprop="datePublished">2017-11-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Machine-learning-tools-and-techniques"><a href="#Machine-learning-tools-and-techniques" class="headerlink" title="Machine learning tools and techniques"></a>Machine learning tools and techniques</h2><h3 id="1-What’s-it-all-about"><a href="#1-What’s-it-all-about" class="headerlink" title="1.What’s it all about?"></a>1.What’s it all about?</h3><p><a href="#d1.1">1.1Data mining and machine learning</a></p>
-<p><a href="#d1.2">1.2Simple examples:The weather problem and others</a></p>
-<p><a href="d1.3">1.3Fielded applications</a></p>
-<h3 id="Data-mining-and-machine-learning"><a href="#Data-mining-and-machine-learning" class="headerlink" title="Data mining and machine learning"></a>Data mining and machine learning</h3><p>We are overwhelmed with data.The amount of data in the world, in our lives, seems to go on increasing —and there’s no end in sight.Omnipresent personal computers make it too easy to save things that previously we would have trashed.Inexpensive multigigabyte disks make it too easy to postpone decisions about what to do with all this stuff—we simply but another disk and keep it all.Ubiquitous electronics record our decisions ,our choices in the supermarket,our financial habits,our coming and goings.We swipe our way through the world,every swipe a record in a database.The World Wide Web overwhelms us with information;meanwhile,every choice we make is recorded,And all these are just personal choices: they have countless counterparts in the world of commerce and industry.We would all testify to the growing gap between the generation of data and our understanding of it.As the volume of data increases.inexorably,the</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/24/Machine learning tools and techniques/" data-id="cjb8z09mb0005z4va3584ql70" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-LATEX学习指南" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/24/LATEX学习指南/" class="article-date">
-  <time datetime="2017-11-24T04:44:20.112Z" itemprop="datePublished">2017-11-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>LaTex2e</p>
-<p><a href="#d1.1">1.游戏的名目</a></p>
-<p><a href="#d1.2">2.LATEX基础</a></p>
-<p><a href="#d1.3">3.LATEX源文件</a></p>
-<p><a href="#d1.4">4.源文件结构</a></p>
-<p><a href="#d1.5">5.一个典型的命令运行过程</a></p>
-<p><a href="#d1.6">6.文档类</a></p>
-<h2 id="游戏的名目"><a href="#游戏的名目" class="headerlink" title="游戏的名目"></a><p id="d1.1">游戏的名目</p></h2><ol>
-<li><p>TEX</p>
-<p>TEX是由Donald E. Knuth[2] 编写的计算机程序，用于文章和数学公式的排版。1997年Knuth开始编写TEX排版系统引擎的时候，是为了探索当时正开始进入出版工业的数字印刷设备的潜力。他特别希望能因此扭转那种排版质量下降的趋势，使自己写的书和文章免受其害。我们现在使用的TEX系统是在1982年发布的，1989年又略作改进，增进了对8字节字符和多语言的支持。TEX以具有优异的稳定性，可以在各种不同类型的计算机上运行，以及几乎没有错误而著称。TEX的版本号不断趋近于π。</p>
-<p>TEX的发音为“Tech”，其中的“ch”音和德语“Ach”和苏格兰语“Loch”中的“ch”类似。在ASCII文本环境中，TEX表示为TeX。</p>
-</li>
-<li><p>LATEX</p>
-<p>LATEX是一个宏包，其目的是使作者能够利用一个预先定义好的专业页面设置，从而得以高质量地编排和打印他们的作品。LATEX最早是由Leslie Lamport编写的，并使用TEX作为其排版系统引擎。</p>
-</li>
-</ol>
-<h2 id="LATEX基础"><a href="#LATEX基础" class="headerlink" title="LATEX基础"></a><p id="d1.2">LATEX基础</p></h2><ol>
-<li><p>作者、图书设计者和排版者</p>
-<p>出版的第一步是作者将他们的手稿交给出版公司，然后由图书设计者来决定整本书的版面形式（包括栏宽、字体、标题前后的间距……）。图书设计者会把他的排版说明写进手稿里，一起交给排版者，排版者最后根据这些说明完成这本书的排版工作。</p>
-<p>一个图书设计者要试图理解作者写作时的意图。他要根据收到的内容和他自己的职业知识决定章节标题、文献引用、例子、公式、等等。</p>
-<p>在LATEX环境中，LATEX代替了图书设计者的角色，TEX则是它的排版者。但是LATEX“仅仅”是一个计算机程序，它需要更多的指导。作者必须在他的作品中提供附加信息，用于描述作品的所及结构。这些信息是以“LATEX命令”的形式写入文章中的。</p>
-<p>这种方式和所见即所得（WYSIWYG）方式是相当不同的。很多现代文字处理程序都采用所见即所得方式，例如MS Word和Corel Wordper-fect。作者可以利用这些应用程序，在向输入文章的同时，通过与计算机互动的方式决定整个文档的排版形式。在整个过程中，作者随时可以在屏幕上看到作品最终打印出来的效果。</p>
-<p>在使用LATEX的时候，一般来说是不能在输入文章的同时看到最终输出效果的。但是将文章用LATEX处理过之后，是可以在屏幕上预览最终的输出效果的。因此在真正打印文档之前是可以对其进行修正的。</p>
-</li>
-<li><p>版面设计</p>
-<p>排版设计是一门艺术。缺乏经验的作者常常会犯严重的排版格式错误，只因为他们认为图书设计仅仅是个美学问题—-“如果排版好的文档从艺术角度看来不错，就说明设计是成功的。”但是既然文档是用来阅读而不是用来关在画廊里展览的，它的可读性和可理解性就比好看的外观要重要的多。例如：</p>
-<ul>
-<li>必须为标题学则适当的字体大小和序号，是的读者能够清楚理解章节结构。</li>
-<li>行宽既要足够短以避免读者的眼睛疲劳，又要足够长以维持页面美观。</li>
-<li>使用所见即所得系统是，作者经常会写出看上去很漂亮，但却缺乏清晰结构或结构不连贯的文档。为了避免这样的排版格式错误，LATEX要求作者明确说明其文档的逻辑结构。然后，LATEX再根据文档结构选择最适当的版面格式。</li>
-</ul>
-</li>
-<li><p>优势和不足</p>
-<p>使用“所见即所得”（WYSIWYG）的人和使用LATEX的人在一起时经常谈论的一个话题就是“LATEX到底比一般的字处理软件强还是弱”。面对这种讨论，你最好保持低调，因为这样的辩论很容易失去控制。不过，很多时候你也不能逃……</p>
-<p>所以，这里提供一些武器。LATEX优于一般的字处理软件之处可以简单归纳为如下几点：</p>
-<ul>
-<li>提供专业的排版设计，使你的文档开起来如同印刷好的一样。</li>
-<li>可以更方便地排版数学公式。</li>
-<li>用户仅仅需要掌握少数容易理解的，用来说明文档之逻辑结构的命令，而无需对实际的页面设计做胡乱的修补。</li>
-<li>可以很容易的生成脚注、索引、目录和参考文献等复杂的结构。</li>
-<li>有大量免费地可添加宏集，协助你完成许多基本的LATEX未直接支持的排版任务。例如，支持在文档中插入PostScript图形的宏集和排版符合各类标准的参考文献的宏集，等等。The LATEX Companion 中给出了大量的宏集说明。</li>
-<li>LATEX鼓励作者写作具有良好结构的文章，因为LATEX就是通过详细地说明文章的结构来进行其排版工作的。</li>
-<li>TEX作为LATEX的格式化引擎是免费软件，且具有极高的可移植性。因此，它几乎可以在任何硬件平台上运行。</li>
-</ul>
-<p>LATEX当然有一些不足之处。</p>
-<ul>
-<li>尽管在预先定义好的版面中可以调节一些参数，设计全新的版面还是很困难的，需要耗费大量的时间。</li>
-<li>LATEX不适合排版非结构化的、无序的文档。</li>
-<li>即使有一个令人振奋的开始，但你也有可能无法完全掌握其精髓。</li>
-</ul>
-</li>
-</ol>
-<h2 id="LATEX源文件"><a href="#LATEX源文件" class="headerlink" title="LATEX源文件"></a><p id="d1.3">LATEX源文件</p></h2><p>LATEX源文件的格式为普通ASCII文件，你可以使用任何文本编辑器来创建。LATEX源文件不仅包括你需要排版的文本，还包括LATEX所能识别的，如何排版这些文本的命令。</p>
-<ol>
-<li><p>空白间距</p>
-<p>LATEX将空白和制表符等空白字符视为相同的空白距离（space）。多个连续的空白字符等同为一个空白字符。在LATEX文件中，每行开始的空白字符将被忽略，而单个的回车符被视为一空格。</p>
-<p>LATEX使用空行来结束段落，两行文本中的空行标志上一段落的结束和新段落的开始。如同空格一样，多个空行所起的作用和一个空行的作用是相同的。下面例子中，上边是源文件中的文本，下边则是排版后的输出结果。</p>
-<p>​</p>
-<p>It does not matter whether you<br>enter one or several        spaces<br>after a word.<br>An empty line starts a new<br>paragraph</p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">It does not matter whether you enter one or</div><div class="line">several spaces after a word.</div><div class="line">An empty line starts a new paragraph.</div></pre></td></tr></table></figure>
-<ol>
-<li><p>特殊字符</p>
-<p>下面的这些字符是LATEX的保留字符，它们或在LATEX中有特定的用处，或不一定包含在所有的字库中。如果你直接在文本中使用它们，通常在排版结果中将不会得到这些字符，而且还会导致LATEX做一些你不希望发生的事情。</p>
-<h1 id="amp"><a href="#amp" class="headerlink" title="$    %    ^    &amp;    _    {}    -    \"></a>$    %    ^    &amp;    _    {}    -    \</h1><p>在这些字符前面加上反斜杠就可以在文本中得到它们</p>
-</li>
-</ol>
-<p>另外一些符号可以由特殊的命令或作为重音命令得到。反斜线\不能够通过在其前添加另外的反斜线来得到，相反的，\是一个用来断行的命令。</p>
-<ol>
-<li><p>LATEX命令</p>
-<p>LATEX命令（commands）是大小写敏感的并有下面两种格式：</p>
-<ul>
-<li><p>以一反斜线\开始，加上只包括字母字符命令名组成。命令名后的空格符、数字或其他非字母字符标志该命令的结束。</p>
-</li>
-<li><p>有一反斜线和一特殊字符组成。  </p>
-<p>LATEX忽略命令后面的空格。如果你希望在命令后面得到一空格，可以在命令后面加上{}和一个空格，或者加上一个特殊的空白距离命令。{}将阻止LATEX吞噬命令后面的空格。</p>
-<p>I read that Knuth divides the<br>people working with \TeX{} into<br>\TeX{}nicians and \TeX perts.\<br>Today is \today.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">I read that Knuth divides the people working</div><div class="line">with TEX into TEXnicians and TEXperts.</div><div class="line">Today is 8th March 2003.</div></pre></td></tr></table></figure>
-<p>许多命令需要一个参数并用一对大括号{}将其括起来置于命令名称的后面。也有一些命令支持用方括号括起来的可选参数。</p>
-</li>
-</ul>
-</li>
-<li><p>注释</p>
-<p>当LATEX在处理源文件时，如果遇到一个百分号字符%，那么LATEX将忽略%后的该行文本，分行符以及下一行开始的空白字符。这样，我们就可以在源文件中写一些注释，而不会担心他们会出现在最后的排版结果中。</p>
-<p>如果需要较长的注释，你可以使用verbatim宏集所提供的comment环境。当然，你需要在源文件的导言区里加上命令\usepackage{verbatim}。</p>
-<p>%This is another<br>%\begin{comment}<br>%rather stupid,<br>%but helpful<br>%\end{comment}<br>%example for embedding<br>%comments in your document.<br>这是另一个<br>\begin{comment}<br>非常笨拙的，<br>然而却很有效。<br>\end{comment}<br>在你的文档中<br>使用注释的例子。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这是另一个在你的文档中使用注释的例子。</div></pre></td></tr></table></figure>
-<p>注意这个方法不能使用在数学环境等一些复杂的环境中。</p>
-</li>
-</ol>
-<p>##</p><p id="d1.4">源文件结构</p><p></p>
-<p>LATEX需要所处理的源文件遵从一定的结构，每个LATEX文档必须以如下的命令开始：</p>
-<p>\documentclass{…}</p>
-<p>这个命令制定了你所写的文档的类别。在此之后，你可以加入控制文档式样的命令，或者使用如下的命令来调入一些宏集，进而为LATEX系统添加一些功能。</p>
-<p>\usepackage{…}</p>
-<p>当完成所有的设置后，你可利用如下的命令来开始你的文档：</p>
-<p>\begin{document}</p>
-<p>现在你可以输入你所希望排版的文本和所使用的一些LATEX命令。在文档的最后键入下面的命令来告诉LATEX你的文档到此结束，从而使LATEX忽略文档再次命令之后的部分。</p>
-<p>\end{document}</p>
-<h2 id="一个典型的命令行过程"><a href="#一个典型的命令行过程" class="headerlink" title="一个典型的命令行过程"></a><p id="d1.5">一个典型的命令行过程</p></h2><p>LATEX仅仅是一个处理你所提供的源文件的程序，并不具有图形用户洁面或精致的按钮。可能有些LATEX安装提供了图形用户界面的前端，使得你可以点击按钮来让LATEX编译你的源文件，单着并不是LATEX真正的工作方式。因此，这里将说明如何在一个基于文本的系统下使得LATEX处理你的源文件。当然，前提是你的计算机里已经正确安装了LATEX、</p>
-<ol>
-<li><p>创建并编辑你的LAETX源文件。该文件必须是文本（ASCII）格式。在Unix系统下，所有的编辑器都会使用文本格式创建文件。而在Windows系统下，你可能需要明确地以ASCII或纯文本格式保存你的文件。当选取你的源文件的文件名时，要确保其扩展名为.tex。</p>
-</li>
-<li><p>运行LATEX处理你的源文件。如果成功，你将会得到一个扩展名为.div的文件</p>
-<p>latex foo.tex</p>
-</li>
-<li><p>现在你可以预览所得到的DVI文件。</p>
-<p>xdiv foo.dvi</p>
-<p>或将其转换为PS文件：</p>
-<p>dvips -Pcmz foo.dvi -o foo.ps</p>
-<p>xdvi和dvips用来处理.dvi文件的开放源码工具软件。前者可在X11环境下将DVI文件显示到屏幕上，后者则将DVI文件转换为PostScript文件以用来打印。乳沟你不使用Unix操作系统，将会提供其他工具软件来处理.dvi文件。</p>
-</li>
-</ol>
-<h2 id="文档布局"><a href="#文档布局" class="headerlink" title="文档布局"></a><p id="d1.6">文档布局</p></h2><ol>
-<li><p>文档类</p>
-<p>当LATEX处理源文件时，首先需要知道的是作者所要创建的文档类型。该信息可以通过命令\documentclass 来提供给LATEX。</p>
-<p>\documentclass[options]{class}</p>
-<p>这里class指明了所要创建的文档类型。LATEX2e发行版本中还包括了像信件、幻灯片等其他文档类。文档的属性可以通过选项(options)来加以调节，不同的选项用逗号隔开。</p>
-<p>实例：一个LATEX源文件以下面一行开始</p>
-<p>\documentclass[11pt,woside,a4paper]{article}</p>
-<p>这条命令指定LATEX使用论文版式，11嗙大小的字体来排版此文档，并且得到适合打印在A4纸上的输出结果。</p>
-<hr>
-<p>article 排版科技期刊、端报告、程序文档、邀请函等。</p>
-<p>report 排版多章节的长报告、短篇的书籍、博士论文等。</p>
-<p>book 排版书籍。</p>
-<p>slides 排版幻灯片。其中使用了较大的sans serif字体。也可以考虑使用FoilTEX来得到相同的效果。</p>
-<hr>
-<p>a<br>CTAN:/tex-archive/macros/latex/contrib/supported/foiltex</p>
-<p>表 1.2: 文档类选项</p>
-<hr>
-<p>10pt,11pt,12pt 设置文档所使用的字体的大小。如果没有声明任何选项缺省将使用10pt字体。</p>
-<p>a4paper,letterpaper,…  定义纸张的大小，缺省的设置为letterpaper,executivepaper 和legalpaper。</p>
-<p>fleqn 设置该选项将使数学公式左对齐,而不是中间对齐。</p>
-<p>leqno 设置该选项将使数学公式的编号放置于左侧。</p>
-<p>titlepage,notitlepage 指定是否在文档标题(document title)后开始一新页。article文档类缺省不开始新页，而book文档类则相反。</p>
-<p>onecolumn,twocolumn 指定LATEX以单列(one column)或双列(two column)方式排版文档。</p>
-<p>twoside, oneside 指定LATEX排版的文档为双面或单面格式。</p>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/24/LATEX学习指南/" data-id="cjb8z09m10001z4va0doxj3j1" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-C++反汇编与逆向分析" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/24/C++反汇编与逆向分析/" class="article-date">
-  <time datetime="2017-11-24T02:37:13.640Z" itemprop="datePublished">2017-11-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="C-反汇编与逆向分析"><a href="#C-反汇编与逆向分析" class="headerlink" title="C++反汇编与逆向分析"></a>C++反汇编与逆向分析</h1><p><a href="#d1">1.准备工作</a></p>
-<p id="d1">1.准备工作</p>
-
-
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/24/C++反汇编与逆向分析/" data-id="cjb8z09m10000z4va9x09q67h" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-使用LaTex写公式的基本语法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/18/使用LaTex写公式的基本语法/" class="article-date">
-  <time datetime="2017-11-18T04:12:11.790Z" itemprop="datePublished">2017-11-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用LaTex写公式的基本语法</p>
-<p>LaTeX写公式的基本语法</p>
-<p>LaTeX公式有两种，一种是用在正文中，一种是单独显示的。</p>
-<ul>
-<li><p>正文中的公式用\$…\$来定义，其中…表示的是LaTeX的公式命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">我们定义$f(x) = \sum_&#123;i=0&#125;^&#123;N&#125;\int_&#123;a&#125;^&#123;b&#125; g(t,i) \text&#123;d&#125;t$. (行内公式)</div><div class="line"></div><div class="line">或者定义$$f(x) = \sum_&#123;i=0&#125;^&#123;N&#125;\int_&#123;a&#125;^&#123;b&#125; g(t,i) \text&#123; d&#125;t&#123;6&#125;\tag&#123;1&#125;$$</div></pre></td></tr></table></figure>
-<p>得到的结果是</p>
-</li>
-</ul>
-<p>我们定义$f(x) = \sum<em>{i=0}^{N}\int</em>{a}^{b} g(t,i) \text{ d}t$. (行内公式)   </p>
-<p>$$<br>\varGamma(x) = \frac{\int<em>{\alpha}^{\beta} g(t)(x-t)^2\text{ d}t }{\phi(x)\sum</em>{i=0}^{N-1} \omega_i} \tag{2}<br>$$</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/18/使用LaTex写公式的基本语法/" data-id="cjb8z09mv000rz4vad4ck7lvi" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
-  </nav>
 </section>
         
           <aside id="sidebar">
