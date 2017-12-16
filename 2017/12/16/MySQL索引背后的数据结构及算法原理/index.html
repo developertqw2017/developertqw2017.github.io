@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://blog.codinglabs.org/uploads/pictures/theory-of-mysql-index/12.png">
 <meta property="og:image" content="http://blog.codinglabs.org/uploads/pictures/theory-of-mysql-index/13.png">
 <meta property="og:image" content="http://blog.codinglabs.org/uploads/pictures/theory-of-mysql-index/14.png">
-<meta property="og:updated_time" content="2017-12-16T06:37:14.876Z">
+<meta property="og:updated_time" content="2017-12-16T06:46:18.843Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
 <meta name="twitter:description" content="前言打个比方，更容易解释数据库跟文件系统的主要差别： 数据库是商场，文件系统是超市。 数据库，你把你想要的告诉营业员，她自己已经记录了所有的商品对应哪个货架，然后就跑到对应的货架上，把货物拿给你。——你们之间的交互只有两样东西：你的一句话，她给你的货物。 文件系统，你知道你想要什么东西，然后去逛超市，（假定这个超市除了收银员以外没有任何营业员）把超市的每样都逛了个遍，发现了你的东西在某个角落，然后">
@@ -103,6 +103,7 @@
 <p>文件系统，你知道你想要什么东西，然后去逛超市，（假定这个超市除了收银员以外没有任何营业员）把超市的每样都逛了个遍，发现了你的东西在某个角落，然后把它拿出来了，最后到收银台去付钱。。。——你们之间的交互是：整个超市里所有货物的分类，布局，所有商品的样子。你一路遍历所花的时间。</p>
 <p>对于本地来说，这没什么问题，但是如果是远程，那么有营业员的前提下你的通讯可以只是一个电话，和一个邮递包裹。若没有营业员，你得亲自去一趟去查看所有的布局，或者通过渠道获取对方整个超市的所有货物清单，然后亲自查找。通讯量太大了，至少一个清单是在一通电话里说不清楚的。</p>
 <p>所以说了，商店还是那个商店，文件系统还是那个文件系统，数据库只是那个营业员而已。她记得每样东西在哪，然后与你协定了一种交互的命令，你用这个协议去让她提供服务。     ——这个营业员平时也不闲着，没事的时候就去整理一下货架，并且背诵一下各个货物的位置（建索引），这样她找东西往往会比你更快。</p>
+<a id="more"></a>
 <h1 id="MySQL索引"><a href="#MySQL索引" class="headerlink" title="MySQL索引"></a>MySQL索引</h1><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>本文的研究对象是MySQL数据库,讨论数据库索引话题。主要研究BTree(B+Tree),哈希索引，全文索引。</p>
 <h2 id="BTree-B-Tree-索引"><a href="#BTree-B-Tree-索引" class="headerlink" title="BTree(B+Tree)索引"></a>BTree(B+Tree)索引</h2><p>BTree索引分三个部分</p>
 <ul>
