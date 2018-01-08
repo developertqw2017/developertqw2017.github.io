@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/01/mysql配置方案总结/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="pip install mysql-python fails with EnvironmentError: mysql_config not found It seems mysql_config is missing on your system or the installer could not find it. Be sure mysql_config is really installe">
-<meta property="og:updated_time" content="2018-01-08T14:07:34.747Z">
+<meta property="og:updated_time" content="2018-01-08T14:09:32.580Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
 <meta name="twitter:description" content="pip install mysql-python fails with EnvironmentError: mysql_config not found It seems mysql_config is missing on your system or the installer could not find it. Be sure mysql_config is really installe">
@@ -54,7 +54,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Søk"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -81,6 +81,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libmysqlclient-dev</div></pre></td></tr></table></figure>
 <p>Maybe the mysql_config is not in your path, it will be the case when you compile by yourself the mysql suite.</p>
 <h2 id="mysql-remote-connection-configuration。"><a href="#mysql-remote-connection-configuration。" class="headerlink" title="mysql remote connection configuration。"></a>mysql remote connection configuration。</h2><p>ubuntu 16.04  到mysql配置文件/etc/mysql/mysql.conf.d/mysqld.cnf 将bind-address 从127.0.0.1 改为0.0.0.0(或者指定ip)</p>
+<p><strong>skip-networking </strong>: 如果设置了该参数项，将导致所有TCP/IP端口没有被监听,也就是说出了本机，其他客户端都无法用网络连接到本mysql服务器，所以<strong>应该注释掉该参数</strong></p>
 <p>再进入mysql -uroot -p</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">grant all privileges on 库名.表名 to &apos;用户名&apos;@&apos;IP地址&apos; identified by &apos;密码&apos; with grant option;</div><div class="line">flush privileges;</div></pre></td></tr></table></figure>
 <p>重启一下mysql服务器就可以试下远程连接数据库是否成功</p>
@@ -88,7 +89,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/01/mysql配置方案总结/" data-id="cjc6a87u8000c1kvaj158hk46" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/01/mysql配置方案总结/" data-id="cjc6aad37000iqsva62f5u3xv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -145,7 +146,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Arkiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li></ul>
     </div>
@@ -155,7 +156,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Siste innlegg</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
