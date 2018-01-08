@@ -3,19 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>TCP首部 | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="规定:  1. 尝试博客式学习，模式定为 发现 ――提问――解答。2. 更新以天为单位后续添加。。。  问  在传输层的数据包封装了来自应用层的消息，如果它来自于传输层的TCP协议则称之为分段，如果来自于传输层的UDP协议，则称之为数据报  ​  ​ 应用层到传输层数据包处理疑问 1.在传输层的数据包封装了来自应用层的消息，如果它来自于传输层的TCP协议则称之为分段，如果来自于传输层的UDP协议，">
-<meta name="keywords" content="网络">
+  <meta name="description" content="python中的id函数。 id(object0)返回的是对象的“身份证号”,唯一且不变，但在不重合的生命周期里，可能会出现相同的id值。 如果把变量看作盒子就无法解释python中的赋值。 1234567891011121314class tqw:    def __init__(self):        print(&apos;tqw id is %d&apos; % id(self))">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TCP首部">
-<meta property="og:url" content="http://yoursite.com/2017/08/23/TCP首部/index.html">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/01/08/python的面向对象惯用法/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="规定:  1. 尝试博客式学习，模式定为 发现 ――提问――解答。2. 更新以天为单位后续添加。。。  问  在传输层的数据包封装了来自应用层的消息，如果它来自于传输层的TCP协议则称之为分段，如果来自于传输层的UDP协议，则称之为数据报  ​  ​ 应用层到传输层数据包处理疑问 1.在传输层的数据包封装了来自应用层的消息，如果它来自于传输层的TCP协议则称之为分段，如果来自于传输层的UDP协议，">
-<meta property="og:updated_time" content="2017-11-06T09:52:44.277Z">
+<meta property="og:description" content="python中的id函数。 id(object0)返回的是对象的“身份证号”,唯一且不变，但在不重合的生命周期里，可能会出现相同的id值。 如果把变量看作盒子就无法解释python中的赋值。 1234567891011121314class tqw:    def __init__(self):        print(&apos;tqw id is %d&apos; % id(self))">
+<meta property="og:updated_time" content="2018-01-08T14:06:05.161Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TCP首部">
-<meta name="twitter:description" content="规定:  1. 尝试博客式学习，模式定为 发现 ――提问――解答。2. 更新以天为单位后续添加。。。  问  在传输层的数据包封装了来自应用层的消息，如果它来自于传输层的TCP协议则称之为分段，如果来自于传输层的UDP协议，则称之为数据报  ​  ​ 应用层到传输层数据包处理疑问 1.在传输层的数据包封装了来自应用层的消息，如果它来自于传输层的TCP协议则称之为分段，如果来自于传输层的UDP协议，">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="python中的id函数。 id(object0)返回的是对象的“身份证号”,唯一且不变，但在不重合的生命周期里，可能会出现相同的id值。 如果把变量看作盒子就无法解释python中的赋值。 1234567891011121314class tqw:    def __init__(self):        print(&apos;tqw id is %d&apos; % id(self))">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -64,73 +63,48 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-TCP首部" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-python的面向对象惯用法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/08/23/TCP首部/" class="article-date">
-  <time datetime="2017-08-22T18:22:15.000Z" itemprop="datePublished">2017-08-23</time>
+    <a href="/2018/01/08/python的面向对象惯用法/" class="article-date">
+  <time datetime="2018-01-08T14:06:04.788Z" itemprop="datePublished">2018-01-08</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      TCP首部
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>规定: </p>
-<h3 id="1-尝试博客式学习，模式定为-发现-――提问――解答。"><a href="#1-尝试博客式学习，模式定为-发现-――提问――解答。" class="headerlink" title="1. 尝试博客式学习，模式定为 发现 ――提问――解答。"></a>1. 尝试博客式学习，模式定为 发现 ――提问――解答。</h3><h3 id="2-更新以天为单位"><a href="#2-更新以天为单位" class="headerlink" title="2. 更新以天为单位"></a>2. 更新以天为单位</h3><p>后续添加。。。</p>
-<ul>
-<li><p>问</p>
-<ul>
-<li><a href="#tqw1">在传输层的数据包封装了来自应用层的消息，如果它来自于传输层的TCP协议则称之为分段，如果来自于传输层的UDP协议，则称之为数据报</a></li>
-</ul>
-<p>​</p>
-<hr>
-<p>​</p>
-<p><div id="tqw1"></div>应用层到传输层数据包处理疑问</p>
-<p>1.在传输层的数据包封装了来自应用层的消息，如果它来自于传输层的TCP协议则称之为分段，如果来自于传输层的UDP协议，则称之为数据报。</p>
-<ul>
-<li>它们两协议对分别数据包做了什么？<br>先来看两个协议有什么区别</li>
-</ul>
-<ol>
-<li>UDP：简单的面向数据报的运输层协议：进程的每个输出操作都正好是一个UDP数据报并组装成一份待发送的IP数据报。<br>TCP：面向连接的、可靠的字节流服务。</li>
-<li>TCP通过下列方式提供可靠性。<br>应用数据被分割。（最合适的大小）</li>
-</ol>
-</li>
-</ul>
-
+        <p>python中的id函数。</p>
+<p>id(object0)返回的是对象的“身份证号”,唯一且不变，但在不重合的生命周期里，可能会出现相同的id值。</p>
+<p>如果把变量看作盒子就无法解释python中的赋值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">tqw</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'tqw id is %d'</span> % id(self))</div><div class="line">        </div><div class="line">        </div><div class="line">&gt;&gt;&gt;a = tqw()</div><div class="line"><span class="comment">#id 12015054015</span></div><div class="line">&gt;&gt;&gt;a</div><div class="line">&lt;__main__.tqw object at <span class="number">0x7e43fb123bc22</span>&gt;</div><div class="line">&gt;&gt;&gt;b = tqw() * <span class="number">10</span></div><div class="line">tqw id <span class="keyword">is</span> <span class="number">140609381488904</span></div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">TypeError: unsupported operand type(s) <span class="keyword">for</span> *: <span class="string">'tqw'</span> <span class="keyword">and</span> <span class="string">'int'</span></div></pre></td></tr></table></figure>
+<p>b = tqw() * 10</p>
+<p>赋值运算符先运行右边。</p>
+<p>tqw不能和int运算 抛出类型错误。</p>
+<p>此时虽然没有对b赋值，但tqw类已实例成功了。</p>
+<p>因此，变量对于对象来说不是起到一个承载的盒子，而是对象的一个标注。</p>
+<h2 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#is 用来判断是否是同一个**对象**,is 是种很特殊的语法，你在其它的语言应该不会见到这样的用法。</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>tqw = &#123;<span class="string">"name"</span>:<span class="string">"tqw"</span>,<span class="string">"born"</span>:<span class="number">1998</span>&#125;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>bbr = tqw</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>bbr <span class="keyword">is</span> tqw</div><div class="line"><span class="keyword">True</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>id(tqw)</div><div class="line"><span class="number">140609404312200</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>id(bbr)</div><div class="line"><span class="number">140609404312200</span></div><div class="line"></div><div class="line"><span class="comment">#给tqw增加一对值</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>tqw[<span class="string">'age'</span>] = <span class="number">19</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>bbr</div><div class="line">&#123;<span class="string">'age'</span>: <span class="number">19</span>, <span class="string">'born'</span>: <span class="number">1998</span>, <span class="string">'name'</span>: <span class="string">'tqw'</span>&#125;</div><div class="line">&gt;&gt;&gt;</div></pre></td></tr></table></figure>
+<p>bbr 是 tqw的别名</p>
+<p>is运算符和id函数确认了这一点。</p>
+<h2 id="is和"><a href="#is和" class="headerlink" title="is和=="></a>is和==</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/23/TCP首部/" data-id="cjc6a87u300081kvays93putk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/08/python的面向对象惯用法/" data-id="cjc6a87ug000i1kva7oispiq3" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络/">网络</a></li></ul>
-
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2017/09/27/wp插件信息头/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          wp插件头信息
-        
-      </div>
-    </a>
   
+    <a href="/2018/01/01/mysql配置方案总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
   
 </nav>
 

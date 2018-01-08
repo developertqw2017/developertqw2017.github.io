@@ -50,7 +50,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Søk"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -60,6 +60,79 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-python的面向对象惯用法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/08/python的面向对象惯用法/" class="article-date">
+  <time datetime="2018-01-08T14:06:04.788Z" itemprop="datePublished">2018-01-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>python中的id函数。</p>
+<p>id(object0)返回的是对象的“身份证号”,唯一且不变，但在不重合的生命周期里，可能会出现相同的id值。</p>
+<p>如果把变量看作盒子就无法解释python中的赋值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">tqw</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'tqw id is %d'</span> % id(self))</div><div class="line">        </div><div class="line">        </div><div class="line">&gt;&gt;&gt;a = tqw()</div><div class="line"><span class="comment">#id 12015054015</span></div><div class="line">&gt;&gt;&gt;a</div><div class="line">&lt;__main__.tqw object at <span class="number">0x7e43fb123bc22</span>&gt;</div><div class="line">&gt;&gt;&gt;b = tqw() * <span class="number">10</span></div><div class="line">tqw id <span class="keyword">is</span> <span class="number">140609381488904</span></div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">TypeError: unsupported operand type(s) <span class="keyword">for</span> *: <span class="string">'tqw'</span> <span class="keyword">and</span> <span class="string">'int'</span></div></pre></td></tr></table></figure>
+<p>b = tqw() * 10</p>
+<p>赋值运算符先运行右边。</p>
+<p>tqw不能和int运算 抛出类型错误。</p>
+<p>此时虽然没有对b赋值，但tqw类已实例成功了。</p>
+<p>因此，变量对于对象来说不是起到一个承载的盒子，而是对象的一个标注。</p>
+<h2 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#is 用来判断是否是同一个**对象**,is 是种很特殊的语法，你在其它的语言应该不会见到这样的用法。</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>tqw = &#123;<span class="string">"name"</span>:<span class="string">"tqw"</span>,<span class="string">"born"</span>:<span class="number">1998</span>&#125;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>bbr = tqw</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>bbr <span class="keyword">is</span> tqw</div><div class="line"><span class="keyword">True</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>id(tqw)</div><div class="line"><span class="number">140609404312200</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>id(bbr)</div><div class="line"><span class="number">140609404312200</span></div><div class="line"></div><div class="line"><span class="comment">#给tqw增加一对值</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>tqw[<span class="string">'age'</span>] = <span class="number">19</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>bbr</div><div class="line">&#123;<span class="string">'age'</span>: <span class="number">19</span>, <span class="string">'born'</span>: <span class="number">1998</span>, <span class="string">'name'</span>: <span class="string">'tqw'</span>&#125;</div><div class="line">&gt;&gt;&gt;</div></pre></td></tr></table></figure>
+<p>bbr 是 tqw的别名</p>
+<p>is运算符和id函数确认了这一点。</p>
+<h2 id="is和"><a href="#is和" class="headerlink" title="is和=="></a>is和==</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/08/python的面向对象惯用法/" data-id="cjc6a87ug000i1kva7oispiq3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mysql配置方案总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/01/mysql配置方案总结/" class="article-date">
+  <time datetime="2018-01-01T02:15:02.900Z" itemprop="datePublished">2018-01-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>pip install mysql-python fails with EnvironmentError: mysql_config not found</p>
+<p>It seems mysql_config is missing on your system or the installer could not find it. Be sure mysql_config is really installed.</p>
+<p>For example on Debian/Ubuntu you must install the package:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libmysqlclient-dev</div></pre></td></tr></table></figure>
+<p>Maybe the mysql_config is not in your path, it will be the case when you compile by yourself the mysql suite.</p>
+<h2 id="mysql-remote-connection-configuration。"><a href="#mysql-remote-connection-configuration。" class="headerlink" title="mysql remote connection configuration。"></a>mysql remote connection configuration。</h2><p>ubuntu 16.04  到mysql配置文件/etc/mysql/mysql.conf.d/mysqld.cnf 将bind-address 从127.0.0.1 改为0.0.0.0(或者指定ip)</p>
+<p>再进入mysql -uroot -p</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">grant all privileges on 库名.表名 to &apos;用户名&apos;@&apos;IP地址&apos; identified by &apos;密码&apos; with grant option;</div><div class="line">flush privileges;</div></pre></td></tr></table></figure>
+<p>重启一下mysql服务器就可以试下远程连接数据库是否成功</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/01/mysql配置方案总结/" data-id="cjc6a87u8000c1kvaj158hk46" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-2017 年度总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -115,7 +188,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/31/2017 年度总结/" data-id="cjbubs0vx00005gvahri60abk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/31/2017 年度总结/" data-id="cjc6a87s600011kvahh4htys6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -150,7 +223,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/30/python3.6 pip3编译源码安装遇到的问题/" data-id="cjbubs0wl000e5gva5676epi5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/30/python3.6 pip3编译源码安装遇到的问题/" data-id="cjc6a87ub000e1kvav7t3ssz4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -186,7 +259,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/16/MySQL索引背后的数据结构及算法原理/" data-id="cjbubs0wp000k5gva9sepqh1u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/16/MySQL索引背后的数据结构及算法原理/" data-id="cjc6a87vp001p1kvao7qow5ip" class="article-share-link">Share</a>
       
       
     </footer>
@@ -212,7 +285,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/03/汇编语言/" data-id="cjbubs0xv00185gvasvuir6ml" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/03/汇编语言/" data-id="cjc6a87v800181kvaizsuq7j9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -287,7 +360,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/02/format your contribution/" data-id="cjbubs0wn000h5gvaxzvt2jrx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/02/format your contribution/" data-id="cjc6a87ue000g1kvaox55kzmq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -317,7 +390,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/25/落霞彩云归 来拟竹林居/" data-id="cjbubs0y3001f5gvaggw45jrh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/25/落霞彩云归 来拟竹林居/" data-id="cjc6a87vl001i1kvagnjmugsd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -370,7 +443,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/25/Scheme十诫/" data-id="cjbubs0wg00085gvalh5qzw7u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/25/Scheme十诫/" data-id="cjc6a87u6000b1kvauy338spg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -403,75 +476,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/24/Machine learning tools and techniques/" data-id="cjbubs0w900045gvaefxh07a9" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-LATEX学习指南" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/24/LATEX学习指南/" class="article-date">
-  <time datetime="2017-11-24T04:44:20.112Z" itemprop="datePublished">2017-11-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>LaTex2e</p>
-<p><a href="#d1.1">1.游戏的名目</a></p>
-<p><a href="#d1.2">2.LATEX基础</a></p>
-<p><a href="#d1.3">3.LATEX源文件</a></p>
-<p><a href="#d1.4">4.源文件结构</a></p>
-<p><a href="#d1.5">5.一个典型的命令运行过程</a></p>
-<p><a href="#d1.6">6.文档类</a></p>
-        
-          <p class="article-more-link">
-            <a href="/2017/11/24/LATEX学习指南/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/24/LATEX学习指南/" data-id="cjbubs0we00075gvabeqpd2nm" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-C++反汇编与逆向分析" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/24/C++反汇编与逆向分析/" class="article-date">
-  <time datetime="2017-11-24T02:37:13.640Z" itemprop="datePublished">2017-11-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="C-反汇编与逆向分析"><a href="#C-反汇编与逆向分析" class="headerlink" title="C++反汇编与逆向分析"></a>C++反汇编与逆向分析</h1><p><a href="#d1">1.准备工作</a></p>
-<p id="d1">1.准备工作</p>
-
-
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/24/C++反汇编与逆向分析/" data-id="cjbubs0w300015gvai3nfkn4b" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/24/Machine learning tools and techniques/" data-id="cjc6a87uh000k1kvaqmzzpd7o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -514,9 +519,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Arkiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li></ul>
     </div>
   </div>
 
@@ -524,9 +529,17 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Siste innlegg</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/01/08/python的面向对象惯用法/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/01/mysql配置方案总结/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2017/12/31/2017 年度总结/">(no title)</a>
@@ -538,14 +551,6 @@
         
           <li>
             <a href="/2017/12/16/MySQL索引背后的数据结构及算法原理/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/03/汇编语言/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/02/format your contribution/">(no title)</a>
           </li>
         
       </ul>
@@ -560,7 +565,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 John Doe<br>
+      &copy; 2018 John Doe<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

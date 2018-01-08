@@ -3,14 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: 编码 | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="pip install mysql-python fails with EnvironmentError: mysql_config not found It seems mysql_config is missing on your system or the installer could not find it. Be sure mysql_config is really installe">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/tags/编码/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/01/01/mysql配置方案总结/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="pip install mysql-python fails with EnvironmentError: mysql_config not found It seems mysql_config is missing on your system or the installer could not find it. Be sure mysql_config is really installe">
+<meta property="og:updated_time" content="2018-01-08T14:07:34.747Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="pip install mysql-python fails with EnvironmentError: mysql_config not found It seems mysql_config is missing on your system or the installer could not find it. Be sure mysql_config is really installe">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -59,39 +63,59 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/09/29/UTF-8 带签名和不带签名的区别/" class="archive-article-date">
-  <time datetime="2017-09-28T18:22:15.000Z" itemprop="datePublished">Sep 29</time>
+        <section id="main"><article id="post-mysql配置方案总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/01/mysql配置方案总结/" class="article-date">
+  <time datetime="2018-01-01T02:15:02.900Z" itemprop="datePublished">2018-01-01</time>
 </a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/29/UTF-8 带签名和不带签名的区别/">UTF-8 带签名和不带签名的区别</a>
-    </h1>
-  
-
-    </header>
+    
   </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>pip install mysql-python fails with EnvironmentError: mysql_config not found</p>
+<p>It seems mysql_config is missing on your system or the installer could not find it. Be sure mysql_config is really installed.</p>
+<p>For example on Debian/Ubuntu you must install the package:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libmysqlclient-dev</div></pre></td></tr></table></figure>
+<p>Maybe the mysql_config is not in your path, it will be the case when you compile by yourself the mysql suite.</p>
+<h2 id="mysql-remote-connection-configuration。"><a href="#mysql-remote-connection-configuration。" class="headerlink" title="mysql remote connection configuration。"></a>mysql remote connection configuration。</h2><p>ubuntu 16.04  到mysql配置文件/etc/mysql/mysql.conf.d/mysqld.cnf 将bind-address 从127.0.0.1 改为0.0.0.0(或者指定ip)</p>
+<p>再进入mysql -uroot -p</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">grant all privileges on 库名.表名 to &apos;用户名&apos;@&apos;IP地址&apos; identified by &apos;密码&apos; with grant option;</div><div class="line">flush privileges;</div></pre></td></tr></table></figure>
+<p>重启一下mysql服务器就可以试下远程连接数据库是否成功</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/01/mysql配置方案总结/" data-id="cjc6a87u8000c1kvaj158hk46" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/08/python的面向对象惯用法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/31/2017 年度总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         
