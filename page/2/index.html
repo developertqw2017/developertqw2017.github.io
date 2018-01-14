@@ -61,6 +61,92 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Scheme十诫" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/25/Scheme十诫/" class="article-date">
+  <time datetime="2017-11-25T02:42:43.452Z" itemprop="datePublished">2017-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Scheme十诫"><a href="#Scheme十诫" class="headerlink" title="Scheme十诫"></a>Scheme十诫</h1><h2 id="第一诫"><a href="#第一诫" class="headerlink" title="第一诫"></a>第一诫</h2><p>当对一个原子列表lat进行梯柜调用时，询问两个有关lat的问题:(nulll? lat) 和 else。</p>
+<p>当对一个数字n进行递归调用时，询问两个有关n的问题：(zero?n)和else。</p>
+<p>当对一个S-表达式列表l进行递归调用时，询问三个有关l的问题：(null?lat)、(atom?(car l))和else</p>
+<h2 id="第二诫"><a href="#第二诫" class="headerlink" title="第二诫"></a>第二诫</h2><p>使用cons来构建列表。</p>
+<h2 id="第三诫"><a href="#第三诫" class="headerlink" title="第三诫"></a>第三诫</h2><p>构建一个列表的时候，描述第一个典型元素，之后cons该元素到一般性递归(natural recursion)上。</p>
+<h2 id="第四诫"><a href="#第四诫" class="headerlink" title="第四诫"></a>第四诫</h2><p>在递归时总是改变至少一个参数。当对一个原子列表lat进行递归调用时，使用(cdr lat)。当对数字n进行递归调用时，使用时(subl n)。当对一个S-表达式l进行递归调用时，只要是(null?l)和(atom?(car l))都不为true,那么就同时使用(car l)和(cdr l)。</p>
+<p>在递归时改变的参数，必须向着不断接近快速条件而改变。改变的参数必须在结束条件中得以测试：</p>
+<p>当使用cdr时，用null?测试是否结束;</p>
+<p>当使用subl时，用zero?测试是否结束;</p>
+<h2 id="第五诫"><a href="#第五诫" class="headerlink" title="第五诫"></a>第五诫</h2><p>当用✚构建一个值时，总是使用0作为结果代码行的值，因为加上0不会改变加法的值。</p>
+<p>当用×构建一个值时，总是使用1作为结束代码行的值，因为乘以1不会改变乘法的值。</p>
+<p>当用cons构建一个值时，总是考虑把()作为结束代码行的位置。</p>
+<h2 id="第六诫"><a href="#第六诫" class="headerlink" title="第六诫"></a>第六诫</h2><p>简化工作只在功能正确之后开展。</p>
+<h2 id="第七诫"><a href="#第七诫" class="headerlink" title="第七诫"></a>第七诫</h2><p>对具有相同性质的subparts(子部件)进行递归调用：</p>
+<ul>
+<li>列表的子列表</li>
+<li>算数表达式的子表达式</li>
+</ul>
+<p>##第八诫</p>
+<p>使用辅助函数来抽象表示方式。</p>
+<h2 id="第九诫"><a href="#第九诫" class="headerlink" title="第九诫"></a>第九诫</h2><p>用函数来抽象通用模式。</p>
+<h2 id="第十诫"><a href="#第十诫" class="headerlink" title="第十诫"></a>第十诫</h2><p>构建函数，一次收集多个值。</p>
+<h1 id="Scheme五法"><a href="#Scheme五法" class="headerlink" title="Scheme五法"></a>Scheme五法</h1><h2 id="Scheme五法之第一法—car之法则"><a href="#Scheme五法之第一法—car之法则" class="headerlink" title="Scheme五法之第一法—car之法则"></a>Scheme五法之第一法—car之法则</h2><p>基本元件car仅定义为针对非空列表</p>
+<h2 id="Scheme五法之第二法—cdr之法则"><a href="#Scheme五法之第二法—cdr之法则" class="headerlink" title="Scheme五法之第二法—cdr之法则"></a>Scheme五法之第二法—cdr之法则</h2><p>基本元件cdr仅定义为针对非空列表。任意费控列表的cdr总是另一个列表。</p>
+<h2 id="Scheme五法之第三法—cons之法则"><a href="#Scheme五法之第三法—cons之法则" class="headerlink" title="Scheme五法之第三法—cons之法则"></a>Scheme五法之第三法—cons之法则</h2><p>基本元件cons需要两个参数。第二个参数必须是一个列表。结果是一个列表。</p>
+<h2 id="Scheme五法之第四法—Null-之法则"><a href="#Scheme五法之第四法—Null-之法则" class="headerlink" title="Scheme五法之第四法—Null?之法则"></a>Scheme五法之第四法—Null?之法则</h2><p>基本元件null?仅定义为针对列表</p>
+<h2 id="Scheme五法之第五法—eq-之法则"><a href="#Scheme五法之第五法—eq-之法则" class="headerlink" title="Scheme五法之第五法—eq?之法则"></a>Scheme五法之第五法—eq?之法则</h2><p>基本元件eq?需要两个参数。每个参数都必须是一个非数字的原子。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/25/Scheme十诫/" data-id="cjcewlyjo0007f0vaz11lc7pe" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Machine learning tools and techniques" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/24/Machine learning tools and techniques/" class="article-date">
+  <time datetime="2017-11-24T07:15:52.880Z" itemprop="datePublished">2017-11-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Machine-learning-tools-and-techniques"><a href="#Machine-learning-tools-and-techniques" class="headerlink" title="Machine learning tools and techniques"></a>Machine learning tools and techniques</h2><h3 id="1-What’s-it-all-about"><a href="#1-What’s-it-all-about" class="headerlink" title="1.What’s it all about?"></a>1.What’s it all about?</h3><p><a href="#d1.1">1.1Data mining and machine learning</a></p>
+<p><a href="#d1.2">1.2Simple examples:The weather problem and others</a></p>
+<p><a href="d1.3">1.3Fielded applications</a></p>
+        
+          <p class="article-more-link">
+            <a href="/2017/11/24/Machine learning tools and techniques/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/24/Machine learning tools and techniques/" data-id="cjcewlyiz0000f0vayt42yet4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-LATEX学习指南" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/11/24/LATEX学习指南/" class="article-date">
@@ -88,7 +174,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/24/LATEX学习指南/" data-id="cjc6aad2h0001qsvaogltrgs3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/24/LATEX学习指南/" data-id="cjcewlyjr0009f0vav9sj0jpq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -119,7 +205,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/24/C++反汇编与逆向分析/" data-id="cjc6aad2l0002qsvaj5o6ke29" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/24/C++反汇编与逆向分析/" data-id="cjcewlyj90003f0va92iez0jv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -156,7 +242,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/18/使用LaTex写公式的基本语法/" data-id="cjc6aad3i000tqsvaob24hrcn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/18/使用LaTex写公式的基本语法/" data-id="cjcewlyl50018f0valvng2p7h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -183,7 +269,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/18/概论论的基本概念/" data-id="cjc6aad4f001eqsvan5ef8zq1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/18/概论论的基本概念/" data-id="cjcewlyl8001af0vahsa2mxdf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -218,7 +304,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/17/人人都是产品经理之转化/" data-id="cjc6aad3j000vqsvayf92jdrb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/17/人人都是产品经理之转化/" data-id="cjcewlyk9000uf0varik6vx7n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -249,7 +335,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/17/大创比赛 产品问题中心/" data-id="cjc6aad3l000zqsvac7lj32hi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/17/大创比赛 产品问题中心/" data-id="cjcewlykw0011f0va8kmcuf9q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -285,7 +371,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/16/大数据的统计学基础/" data-id="cjc6aad3m0010qsvaj59fiffe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/16/大数据的统计学基础/" data-id="cjcewlyl10013f0va8zqhlt9t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -314,104 +400,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/14/11月gantt/" data-id="cjc6aad270000qsvanc4tve0m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/14/11月gantt/" data-id="cjcewlyjj0005f0vasjc54zh4" class="article-share-link">Share</a>
       
       
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-什么是甘特图" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/14/什么是甘特图/" class="article-date">
-  <time datetime="2017-11-13T16:29:00.000Z" itemprop="datePublished">2017-11-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/14/什么是甘特图/">甘特图</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="什么是甘特图"><a href="#什么是甘特图" class="headerlink" title="什么是甘特图"></a>什么是甘特图</h1><p>甘特图(Gantt Chart)由亨利·甘特于1910年开发的，他通过条状图来显示项目，进度，和其他时间相关的系统进展的内在关系随着时间进展的情况。</p>
-<p>其中，横轴表示时间，纵轴表示活动(项目)。线条表示在整个期间上计划和实际的活动完成情况。甘特图可以直观地表明任务计划在什么时候进行，及实际进展与计划要求的对比。管理者由此可以非常便利地弄清楚每一项任务（项目）还剩下哪些工作要做，并可评估工作提前还是滞后，亦或正常进行。除此以外，甘特图还有简单、醒目和便于编制等特点/</p>
-<p>构造时应包括实际日历天和持续时间、并且不要将周末和节假日算在进度之内。</p>
-<p>下面使用一个例子来简单说明甘特图：</p>
-<p><img src="http://ww4.sinaimg.cn/large/0060lm7Tly1flgxm3mju9g30ff0c73yb.gif" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">%% Example of sequence diagram</div><div class="line">  sequenceDiagram</div><div class="line">    Alice-&gt;&gt;Bob: Hello Bob, how are you?</div><div class="line">    alt is sick</div><div class="line">    Bob-&gt;&gt;Alice: Not so good :(</div><div class="line">    else is well</div><div class="line">    Bob-&gt;&gt;Alice: Feeling fresh like a daisy</div><div class="line">    end</div><div class="line">    opt Extra response</div><div class="line">    Bob-&gt;&gt;Alice: Thanks for asking</div><div class="line">    end</div></pre></td></tr></table></figure>
-<p>An example of a flowchart</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">graph TD;</div><div class="line">	A(开始)--&gt;B(结束);</div><div class="line">	A--&gt;C;</div><div class="line">	B--&gt;C;</div><div class="line">	C--&gt;D;</div></pre></td></tr></table></figure>
-<p>An example of a sequence diagram</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">sequenceDiagram</div><div class="line">	participant Alice</div><div class="line">	participant Bob</div><div class="line">	Alice-&gt;John:Hello John, how are you?</div><div class="line">	loop Healthcheck</div><div class="line">		John-&gt;John:Fight against hypochondria</div><div class="line">	end</div><div class="line">	Note right of Jogn: Rational thoughts &lt;br/&gt;prevail...</div><div class="line">	John--&gt;Alice: Greate!</div><div class="line">	Jogn--&gt;Bob: How about you?</div><div class="line">	Bob--&gt;John: Jolly good!</div></pre></td></tr></table></figure>
-<p>An example of a gantt diagram</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">gantt</div><div class="line">        dateFormat  YYYY-MM-DD</div><div class="line">        title Adding GANTT diagram functionality to mermaid</div><div class="line">        section A section</div><div class="line">        Completed task            :done,    des1, 2014-01-06,2014-01-08</div><div class="line">        Active task               :active,  des2, 2014-01-09, 3d</div><div class="line">        Future task               :         des3, after des2, 5d</div><div class="line">        Future task2               :         des4, after des3, 5d</div><div class="line">        section Critical tasks</div><div class="line">        Completed task in the critical line :crit, done, 2014-01-06,24h</div><div class="line">        Implement parser and jison          :crit, done, after des1, 2d</div><div class="line">        Create tests for parser             :crit, active, 3d</div><div class="line">        Future task in critical line        :crit, 5d</div><div class="line">        Create tests for renderer           :2d</div><div class="line">        Add to mermaid                      :1d</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/14/什么是甘特图/" data-id="cjc6aad3f000rqsvafvk0gu45" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目管理/">项目管理</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-线框图和原型" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/14/线框图和原型/" class="article-date">
-  <time datetime="2017-11-13T16:28:00.000Z" itemprop="datePublished">2017-11-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/14/线框图和原型/">线框图和原型</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>线框图</p>
-<p>线框图(Wireframe)是低保真的设计图，当明确表达：</p>
-<ul>
-<li>内容大纲(什么东西)</li>
-<li>信息结构(在哪)</li>
-<li>用户的交互行为描述(怎么操作)</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/14/线框图和原型/" data-id="cjc6aad4h001iqsva5ho19n9k" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计/">设计</a></li></ul>
-
     </footer>
   </div>
   
@@ -467,6 +458,14 @@
       <ul>
         
           <li>
+            <a href="/2018/01/14/浮点数在计算机中的表/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/09/C++拾遗/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2018/01/08/python的面向对象惯用法/">(no title)</a>
           </li>
         
@@ -476,14 +475,6 @@
         
           <li>
             <a href="/2017/12/31/2017 年度总结/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/30/python3.6 pip3编译源码安装遇到的问题/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/16/MySQL索引背后的数据结构及算法原理/">(no title)</a>
           </li>
         
       </ul>
