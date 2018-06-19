@@ -9,6 +9,17 @@
 	<link rel="stylesheet"href="https://imsun.github.io/gitment/style/default.css">
 	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 	<script>
+	const myTheme = {
+		  rendr(state, instance) {
+			      const container = document.createElement('div')
+			      container.lang = "en-US"
+			      container.className = 'gitment-container gitment-root-container'
+			      container.appendChild(instance.renderHeader(state, instance))
+			      container.appendChild(instance.renderEditor(state, instance))    container.appendChild(instance.renderComments(state, instance))
+			      container.appendChild(instance.rederFooter(state, instance))
+			      return container
+			    },
+	}
   var gitment = new Gitment({
 	            id: 'yylep',
 	            title: 'yylep',
@@ -18,7 +29,8 @@
 			                client_id: 'f4819500d5113362f5fb',
 			               client_secret: '9d9ebe8d41ffff687645c83a8fdbd2bd643d813c',
 			              },
-	          })
+		theme:myTheme,	          
+  })
         gitment.render('gitmentContainer')
 	</script>
 </body></html>
